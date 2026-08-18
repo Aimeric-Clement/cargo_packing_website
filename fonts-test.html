@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Font test — hidden</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<!-- Not linked from any nav — direct-URL only, no external font requests -->
+<style>
+  :root {
+    --ink: #24302c;
+    --ink-soft: #5b6864;
+    --line: #dde3e0;
+    --bg: #fbfcfb;
+    --bg-alt: #f2f4f3;
+    --accent: #126e5d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 32px 24px 80px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: sans-serif;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { margin: 0 0 6px; font-size: 1.6rem; }
+  header.page-head p { margin: 0; color: var(--ink-soft); max-width: 70ch; }
+  h2.group-title {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+    margin: 40px 0 16px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+  .card .label {
+    font-family: monospace;
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .card .sample-head {
+    font-size: 1.3rem;
+    line-height: 1.2;
+    margin: 0 0 6px;
+  }
+  .card .sample-body {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
+    color: var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page-head">
+    <h1>Font test page (hidden)</h1>
+    <p>Every entry below sets only a named font with a generic-family fallback — nothing is downloaded, so whatever renders is whatever is actually installed on this machine. The label always shows the font that was requested; compare it against the rendered heading and body sample to see what your system substituted.</p>
+  </header>
+
+  <h2 class="group-title">Sans-serif</h2>
+  <div class="grid">
+    <div class="card" style="font-family: Arial, sans-serif;"><span class="label">Arial</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Helvetica, sans-serif;"><span class="label">Helvetica</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Verdana, sans-serif;"><span class="label">Verdana</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Tahoma, sans-serif;"><span class="label">Tahoma</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Trebuchet MS', sans-serif;"><span class="label">Trebuchet MS</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Segoe UI', sans-serif;"><span class="label">Segoe UI</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Calibri, sans-serif;"><span class="label">Calibri</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Candara, sans-serif;"><span class="label">Candara</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Corbel, sans-serif;"><span class="label">Corbel</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Century Gothic', sans-serif;"><span class="label">Century Gothic</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Franklin Gothic Medium', sans-serif;"><span class="label">Franklin Gothic Medium</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Gill Sans', sans-serif;"><span class="label">Gill Sans</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Lucida Sans Unicode', sans-serif;"><span class="label">Lucida Sans Unicode</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Geneva, sans-serif;"><span class="label">Geneva</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Optima, sans-serif;"><span class="label">Optima</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Futura, sans-serif;"><span class="label">Futura</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Avenir, sans-serif;"><span class="label">Avenir</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Noto Sans', sans-serif;"><span class="label">Noto Sans</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Roboto, sans-serif;"><span class="label">Roboto</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Open Sans', sans-serif;"><span class="label">Open Sans</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Ubuntu, sans-serif;"><span class="label">Ubuntu</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Cantarell, sans-serif;"><span class="label">Cantarell (GNOME)</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'DejaVu Sans', sans-serif;"><span class="label">DejaVu Sans</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Droid Sans', sans-serif;"><span class="label">Droid Sans</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Fira Sans', sans-serif;"><span class="label">Fira Sans (Mozilla)</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+  </div>
+
+  <h2 class="group-title">Serif</h2>
+  <div class="grid">
+    <div class="card" style="font-family: 'Times New Roman', serif;"><span class="label">Times New Roman</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Georgia, serif;"><span class="label">Georgia</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Garamond, serif;"><span class="label">Garamond</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Baskerville, serif;"><span class="label">Baskerville</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Palatino Linotype', serif;"><span class="label">Palatino Linotype</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Cambria, serif;"><span class="label">Cambria</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Constantia, serif;"><span class="label">Constantia</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Book Antiqua', serif;"><span class="label">Book Antiqua</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'American Typewriter', serif;"><span class="label">American Typewriter</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Didot, serif;"><span class="label">Didot</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Rockwell, serif;"><span class="label">Rockwell</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'PT Serif', serif;"><span class="label">PT Serif</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Noto Serif', serif;"><span class="label">Noto Serif</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'DejaVu Serif', serif;"><span class="label">DejaVu Serif</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+  </div>
+
+  <h2 class="group-title">Monospace</h2>
+  <div class="grid">
+    <div class="card" style="font-family: 'Courier New', monospace;"><span class="label">Courier New</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Consolas, monospace;"><span class="label">Consolas</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Monaco, monospace;"><span class="label">Monaco</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Menlo, monospace;"><span class="label">Menlo</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Lucida Console', monospace;"><span class="label">Lucida Console</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Fira Code', monospace;"><span class="label">Fira Code (Mozilla)</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Fira Mono', monospace;"><span class="label">Fira Mono (Mozilla)</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Source Code Pro', monospace;"><span class="label">Source Code Pro</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Cascadia Code', monospace;"><span class="label">Cascadia Code</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'DejaVu Sans Mono', monospace;"><span class="label">DejaVu Sans Mono</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Ubuntu Mono', monospace;"><span class="label">Ubuntu Mono</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+  </div>
+
+  <h2 class="group-title">Display &amp; handwriting</h2>
+  <div class="grid">
+    <div class="card" style="font-family: Impact, sans-serif;"><span class="label">Impact</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Papyrus, sans-serif;"><span class="label">Papyrus</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Comic Sans MS', sans-serif;"><span class="label">Comic Sans MS</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Brush Script MT', cursive;"><span class="label">Brush Script MT</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Copperplate, sans-serif;"><span class="label">Copperplate</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Bradley Hand', cursive;"><span class="label">Bradley Hand</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: Chalkboard, cursive;"><span class="label">Chalkboard</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+    <div class="card" style="font-family: 'Marker Felt', cursive;"><span class="label">Marker Felt</span><p class="sample-head">Cargo, crated and counted</p><p class="sample-body">Every crate, placed with intent — 1234567890</p></div>
+  </div>
+
+</div>
+</body>
+</html>

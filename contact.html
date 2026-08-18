@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact — Ready Cargo Packer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Get in touch with the Ready Cargo Packer team to sponsor the project, share input, or ask about the roadmap.">
+<meta name="htmx-config" content='{"globalViewTransitions":false}'>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+</head>
+<body hx-boost="true" data-page="contact">
+
+  <div hx-get="partials/header.html" hx-trigger="load" hx-swap="outerHTML"></div>
+
+  <main>
+    <section class="contact-page">
+      <div class="container">
+        <span class="eyebrow">Get in touch</span>
+        <h1>Let's talk about your load.</h1>
+        <p class="hero-lede">Ready Cargo Packer is still in active development. Whether you want to sponsor the project, share input from your own operation, or ask about the roadmap — send us a message and we'll reply from a real inbox, not a ticket queue.</p>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="info-item">
+              <h3>Email</h3>
+              <p><a href="mailto:contact@Ready Cargo Packer.io">contact@Ready Cargo Packer.io</a></p>
+            </div>
+            <div class="info-item">
+              <h3>Best for</h3>
+              <p>Sponsorship inquiries, feature input, integration questions, and roadmap feedback.</p>
+            </div>
+            <div class="info-item">
+              <h3>Response time</h3>
+              <p>Typically within two business days.</p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <form action="mailto:contact@Ready Cargo Packer.io" method="GET" enctype="text/plain">
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+              </div>
+              <div class="field">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Sponsoring the project" required>
+              </div>
+              <div class="field">
+                <label for="body">Message</label>
+                <textarea id="body" name="body" placeholder="Tell us about your containers, inventory size, or the feature you need…" required></textarea>
+              </div>
+              <div class="form-foot">
+                <small>Opens your email client, addressed to contact@Ready Cargo Packer.io.</small>
+                <button type="submit" class="btn btn-primary btn-small">Send email</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div hx-get="partials/footer.html" hx-trigger="load" hx-swap="outerHTML"></div>
+
+</body>
+</html>

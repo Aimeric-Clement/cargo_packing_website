@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ready Cargo Packer, engineering-grade container loading software</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ready Cargo Packer is engineering-grade cargo loading software: real-time 3D placement, smart inventory management, and a growing feature roadmap.">
+<meta name="htmx-config" content='{"globalViewTransitions":false}'>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+</head>
+<body hx-boost="true" data-page="index">
+
+  <div hx-get="partials/header.html" hx-trigger="load" hx-swap="outerHTML"></div>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal-up">
+          <span class="eyebrow eyebrow-live"><span class="live-dot"></span>Cargo loading software</span>
+          <h1>Run container planning like engineering, not guesswork.</h1>
+          <p class="hero-lede">Ready Cargo Packer turns load layout, inventory, and reporting into a single desktop workspace so teams can pack faster, safer, and with fewer surprises.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="roadmap.html">View the roadmap</a>
+            <a class="btn btn-ghost" href="contact.html">Contact us</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><b>16</b><span>Containers at once</span></div>
+            <div class="stat"><b>3D</b><span>Live preview</span></div>
+            <div class="stat"><b>1.34s</b><span>Automatic packing time</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-up reveal-delay-1">
+          <div class="hero-snapshot">
+            <span class="visual-badge"><span class="live-dot"></span>In active development</span>
+            <div class="frame-bar"><span></span><span></span><span></span></div>
+            <img src="assets/overview_screenshot.png" alt="Ready Cargo Packer 3D loading viewport showing a container packed with color-coded boxes">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-strip" id="features">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Desktop-first by design</span>
+          <h2>More information in every screen, without adding noise.</h2>
+          <p>Inventory, load visibility, and action appear together so the first desktop glance is immediately useful.</p>
+          <p>It runs offline as a native desktop tool, or in the browser, for teams on the field like in the office.</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+            </div>
+            <h3>Live 3D load planning</h3>
+            <p>Inspect every box inside the real container geometry instead of guessing from a list.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16"/><path d="M4 12h10"/><path d="M4 18h7"/></svg>
+            </div>
+            <h3>Inventory-first workflow</h3>
+            <p>Search, edit, and stage items while the load stays visible — no separate sheet or hidden modal.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>
+            </div>
+            <h3>Color-coded categories</h3>
+            <p>Highlight sets of crates instantly so even large inventories are easy to read at a glance.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 12h6"/><path d="M12 3v6"/></svg>
+            </div>
+            <h3>Auto pack with manual control</h3>
+            <p>Use automatic layout for a strong baseline, then refine exactly where density or unloading order matters.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            </div>
+            <h3>Inspection-ready output</h3>
+            <p>Export load plans, placement reports and labels so the pack can be handed off cleanly.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16"/><path d="M7 11h10"/><path d="M10 15h4"/></svg>
+            </div>
+            <h3>Open roadmap, real feedback</h3>
+            <p>Development is shaped around actual container problems, not buzzword-driven checkboxes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase">
+      <div class="container">
+
+        <div class="showcase-row">
+          <div class="showcase-copy">
+            <span class="eyebrow">Inventory panel</span>
+            <h2>Control the load without losing the container view.</h2>
+            <p>Every inventory action stays anchored to the load. Search, add, and adjust items while the pack updates in place.</p>
+            <div class="tag-row">
+              <span class="tag">Live search</span>
+              <span class="tag orange">Manual item staging</span>
+              <span class="tag red">Color-coded load state</span>
+            </div>
+          </div>
+          <div class="showcase-media">
+            <div class="frame-bar"><span></span><span></span><span></span></div>
+            <img src="assets/close_up_screenshot.png" alt="Ready Cargo Packer inventory panel listing box categories with loading progress bars">
+          </div>
+        </div>
+
+        <div class="showcase-row reverse">
+          <div class="showcase-copy">
+            <span class="eyebrow">3D viewport</span>
+            <h2>Inspect the pack visually, then lock it down.</h2>
+            <p>Solid and transparent rendering, corner markers, and hover dimensions keep every decision grounded in the actual load.</p>
+            <div class="tag-row">
+              <span class="tag">Solid / see-through</span>
+              <span class="tag orange">Corner point overlay</span>
+              <span class="tag red">Hover dimensions</span>
+            </div>
+          </div>
+          <div class="showcase-media">
+            <div class="frame-bar"><span></span><span></span><span></span></div>
+            <img src="assets/overview_screenshot.png" alt="Ready Cargo Packer 3D container view with corner points and a hover tooltip">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="roadmap-teaser">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">What's next</span>
+            <h2>Roadmap items that matter to real loading teams.</h2>
+          </div>
+          <a class="btn btn-ghost btn-small" href="roadmap.html">See the full roadmap →</a>
+        </div>
+        <div class="teaser-grid">
+          <div class="teaser-card">
+            <span class="status">Next up</span>
+            <h3>Loading plan reports</h3>
+            <p>Shareable reports and load summaries that make handoff to drivers and clients reliable.</p>
+          </div>
+          <div class="teaser-card">
+            <span class="status">Next up</span>
+            <h3>Corner-snapping moves</h3>
+            <p>Reposition placed boxes precisely with snapping and context-aware editing.</p>
+          </div>
+          <div class="teaser-card">
+            <span class="status">Future vision</span>
+            <h3>Multiple containers</h3>
+            <p>Plan across entire shipments with per-container distribution and visibility.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div>
+          <h2>Built in the open, with your support.</h2>
+          <p>Ready Cargo Packer is still actively developed. Share your workflow so the product grows to solve your specific problems.</p>
+        </div>
+        <a class="btn btn-primary" href="contact.html">Get in touch</a>
+      </div>
+    </section>
+
+  </main>
+
+  <div hx-get="partials/footer.html" hx-trigger="load" hx-swap="outerHTML"></div>
+
+</body>
+</html>
