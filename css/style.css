@@ -35,7 +35,25 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+/* Major page sections snap to the viewport top so tall heroes with empty
+   trailing space don't force excessive scrolling on vertical screens. */
+.hero,
+.feature-strip,
+.showcase,
+.roadmap-teaser,
+.cta-band,
+.site-footer {
+  scroll-snap-align: start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-snap-type: none; }
+}
 
 body {
   margin: 0;
@@ -510,7 +528,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 
 .roadmap-columns {
   display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: start;
   gap: 22px;
 }
@@ -562,8 +580,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   padding: 12px 14px;
 }
 .roadmap-item.shipped { border-left-color: var(--c-primary-light); }
-.roadmap-item.next { border-left-color: var(--c-accent-orange); }
-.roadmap-item.future { border-left-color: var(--c-line); }
+.roadmap-item.planned { border-left-color: var(--c-accent-orange); }
 .roadmap-item .mark {
   width: 22px; height: 22px;
   border-radius: 50%;
@@ -572,8 +589,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   font-family: var(--font-head);
 }
 .roadmap-item.shipped .mark { background: var(--c-primary-pale); color: var(--c-primary); }
-.roadmap-item.next .mark { background: var(--c-accent-yellow); color: #8a4f04; }
-.roadmap-item.future .mark { background: var(--c-bg-alt); color: var(--c-ink-soft); border: 1px solid var(--c-line); }
+.roadmap-item.planned .mark { background: var(--c-accent-yellow); color: #8a4f04; }
 .roadmap-item .label { font-size: 0.9rem; color: var(--c-ink); }
 .roadmap-item .badge { display: none; }
 

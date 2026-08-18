@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="The Ready Cargo Packer roadmap: shipped features, what's next, and the long-term vision for cargo loading software.">
 <meta name="htmx-config" content='{"globalViewTransitions":false}'>
-<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="icon" href="assets\logo_ready_cargo_packer_large.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -22,7 +22,7 @@
       <div class="container">
         <span class="eyebrow">Product roadmap</span>
         <h1>Shipped and shipping.<br>Plenty more crated up.</h1>
-        <p class="hero-lede">Ready Cargo Packer is under active development toward a usable release on <b>December 2026</b>. Below is the honest state of things: what's built today, what's being worked on next, and the longer-range vision for the platform.</p>
+        <p class="hero-lede">Ready Cargo Packer is under active development toward a first release on <b>December 2026</b>. Below is the honest state of things: what's built today, what's being worked on next, and the longer-range vision for the platform.</p>
       </div>
     </section>
 
@@ -31,32 +31,23 @@
         <div class="roadmap-columns">
           <div class="roadmap-column">
             <div class="roadmap-column-head">
-              <h2>Shipped <span class="badge roadmap-count"></span></h2>
+              <h2>Finished <span class="badge roadmap-count"></span></h2>
             </div>
-            <div hx-get="partials/roadmap-shipped.html" hx-trigger="load" hx-swap="innerHTML">
+            <div hx-get="partials/roadmap-done.html" hx-trigger="load" hx-swap="innerHTML">
               <p>Loading roadmap…</p>
             </div>
           </div>
 
           <div class="roadmap-column">
             <div class="roadmap-column-head">
-              <h2>Next up <span class="badge roadmap-count"></span></h2>
+              <h2>Upcoming <span class="badge roadmap-count"></span></h2>
             </div>
             <div hx-get="partials/roadmap-next.html" hx-trigger="load" hx-swap="innerHTML">
               <p>Loading roadmap…</p>
             </div>
           </div>
-
-          <div class="roadmap-column">
-            <div class="roadmap-column-head">
-              <h2>Future vision <span class="badge roadmap-count"></span></h2>
-            </div>
-            <div hx-get="partials/roadmap-future.html" hx-trigger="load" hx-swap="innerHTML">
-              <p>Loading roadmap…</p>
-            </div>
-          </div>
         </div>
-        <p class="roadmap-note">Have a feature you need moved up the list? <a href="contact.html">Tell us what you're loading</a> and why it matters to your operation.</p>
+        <p class="roadmap-note">Have a feature you need moved up the list? <a href="contact.html">Tell us what you are loading</a> and why it matters to your operation.</p>
       </div>
     </section>
 
