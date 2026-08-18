@@ -796,6 +796,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   .hero-stats { flex-wrap: wrap; gap: 20px 28px; margin-top: 32px; padding-top: 20px; }
   /* Tilt is a hover affordance for desktop pointers; stacked/touch layout shows it flat */
   .hero-snapshot { transform: none; }
+  .hero-snapshot .visual-badge { top: 14px; right: 14px; }
 
   .feature-strip { padding: 40px 0; }
   .feature-grid { grid-template-columns: 1fr; gap: 14px; }
