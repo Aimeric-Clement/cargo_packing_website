@@ -8,13 +8,14 @@
 <meta name="htmx-config" content='{"globalViewTransitions":false}'>
 <link rel="icon" href="assets\logo_ready_cargo_packer_large.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
 <link rel="stylesheet" href="css/style.css">
-<script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+<script src="assets/js/htmx.min.js" defer></script>
 </head>
 <body hx-boost="true" data-page="roadmap">
 
-  <div hx-get="partials/header.html" hx-trigger="load" hx-swap="outerHTML"></div>
+  <div hx-get="partials/header.html" hx-trigger="load" hx-swap="outerHTML" style="min-height:var(--header-h)"></div>
 
   <main>
 
@@ -22,7 +23,7 @@
       <div class="container">
         <span class="eyebrow">Product roadmap</span>
         <h1>Shipped and shipping.<br>Plenty more crated up.</h1>
-        <p class="hero-lede">Ready Cargo Packer is under active development toward a first release on <b>December 2026</b>. Below is the honest state of things: what's built today, what's being worked on next, and the longer-range vision for the platform.</p>
+        <p class="hero-lede">Below is the honest state of things: what's built today, what's being worked on next, and the longer-range vision for the platform.</p>
       </div>
     </section>
 

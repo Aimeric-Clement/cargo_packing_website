@@ -8,20 +8,21 @@
 <meta name="htmx-config" content='{"globalViewTransitions":false}'>
 <link rel="icon" href="assets\logo_ready_cargo_packer_large.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
 <link rel="stylesheet" href="css/style.css">
-<script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+<script src="assets/js/htmx.min.js" defer></script>
 </head>
 <body hx-boost="true" data-page="contact">
 
-  <div hx-get="partials/header.html" hx-trigger="load" hx-swap="outerHTML"></div>
+  <div hx-get="partials/header.html" hx-trigger="load" hx-swap="outerHTML" style="min-height:var(--header-h)"></div>
 
   <main>
     <section class="contact-page">
       <div class="container">
         <span class="eyebrow">Get in touch</span>
         <h1>Let's talk about your load.</h1>
-        <p class="hero-lede">Ready Cargo Packer is still in active development. Whether you want to sponsor the project, share input from your own operation, or ask about the roadmap — send us a message and we'll reply from a real inbox, not a ticket queue.</p>
+        <p class="hero-lede">Whether you want to sponsor the project, share input from your own operation, or ask about the roadmap — send us a message and we'll reply from a real inbox, not a ticket queue.</p>
 
         <div class="contact-grid">
           <div class="contact-info">

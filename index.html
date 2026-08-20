@@ -8,13 +8,14 @@
 <meta name="htmx-config" content='{"globalViewTransitions":false}'>
 <link rel="icon" href="assets\logo_ready_cargo_packer_large.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
 <link rel="stylesheet" href="css/style.css">
-<script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+<script src="assets/js/htmx.min.js" defer></script>
 </head>
 <body hx-boost="true" data-page="index">
 
-  <div hx-get="partials/header.html" hx-trigger="load" hx-swap="outerHTML"></div>
+  <div hx-get="partials/header.html" hx-trigger="load" hx-swap="outerHTML" style="min-height:var(--header-h)"></div>
 
   <main>
 
@@ -37,7 +38,6 @@
 
         <div class="hero-visual reveal-up reveal-delay-1">
           <div class="hero-snapshot">
-            <span class="visual-badge"><span class="live-dot"></span>In active development</span>
             <div class="frame-bar"><span></span><span></span><span></span></div>
             <img src="assets/overview_screenshot.png" alt="Ready Cargo Packer 3D loading viewport showing a container packed with color-coded boxes">
           </div>
