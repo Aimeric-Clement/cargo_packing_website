@@ -23,6 +23,11 @@
   --font-head: "Bebas Neue", "Arial Narrow", "Segoe UI Condensed", sans-serif;
   --font-body: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
+  --font-size-extra-large : 2.6rem;
+  --font-size-large : 1.6rem;
+  --font-size-regular : 0.9rem;
+  --font-size-detail : 0.7rem;
+
   --radius: 3px;
   --shadow-card: 0 1px 2px rgba(18, 110, 93, 0.08), 0 6px 18px rgba(18, 110, 93, 0.06);
   /* tight, low shadow that grounds framed screenshots without making them float */
@@ -41,7 +46,7 @@ body {
   font-family: var(--font-body);
   color: var(--c-ink);
   background: var(--c-bg);
-  font-size: 16px;
+  font-size: var(--font-size-regular);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   position: relative;
@@ -60,7 +65,10 @@ body::before {
   z-index: -1;
 }
 
+
+
 h1, h2, h3, h4 {
+  font-family: var(--font-head);
   font-family: var(--font-head);
   font-weight: 400;
   letter-spacing: 0.01em;
@@ -69,9 +77,9 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
 }
 
-h1 { font-size: 2.6rem; line-height: 1.12; letter-spacing: 0.005em; }
-h2 { font-size: 1.9rem; }
-h3 { font-size: 1.15rem; }
+h1 { font-size: var(--font-size-extra-large); line-height: 1.12; letter-spacing: 0.005em; }
+h2 { font-size: var(--font-size-large); }
+h3 { font-size: var(--font-size-regular); }
 
 p { margin: 0 0 1em; color: var(--c-ink-soft); }
 
@@ -87,15 +95,15 @@ a:hover { color: var(--c-primary-light); }
 
 .eyebrow {
   display: inline-block;
-  font-family: var(--font-head);
-  font-size: 0.72rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-detail);
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--c-primary);
   border-left: 3px solid var(--c-accent-orange);
   padding-left: 10px;
-  margin-bottom: 14px;
+  margin-bottom: 6px;
 }
 
 .eyebrow-live { display: inline-flex; align-items: center; gap: 8px; }
@@ -173,7 +181,7 @@ a:hover { color: var(--c-primary-light); }
   gap: 12px;
   font-family: var(--font-head);
   font-weight: 400;
-  font-size: 1.15rem;
+  font-size: var(--font-size-large);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-ink);
@@ -182,8 +190,8 @@ a:hover { color: var(--c-primary-light); }
 .brand img { height: 48px; width: auto; display: block; }
 .brand .brand-sub {
   display: block;
-  font-family: var(--font-body);
-  font-size: 0.62rem;
+  font-family: var(--font-head);
+  font-size: var(--font-size-detail);
   font-weight: 400;
   letter-spacing: 0.12em;
   color: var(--c-ink-soft);
@@ -193,8 +201,8 @@ a:hover { color: var(--c-primary-light); }
 
 .main-nav { display: flex; align-items: center; gap: 6px; }
 .main-nav a {
-  font-family: var(--font-head);
-  font-size: 0.82rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-regular);
   font-weight: 400;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -234,8 +242,8 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-head);
-  font-size: 0.82rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-regular);
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -249,7 +257,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .btn-primary:hover { background: var(--c-primary-light); color: var(--c-white); transform: translateY(-1px); box-shadow: var(--shadow-card); }
 .btn-ghost { background: transparent; color: var(--c-ink); border-color: var(--c-line); }
 .btn-ghost:hover { border-color: var(--c-primary); color: var(--c-primary); }
-.btn-small { padding: 8px 18px; font-size: 0.72rem; }
+.btn-small { padding: 8px 18px; font-size: var(--font-size-detail); }
 
 /* ---------------- Hero ---------------- */
 
@@ -286,24 +294,24 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 
 .hero h1 { margin-bottom: 18px; }
 .hero h1 .accent { color: var(--c-primary); }
-.hero-lede { font-size: 1.04rem; max-width: 46ch; }
+.hero-lede { max-width: 46ch; }
 .hero-actions { display: flex; gap: 14px; margin-top: 28px; }
 
 .hero-stats {
   display: flex;
-  gap: 30px;
-  margin-top: 34px;
-  padding-top: 24px;
+  gap: 60px;
+  margin-top: 68px;
+  padding-top: 7px;
   border-top: 1px solid var(--c-line);
 }
 .hero-stats .stat b {
   display: block;
   font-family: var(--font-head);
-  font-size: 1.35rem;
+  font-size: var(--font-size-large);
   color: var(--c-primary);
 }
 .hero-stats .stat span {
-  font-size: 0.72rem;
+  font-size: var(--font-size-detail);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--c-ink-soft);
@@ -342,7 +350,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   border-radius: 999px;
   background: rgba(255,255,255,0.92);
   box-shadow: var(--shadow-card);
-  font-size: 0.68rem;
+  font-size: var(--font-size-detail);
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--c-ink);
@@ -401,9 +409,11 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 }
 .section-intro {
   max-width: 50rem;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
-.section-intro h2 { font-size: 2rem; margin-bottom: 12px; }
+.section-intro h2 {
+  font-size: var(--font-size-large); margin-bottom: 12px;
+}
 .section-intro p { max-width: 58ch; margin: 0; }
 .feature-grid {
   display: grid;
@@ -427,8 +437,11 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   color: var(--c-primary);
 }
 .feature-card .ic svg { width: 26px; height: 26px; }
-.feature-card h3 { font-size: 1rem; margin-bottom: 8px; }
-.feature-card p { font-size: 0.92rem; margin: 0; line-height: 1.5; }
+.feature-card h3 {
+  font-family: var(--font-body);
+  font-size: var(--font-size-regular); margin-bottom: 8px;
+}
+.feature-card p { margin: 0; }
 
 /* ---------------- Showcase rows ---------------- */
 
@@ -443,7 +456,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .showcase-row.reverse { grid-template-columns: minmax(420px, 1.25fr) minmax(320px, 1fr); }
 .showcase-row.reverse .showcase-media { order: 0; }
 .showcase-row.reverse .showcase-copy { order: 1; }
-.showcase-copy h2 { font-size: 1.85rem; }
+.showcase-copy h2 { font-size: var(--font-size-large); }
 .showcase-copy p { max-width: 42ch; }
 .showcase-media {
   position: relative;
@@ -456,8 +469,8 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 
 .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
 .tag {
-  font-family: var(--font-head);
-  font-size: 0.68rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-detail);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 5px 10px;
@@ -493,16 +506,15 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   padding: 24px;
 }
 .teaser-card .status {
-  font-family: var(--font-head);
-  font-size: 0.65rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-detail);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--c-accent-orange);
-  margin-bottom: 10px;
   display: block;
 }
-.teaser-card h3 { font-size: 0.98rem; margin-bottom: 6px; }
-.teaser-card p { font-size: 0.88rem; margin: 0; }
+.teaser-card h3 {font-size: var(--font-size-large); margin-bottom: 6px; }
+.teaser-card p { margin: 0; }
 
 /* Roadmap page proper */
 
@@ -518,10 +530,10 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 }
 .roadmap-column { min-width: 0; }
 .roadmap-column-head { margin-bottom: 16px; }
-.roadmap-column-head h2 { font-size: 1.05rem; margin: 0; }
+.roadmap-column-head h2 { font-size: var(--font-size-regular); margin: 0; }
 .roadmap-column-head .badge {
   font-family: var(--font-head);
-  font-size: 0.7rem;
+  font-size: var(--font-size-detail);
   letter-spacing: 0.08em;
   color: var(--c-ink-soft);
 }
@@ -541,7 +553,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 }
 .roadmap-now-label {
   font-family: var(--font-head);
-  font-size: 0.7rem;
+  font-size: var(--font-size-detail);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--c-accent-orange);
@@ -569,17 +581,16 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   width: 22px; height: 22px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 0.75rem;
+  font-size: var(--font-size-detail);
   font-family: var(--font-head);
 }
 .roadmap-item.shipped .mark { background: var(--c-primary-pale); color: var(--c-primary); }
 .roadmap-item.planned .mark { background: var(--c-accent-yellow); color: #8a4f04; }
-.roadmap-item .label { font-size: 0.9rem; color: var(--c-ink); }
+.roadmap-item .label { font-size: var(--font-size-regular); color: var(--c-ink); }
 .roadmap-item .badge { display: none; }
 
 .roadmap-note {
   margin-top: 26px;
-  font-size: 0.86rem;
   color: var(--c-ink-soft);
   border-top: 1px solid var(--c-line);
   padding-top: 18px;
@@ -614,8 +625,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   margin-top: 40px;
 }
 .contact-info .info-item { margin-bottom: 26px; }
-.contact-info .info-item h3 { font-size: 0.85rem; letter-spacing: 0.06em; }
-.contact-info .info-item p { font-size: 0.92rem; }
+.contact-info .info-item h3 { font-size: var(--font-size-regular); letter-spacing: 0.06em; }
 
 .contact-card {
   background: var(--c-white);
@@ -628,7 +638,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .field label {
   display: block;
   font-family: var(--font-head);
-  font-size: 0.72rem;
+  font-size: var(--font-size-detail);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--c-ink-soft);
@@ -640,7 +650,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   border-radius: var(--radius);
   padding: 12px 14px;
   font-family: var(--font-body);
-  font-size: 0.94rem;
+  font-size: var(--font-size-regular);
   color: var(--c-ink);
   background: var(--c-bg);
   transition: border-color 0.15s ease;
@@ -657,7 +667,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   gap: 16px;
   margin-top: 8px;
 }
-.contact-card .form-foot small { color: var(--c-ink-soft); font-size: 0.78rem; }
+.contact-card .form-foot small { color: var(--c-ink-soft); font-size: var(--font-size-detail); }
 
 /* ---------------- Footer ---------------- */
 
@@ -680,7 +690,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .footer-links { display: flex; gap: 24px; }
 .footer-links a {
   font-family: var(--font-head);
-  font-size: 0.76rem;
+  font-size: var(--font-size-detail);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #c9d2cf;
@@ -690,7 +700,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   margin: 32px 0 0;
   padding: 20px var(--shell-pad) 0;
   border-top: 1px solid #3a463f;
-  font-size: 0.78rem;
+  font-size: var(--font-size-detail);
   color: #8fa39c;
   display: flex;
   justify-content: space-between;
@@ -703,7 +713,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   align-items: center;
   gap: 6px;
   font-family: var(--font-head);
-  font-size: 0.74rem;
+  font-size: var(--font-size-detail);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #c9d2cf;
@@ -736,8 +746,8 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 @media (max-width: 720px) {
   :root { --header-h: 60px; }
 
-  h1 { font-size: 1.9rem; }
-  h2 { font-size: 1.4rem; }
+  h1 { font-size: var(--font-size-large); }
+  h2 { font-size: var(--font-size-regular); }
 
   /* --- App bar collapses to a hamburger-driven drawer --- */
   .header-contact { display: none; }

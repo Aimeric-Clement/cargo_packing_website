@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="10.408669mm"
+   height="10.076386mm"
+   viewBox="0 0 10.408669 10.076386"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="layer1"
+     transform="translate(-63.44372,-62.913783)">
+    <g
+       id="g5759"
+       transform="translate(2.784375,-3.3147321)">
+      <path
+         id="rect1814"
+         style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.333;stroke-linecap:square;stroke-dashoffset:11.28"
+         d="m 229.26367,250.6875 v 14.85938 l 18.42578,0.44531 v -4.77539 l -1.20507,0.13086 -1.15821,-10.66016 z m 21.73438,0 1.09179,10.05078 -2.09765,0.22852 v 5.08203 l 18.61133,0.44922 V 250.6875 Z m -21.73438,16.11719 v 1.74414 l 18.42578,-0.22266 v -1.07422 z m 20.72852,0.50195 v 0.99219 l 18.61133,-0.22461 v -0.31641 z m 18.61133,2.9082 -18.61133,0.22461 v 17.95703 h 18.61133 z m -20.91407,0.25196 -18.42578,0.22265 v 1.8711 l 7.5625,-0.70313 c 0.3525,-0.0328 0.66254,0.22368 0.69531,0.57617 l 0.98243,10.57813 c 0.0328,0.35249 -0.22368,0.66254 -0.57618,0.69531 l -8.66406,0.80664 v 3.88281 h 18.42578 z"
+         transform="scale(0.26458333)" />
+      <path
+         id="rect2207"
+         style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.333;stroke-linecap:square;stroke-dashoffset:11.28"
+         d="m 246.50391,250.3125 0.53906,10.05078 6.12891,-0.32812 -0.52149,-9.72266 z"
+         transform="scale(0.26458333)" />
+      <rect
+         style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.35269;stroke-linecap:square;stroke-dashoffset:11.28"
+         id="rect2602"
+         width="1.5000781"
+         height="0.23438503"
+         x="52.69643"
+         y="78.743988"
+         transform="rotate(-6.3332558)" />
+      <rect
+         style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.35269;stroke-linecap:square;stroke-dashoffset:11.28"
+         id="rect2602-0"
+         width="1.0262092"
+         height="0.24635771"
+         x="51.632477"
+         y="79.94117"
+         transform="rotate(-7.0831541)" />
+      <rect
+         style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.35269;stroke-linecap:square;stroke-dashoffset:11.28"
+         id="rect2602-0-7"
+         width="1.0262092"
+         height="0.24635771"
+         x="51.597317"
+         y="81.554695"
+         transform="rotate(-7.0831541)" />
+      <rect
+         style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.35269;stroke-linecap:square;stroke-dashoffset:11.28"
+         id="rect2602-0-7-4"
+         width="0.68605322"
+         height="0.22771242"
+         x="52.090652"
+         y="80.340576"
+         transform="rotate(-7.0831541)" />
+    </g>
+  </g>
+</svg>
