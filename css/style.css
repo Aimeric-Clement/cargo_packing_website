@@ -182,6 +182,7 @@ a:hover { color: var(--c-primary-light); }
   font-family: var(--font-head);
   font-weight: 400;
   font-size: var(--font-size-large);
+  line-height: 1;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-ink);
@@ -190,13 +191,11 @@ a:hover { color: var(--c-primary-light); }
 .brand img { height: 48px; width: auto; display: block; }
 .brand .brand-sub {
   display: block;
-  font-family: var(--font-head);
+  font-family: var(--font-body);
   font-size: var(--font-size-detail);
   font-weight: 400;
-  letter-spacing: 0.12em;
   color: var(--c-ink-soft);
   text-transform: uppercase;
-  margin-top: 2px;
 }
 
 .main-nav { display: flex; align-items: center; gap: 6px; }
