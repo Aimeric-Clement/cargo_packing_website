@@ -22,6 +22,7 @@ nav-toggle-menu = Toggle menu
 language-selector-label = Language
 language-english = English
 language-lorem = Lorem ipsum
+language-french = French
 footer-copyright = © { NUMBER($year, useGrouping: 0) } Ready Cargo Packer. Load planning software.
 footer-made-in-france = Made in France
 alt-brand-logo = Ready Cargo Packer

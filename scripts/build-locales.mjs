@@ -1,24 +1,68 @@
-import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { access, cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { FluentBundle, FluentResource } from "@fluent/bundle";
 import * as cheerio from "cheerio";
+import { localeConfig } from "./locales.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const pages = ["index.html", "roadmap.html", "about.html", "contact.html"];
-const locales = [
-  { code: "en", catalog: "english.flt" },
-  { code: "li", catalog: "lorem.flt" },
-];
+const { locales, templateCatalog } = localeConfig;
 const messageArguments = {
   "footer-copyright": { year: new Date().getFullYear() },
   "home-stat-containers-value": { count: 16 },
   "home-stat-packing-time-value": { seconds: 1.34 },
 };
 
+function validateLocaleConfig() {
+  const catalogName = /^[A-Za-z0-9][A-Za-z0-9._-]*\.flt$/;
+  const localeFolder = /^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/;
+  const translationKey = /^[a-z][a-z0-9-]*$/;
+  const seenValues = new Map();
+
+  if (!catalogName.test(templateCatalog)) throw new Error("localeConfig.templateCatalog must be a .flt filename");
+  if (!Array.isArray(locales) || !locales.length) throw new Error("localeConfig.locales must contain at least one locale");
+
+  for (const locale of locales) {
+    const { catalog, locale: localeCode, pageFolder, displayNameKey, showInLanguageSelector } = locale;
+    const fields = [
+      ["catalog", catalog, catalogName],
+      ["locale", localeCode, localeFolder],
+      ["pageFolder", pageFolder, localeFolder],
+      ["displayNameKey", displayNameKey, translationKey],
+    ];
+
+    for (const [field, value, pattern] of fields) {
+      if (typeof value !== "string" || !pattern.test(value)) {
+        throw new Error(`Invalid localeConfig ${field}: '${value}'`);
+      }
+      const previousLocale = seenValues.get(`${field}:${value}`);
+      if (previousLocale) throw new Error(`Duplicate localeConfig ${field} '${value}' for ${previousLocale} and ${localeCode}`);
+      seenValues.set(`${field}:${value}`, localeCode);
+    }
+
+    if (typeof showInLanguageSelector !== "boolean") {
+      throw new Error(`localeConfig showInLanguageSelector must be boolean for ${localeCode}`);
+    }
+  }
+}
+
+async function ensureCatalogsExist() {
+  const template = await readFile(path.join(root, "assets", "translations", templateCatalog), "utf8");
+
+  await Promise.all(locales.map(async (locale) => {
+    try {
+      await access(path.join(root, "assets", "translations", locale.catalog));
+    } catch (error) {
+      if (error?.code !== "ENOENT") throw error;
+      await writeFile(path.join(root, "assets", "translations", locale.catalog), template);
+    }
+  }));
+}
+
 async function createBundle(locale) {
   const source = await readFile(path.join(root, "assets", "translations", locale.catalog), "utf8");
-  const bundle = new FluentBundle(locale.code, { useIsolating: false });
+  const bundle = new FluentBundle(locale.locale, { useIsolating: false });
   const errors = bundle.addResource(new FluentResource(source));
 
   if (errors.length) {
@@ -29,6 +73,19 @@ async function createBundle(locale) {
     bundle,
     messageIds: new Set([...source.matchAll(/^([a-z][a-z0-9-]*)\s*=/gm)].map((match) => match[1])),
   };
+}
+
+function validateCatalogMessages(catalog, locale, templateMessageIds) {
+  const missing = [...templateMessageIds].filter((id) => !catalog.messageIds.has(id));
+  const unexpected = [...catalog.messageIds].filter((id) => !templateMessageIds.has(id));
+  if (missing.length || unexpected.length) {
+    throw new Error(
+      `Translation keys in ${locale.catalog} do not match ${templateCatalog}: `
+        + `${missing.length ? `missing ${missing.join(", ")}` : ""}`
+        + `${missing.length && unexpected.length ? "; " : ""}`
+        + `${unexpected.length ? `unexpected ${unexpected.join(", ")}` : ""}`,
+    );
+  }
 }
 
 function messageFor(catalog, locale, id) {
@@ -46,11 +103,25 @@ function messageFor(catalog, locale, id) {
 }
 
 function injectPartials(source, partials) {
+  const languageOptions = locales
+    .filter((locale) => locale.showInLanguageSelector)
+    .map((locale) => `<a data-locale-link="${locale.pageFolder}" data-l10n-id="${locale.displayNameKey}"></a>`)
+    .join("");
+  const renderedPartials = Object.fromEntries(
+    Object.entries(partials).map(([name, partial]) => [
+      name,
+      partial.replace(
+        '<div class="language-options" data-language-options></div>',
+        `<div class="language-options">${languageOptions}</div>`,
+      ),
+    ]),
+  );
+
   return source
-    .replace(/<div hx-get="partials\/header\.html"[^>]*><\/div>/, partials.header)
-    .replace(/<div hx-get="partials\/footer\.html"[^>]*><\/div>/, partials.footer)
-    .replace(/<div hx-get="partials\/roadmap-done\.html"[\s\S]*?<\/div>/, `<div>${partials.roadmapDone}</div>`)
-    .replace(/<div hx-get="partials\/roadmap-next\.html"[\s\S]*?<\/div>/, `<div>${partials.roadmapNext}</div>`);
+    .replace(/<div hx-get="partials\/header\.html"[^>]*><\/div>/, renderedPartials.header)
+    .replace(/<div hx-get="partials\/footer\.html"[^>]*><\/div>/, renderedPartials.footer)
+    .replace(/<div hx-get="partials\/roadmap-done\.html"[\s\S]*?<\/div>/, `<div>${renderedPartials.roadmapDone}</div>`)
+    .replace(/<div hx-get="partials\/roadmap-next\.html"[\s\S]*?<\/div>/, `<div>${renderedPartials.roadmapNext}</div>`);
 }
 
 function localize(source, catalog, locale) {
@@ -67,9 +138,9 @@ function localize(source, catalog, locale) {
     });
   });
   $("[data-locale-link]").each((_, element) => {
-    const targetLocale = $(element).attr("data-locale-link");
+    const targetFolder = $(element).attr("data-locale-link");
     const page = $("body").attr("data-page") === "index" ? "" : `${$("body").attr("data-page")}.html`;
-    $(element).attr("href", `/${targetLocale}/${page}`);
+    $(element).attr("href", `/${targetFolder}/${page}`);
   });
   $("link[href], img[src]").each((_, element) => {
     const attribute = element.tagName === "link" ? "href" : "src";
@@ -84,6 +155,31 @@ function localize(source, catalog, locale) {
   return $.html();
 }
 
+async function isGeneratedLocaleDirectory(directoryName) {
+  try {
+    await Promise.all(pages.map((page) => access(path.join(root, directoryName, page))));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function clearLocaleOutputDirectories() {
+  const configuredFolders = new Set(locales.map((locale) => locale.pageFolder));
+  const localeFolder = /^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/;
+  const entries = await readdir(root, { withFileTypes: true });
+
+  await Promise.all(entries.filter((entry) => entry.isDirectory()).map(async (entry) => {
+    const isConfiguredFolder = configuredFolders.has(entry.name);
+    const isStaleLocaleFolder = !isConfiguredFolder
+      && localeFolder.test(entry.name)
+      && await isGeneratedLocaleDirectory(entry.name);
+    if (isConfiguredFolder || isStaleLocaleFolder) {
+      await rm(path.join(root, entry.name), { recursive: true, force: true });
+    }
+  }));
+}
+
 const partialNames = {
   header: "header.html",
   footer: "footer.html",
@@ -96,8 +192,17 @@ const partials = Object.fromEntries(
   ),
 );
 
+validateLocaleConfig();
+await ensureCatalogsExist();
+const template = await createBundle({ catalog: templateCatalog, locale: "template" });
+const catalogs = new Map(await Promise.all(locales.map(async (locale) => {
+  const catalog = await createBundle(locale);
+  validateCatalogMessages(catalog, locale, template.messageIds);
+  return [locale.pageFolder, catalog];
+})));
+
 await rm(path.join(root, "dist"), { recursive: true, force: true });
-await Promise.all(locales.map((locale) => rm(path.join(root, locale.code), { recursive: true, force: true })));
+await clearLocaleOutputDirectories();
 await mkdir(path.join(root, "assets", "icons"), { recursive: true });
 await cp(
   path.join(root, "node_modules", "lucide-static", "icons", "languages.svg"),
@@ -105,8 +210,8 @@ await cp(
 );
 
 for (const locale of locales) {
-  const catalog = await createBundle(locale);
-  const localeOutput = path.join(root, locale.code);
+  const catalog = catalogs.get(locale.pageFolder);
+  const localeOutput = path.join(root, locale.pageFolder);
   await mkdir(localeOutput, { recursive: true });
 
   for (const page of pages) {
@@ -116,4 +221,4 @@ for (const locale of locales) {
   }
 }
 
-console.log("Generated static localized pages in en and li.");
+console.log(`Generated static localized pages in ${locales.map((locale) => locale.pageFolder).join(", ")}.`);

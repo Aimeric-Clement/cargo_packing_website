@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<title>Ready Cargo Packer, une méthode plus robuste et aboutie pour organiser le chargement de plusieurs conteneurs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ready Cargo Packer est un logiciel de CAO dédié au chargement de conteneurs : positionnement 3D en temps réel sur plusieurs conteneurs à la fois, éditeur d'inventaire, et une feuille de route qui s'enrichit sans cesse.">
+<meta name="htmx-config" content="{&quot;globalViewTransitions&quot;:false}">
+<link rel="icon" href="../assets/logo_ready_cargo_packer_large.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap">
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body data-page="index">
+
+  <header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="../assets/logo.svg" alt="Ready Cargo Packer">
+      <span><span>Ready Cargo Packer</span><span class="brand-sub">Logiciel de chargement pour le transport de marchandises</span></span>
+    </a>
+
+    <div class="nav-group">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html">Accueil</a>
+        <a href="roadmap.html">Feuille de route</a>
+        <a href="about.html">À propos</a>
+        <a class="btn btn-primary btn-small nav-contact" href="contact.html">Contact</a>
+      </nav>
+
+      <details class="language-selector">
+        <summary class="btn btn-ghost btn-small" aria-label="Langue" title="Langue">
+          <img class="language-icon" src="../assets/icons/languages.svg" alt="" aria-hidden="true">
+          <span class="language-label">Langue</span>
+        </summary>
+        <div class="language-options"><a href="/en/">Anglais</a><a href="/fr/">Français</a></div>
+      </details>
+
+      <a class="btn btn-primary btn-small header-contact" href="contact.html">Contact</a>
+      <label for="nav-toggle" class="nav-toggle-btn" aria-label="Ouvrir ou fermer le menu" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </div>
+</header>
+
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal-up">
+          <span class="eyebrow eyebrow-live"><span class="live-dot"></span><span>Prochainement</span></span>
+          <h1>Le chargement de vos conteneurs, sans improvisation.</h1>
+          <p class="hero-lede">Ready Cargo Packer est un logiciel de bureau en cours de développement pour organiser le chargement de vos conteneurs, gérer l'inventaire et produire des plans de chargement clairs, sur plusieurs conteneurs à la fois.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="roadmap.html">Voir la feuille de route</a>
+            <a class="btn btn-ghost" href="contact.html">Nous contacter</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><b>16</b><span>Conteneurs en simultané</span></div>
+            <div class="stat"><b>3D</b><span>Aperçu en direct</span></div>
+            <div class="stat"><b>1,34 s</b><span>Temps de chargement automatique</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-up reveal-delay-1">
+          <div class="hero-snapshot">
+            <div class="frame-bar"><span></span><span></span><span></span></div>
+            <img src="../assets/overview_screenshot.png" alt="Vue 3D de chargement dans Ready Cargo Packer, montrant un conteneur rempli de colis codés par couleur">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-strip" id="features">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Conçu d'abord pour le poste de travail</span>
+          <h2>Plus d'informations à chaque écran, sans surcharge.</h2>
+          <p>L'inventaire, la vue du chargement et les actions à mener sont réunis à l'écran pour être utiles dès le premier coup d'œil. L'outil fonctionne hors ligne comme application de bureau native, ou dans le navigateur, aussi bien pour les équipes sur le terrain qu'au bureau.</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4Z"></path><path d="M3 7v10l9 4 9-4V7"></path><path d="M12 11v10"></path></svg>
+            </div>
+            <h3>Placement automatique et manuel</h3>
+            <p>Le chargement automatique propose d'abord un agencement compact, à ajuster ensuite à la main : déplacement, rotation et réglages fins colis par colis.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16"></path><path d="M4 12h10"></path><path d="M4 18h7"></path></svg>
+            </div>
+            <h3>Inventaire toujours visible</h3>
+            <p>Importez tout l'inventaire en une fois, fusionnez plusieurs fichiers et modifiez vos données en toute sécurité tout en gardant le chargement 3D sous les yeux, sans fenêtres modales cachées ni jonglage avec des tableurs.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="7" height="7" rx="1"></rect><rect x="13" y="4" width="7" height="7" rx="1"></rect><rect x="4" y="13" width="7" height="7" rx="1"></rect><rect x="13" y="13" width="7" height="7" rx="1"></rect></svg>
+            </div>
+            <h3>Interface réactive et fluide</h3>
+            <p>Développée en Rust, l'interface répond en quelques millisecondes. L'alignement intelligent et les repères facilitent la préparation de chargements compacts et stables.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 9-9"></path><path d="M3 12h6"></path><path d="M12 3v6"></path></svg>
+            </div>
+            <h3>Un flux de travail rapide, avec un minimum de clics et un clavier entièrement exploitable</h3>
+            <p>Une interface pensée pour la vitesse d'exécution. Les raccourcis personnalisables et contextuels font gagner un temps précieux aux opérateurs qui l'utilisent au quotidien.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+            </div>
+            <h3>Inspection 3D en direct du chargement</h3>
+            <p>Le rendu opaque ou transparent, les dimensions au survol et les repères d'angle montrent exactement ce qui se passe dans le conteneur.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16"></path><path d="M7 11h10"></path><path d="M10 15h4"></path></svg>
+            </div>
+            <h3>Conçu pour les contraintes réelles du chargement</h3>
+            <p>L'optimisation d'un chargement ne se résume pas à des calculs ; notre logiciel est conçu pour le terrain. Il accepte de légers porte-à-faux, l'empilage sur des surfaces <i>presque</i> planes et le franchissement d'espaces vides.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase">
+      <div class="container">
+
+        <div class="showcase-row">
+          <div class="showcase-copy">
+            <span class="eyebrow">Panneau d'inventaire</span>
+            <h2>Une manière plus claire de préparer l'inventaire, pour toute l'expédition et en un seul endroit.</h2>
+            <p>L'espace de travail d'inventaire prévu réunira les fichiers, les modifications et l'avancement du chargement. L'objectif est de remplacer les allers-retours dans les tableurs par une vue unique de l'expédition.</p>
+            <div class="tag-row">
+              <span class="tag">Recherche instantanée</span>
+              <span class="tag orange">Importer et fusionner des fichiers</span>
+              <span class="tag red">Modifications sécurisées</span>
+            </div>
+          </div>
+          <div class="showcase-media">
+            <div class="frame-bar"><span></span><span></span><span></span></div>
+            <img src="../assets/close_up_screenshot.png" alt="Panneau d'inventaire de Ready Cargo Packer répertoriant les catégories de colis avec leur taux de remplissage">
+          </div>
+        </div>
+
+        <div class="showcase-row reverse">
+          <div class="showcase-copy">
+            <span class="eyebrow">Vue 3D</span>
+            <h2>Placez rapidement, alignez précisément, inspectez tout.</h2>
+            <p>Placez les colis manuellement par glisser-déposer, accrochez-les aux surfaces presque planes et aux bords du conteneur, ou laissez le moteur automatique créer un point de départ compact. Visualisez le chargement en vue par couches ou en transparence, ainsi que la répartition des types de colis.</p>
+            <div class="tag-row">
+              <span class="tag">Proposition de chargement automatique</span>
+              <span class="tag orange">Accrochage et alignement</span>
+              <span class="tag red">Mise en évidence au survol</span>
+            </div>
+          </div>
+          <div class="showcase-media">
+            <div class="frame-bar"><span></span><span></span><span></span></div>
+            <img src="../assets/overview_screenshot.png" alt="Vue 3D d'un conteneur dans Ready Cargo Packer avec points d'angle et infobulle au survol">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="roadmap-teaser">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Sur la feuille de route</span>
+            <h2>Les fonctionnalités en préparation pour organiser vos chargements au quotidien.</h2>
+          </div>
+          <a class="btn btn-ghost btn-small" href="roadmap.html">Consulter la feuille de route complète →</a>
+        </div>
+        <div class="teaser-grid">
+          <div class="teaser-card">
+            <span class="status">À venir</span>
+            <h3>Rapports de plan de chargement</h3>
+            <p>Des rapports PDF et des synthèses de chargement pour transmettre des consignes claires aux chauffeurs et aux clients.</p>
+          </div>
+          <div class="teaser-card">
+            <span class="status">À venir</span>
+            <h3>Ajustements manuels avancés</h3>
+            <p>Repositionnez précisément les colis placés grâce à l'accrochage et à l'édition contextuelle. Comblez rapidement les espaces avec le remplissage intelligent ou dupliquez les colis depuis la vue 3D.</p>
+          </div>
+          <div class="teaser-card">
+            <span class="status">Vision à long terme</span>
+            <h3>Plusieurs conteneurs</h3>
+            <p>Planifiez l'ensemble d'une expédition avec plusieurs conteneurs visibles simultanément et répartissez automatiquement le chargement entre eux.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div>
+          <h2>Un développement ouvert, avec votre soutien.</h2>
+          <p>Ready Cargo Packer est en cours de développement actif. Faites-nous part de votre méthode de travail afin d'orienter le projet vers les problèmes essentiels.</p>
+        </div>
+        <a class="btn btn-primary" href="contact.html">Nous contacter</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="../assets/logo_black.svg" alt="Ready Cargo Packer">
+      <span><span>Ready Cargo Packer</span><span class="brand-sub">Logiciel de chargement pour le transport de marchandises</span></span>
+    </a>
+    <nav class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="roadmap.html">Feuille de route</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <details class="language-selector footer-language-selector">
+      <summary class="btn btn-ghost btn-small" aria-label="Langue" title="Langue">
+        <img class="language-icon" src="../assets/icons/languages.svg" alt="" aria-hidden="true">
+        <span>Langue</span>
+      </summary>
+      <div class="language-options"><a href="/en/">Anglais</a><a href="/fr/">Français</a></div>
+    </details>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Ready Cargo Packer. Logiciel de chargement pour conteneurs.</span>
+    <span class="made-in-france"><img src="../assets/french_flag_stripe.svg" alt="Drapeau français"><span>Conçu en France</span></span>
+  </div>
+</footer>
+
+
+
+
+</body></html>
