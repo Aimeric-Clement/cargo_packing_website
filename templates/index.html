@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title data-l10n-id="meta-home-title"></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" data-l10n-attr="content:meta-home-description">
+<meta name="htmx-config" content='{"globalViewTransitions":false}'>
+<link rel="icon" href="assets/logo_ready_cargo_packer_large.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script src="assets/js/htmx.min.js" defer data-build-only></script>
+</head>
+<body hx-boost="true" data-page="index">
+
+  <div hx-get="partials/header.html" hx-trigger="load" hx-swap="outerHTML" style="min-height:var(--header-h)"></div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal-up">
+          <span class="eyebrow eyebrow-live"><span class="live-dot"></span><span data-l10n-id="home-hero-status"></span></span>
+          <h1 data-l10n-id="home-hero-heading"></h1>
+          <p class="hero-lede" data-l10n-id="home-hero-description"></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="roadmap.html" data-l10n-id="home-hero-roadmap-link"></a>
+            <a class="btn btn-ghost" href="contact.html" data-l10n-id="home-hero-contact-link"></a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><b data-l10n-id="home-stat-containers-value"></b><span data-l10n-id="home-stat-containers"></span></div>
+            <div class="stat"><b data-l10n-id="home-stat-live-preview-value"></b><span data-l10n-id="home-stat-live-preview"></span></div>
+            <div class="stat"><b data-l10n-id="home-stat-packing-time-value"></b><span data-l10n-id="home-stat-packing-time"></span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-up reveal-delay-1">
+          <div class="hero-snapshot">
+            <div class="frame-bar"><span></span><span></span><span></span></div>
+            <img src="assets/overview_screenshot.png" alt="" data-l10n-attr="alt:home-hero-image-alt">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-strip" id="features">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow" data-l10n-id="home-features-eyebrow"></span>
+          <h2 data-l10n-id="home-features-heading"></h2>
+          <p data-l10n-id="home-features-description"></p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+            </div>
+            <h3 data-l10n-id="home-feature-placement-title"></h3>
+            <p data-l10n-id="home-feature-placement-description"></p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16"/><path d="M4 12h10"/><path d="M4 18h7"/></svg>
+            </div>
+            <h3 data-l10n-id="home-feature-inventory-title"></h3>
+            <p data-l10n-id="home-feature-inventory-description"></p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>
+            </div>
+            <h3 data-l10n-id="home-feature-interface-title"></h3>
+            <p data-l10n-id="home-feature-interface-description"></p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 12h6"/><path d="M12 3v6"/></svg>
+            </div>
+            <h3 data-l10n-id="home-feature-workflow-title"></h3>
+            <p data-l10n-id="home-feature-workflow-description"></p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            </div>
+            <h3 data-l10n-id="home-feature-inspection-title"></h3>
+            <p data-l10n-id="home-feature-inspection-description"></p>
+          </div>
+
+          <div class="feature-card">
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16"/><path d="M7 11h10"/><path d="M10 15h4"/></svg>
+            </div>
+            <h3 data-l10n-id="home-feature-packing-title"></h3>
+            <p data-l10n-id="home-feature-packing-description"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase">
+      <div class="container">
+
+        <div class="showcase-row">
+          <div class="showcase-copy">
+            <span class="eyebrow" data-l10n-id="home-inventory-eyebrow"></span>
+            <h2 data-l10n-id="home-inventory-heading"></h2>
+            <p data-l10n-id="home-inventory-description"></p>
+            <div class="tag-row">
+              <span class="tag" data-l10n-id="home-inventory-tag-search"></span>
+              <span class="tag orange" data-l10n-id="home-inventory-tag-import"></span>
+              <span class="tag red" data-l10n-id="home-inventory-tag-editing"></span>
+            </div>
+          </div>
+          <div class="showcase-media">
+            <div class="frame-bar"><span></span><span></span><span></span></div>
+            <img src="assets/close_up_screenshot.png" alt="" data-l10n-attr="alt:home-inventory-image-alt">
+          </div>
+        </div>
+
+        <div class="showcase-row reverse">
+          <div class="showcase-copy">
+            <span class="eyebrow" data-l10n-id="home-viewport-eyebrow"></span>
+            <h2 data-l10n-id="home-viewport-heading"></h2>
+            <p data-l10n-id="home-viewport-description"></p>
+            <div class="tag-row">
+              <span class="tag" data-l10n-id="home-viewport-tag-baseline"></span>
+              <span class="tag orange" data-l10n-id="home-viewport-tag-snapping"></span>
+              <span class="tag red" data-l10n-id="home-viewport-tag-hover"></span>
+            </div>
+          </div>
+          <div class="showcase-media">
+            <div class="frame-bar"><span></span><span></span><span></span></div>
+            <img src="assets/overview_screenshot.png" alt="" data-l10n-attr="alt:home-viewport-image-alt">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="roadmap-teaser">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow" data-l10n-id="home-teaser-eyebrow"></span>
+            <h2 data-l10n-id="home-teaser-heading"></h2>
+          </div>
+          <a class="btn btn-ghost btn-small" href="roadmap.html" data-l10n-id="home-teaser-roadmap-link"></a>
+        </div>
+        <div class="teaser-grid">
+          <div class="teaser-card">
+            <span class="status" data-l10n-id="home-teaser-next-status"></span>
+            <h3 data-l10n-id="home-teaser-reports-title"></h3>
+            <p data-l10n-id="home-teaser-reports-description"></p>
+          </div>
+          <div class="teaser-card">
+            <span class="status" data-l10n-id="home-teaser-next-status"></span>
+            <h3 data-l10n-id="home-teaser-editing-title"></h3>
+            <p data-l10n-id="home-teaser-editing-description"></p>
+          </div>
+          <div class="teaser-card">
+            <span class="status" data-l10n-id="home-teaser-future-status"></span>
+            <h3 data-l10n-id="home-teaser-containers-title"></h3>
+            <p data-l10n-id="home-teaser-containers-description"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div>
+          <h2 data-l10n-id="home-cta-heading"></h2>
+          <p data-l10n-id="home-cta-description"></p>
+        </div>
+        <a class="btn btn-primary" href="contact.html" data-l10n-id="home-cta-link"></a>
+      </div>
+    </section>
+
+  </main>
+
+  <div hx-get="partials/footer.html" hx-trigger="load" hx-swap="outerHTML"></div>
+
+</body>
+</html>

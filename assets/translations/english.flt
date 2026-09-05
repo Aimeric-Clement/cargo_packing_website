@@ -1,0 +1,152 @@
+# Ready Cargo Packer - English source catalog
+
+## Shared metadata
+meta-home-title = Ready Cargo Packer, a sturdier, more complete aproach to planning for multiple containers
+meta-home-description = Ready Cargo Packer is a CAD software to plan cargo loadouts: real-time 3D placement for many containers at once, inventory editor, and a still growing roadmap.
+meta-about-title = About - Ready Cargo Packer
+meta-about-description = Meet the Ready Cargo Packer team and learn about the project behind a new approach to container load planning.
+meta-contact-title = Contact - Ready Cargo Packer
+meta-contact-description = Get in touch with the Ready Cargo Packer team to sponsor the project, share feedback, or discuss the roadmap.
+meta-roadmap-title = Roadmap - Ready Cargo Packer
+meta-roadmap-description = The Ready Cargo Packer roadmap: work completed so far, what we are building next, and the long-term vision for the project.
+
+## Shared navigation and footer
+brand-name = Ready Cargo Packer
+brand-subtitle = Freight Load Planning Software
+nav-home = Home
+nav-roadmap = Roadmap
+nav-about-us = About Us
+nav-about = About
+nav-contact = Contact
+nav-toggle-menu = Toggle menu
+language-selector-label = Language
+language-english = English
+language-lorem = Lorem ipsum
+footer-copyright = © { NUMBER($year, useGrouping: 0) } Ready Cargo Packer. Load planning software.
+footer-made-in-france = Made in France
+alt-brand-logo = Ready Cargo Packer
+alt-french-flag = French flag
+
+## Home page
+home-hero-status = Coming soon
+home-hero-heading = Loadout planning with no guesswork.
+home-hero-description = Ready Cargo Packer is being built as a desktop software for planning load layouts, managing inventory, and preparing clear loading plans, all of it across several containers at once.
+home-hero-roadmap-link = View the roadmap
+home-hero-contact-link = Contact Us
+home-stat-containers-value = { $count }
+home-stat-containers = Containers at once
+home-stat-live-preview-value = 3D
+home-stat-live-preview = Live preview
+home-stat-packing-time-value = { $seconds }s
+home-stat-packing-time = Automatic packing time
+home-hero-image-alt = Ready Cargo Packer 3D loading viewport showing a container packed with color-coded boxes
+home-features-eyebrow = Desktop-first by design
+home-features-heading = More information in every screen, without adding noise.
+home-features-description = Inventory, load visibility, and action appear together so the first desktop glance is immediately useful. It runs offline as a native desktop tool, or in the browser, for teams on the field like in the office.
+home-feature-placement-title = Automatic and manual placement
+home-feature-placement-description = Let the engine propose a tight baseline, then drag, rotate, and fine-tune every box by hand.
+home-feature-inventory-title = Inventory anchored to the view
+home-feature-inventory-description = Import all inventory at once, merge multiple files, and edit safely while the 3D load stays in context — no buried modals or spreadsheet juggling.
+home-feature-interface-title = Snappy and fluent interface
+home-feature-interface-description = Build on Rust, every interaction is milliseconds-fast. Smart alignment and hints make tight, stable packs pleasant to build.
+home-feature-workflow-title = Low-click, keyboard support and fast workflow
+home-feature-workflow-description = UX designed for speed of use. Customizable key-binds and contextual shortcuts make packing much faster with regular operators.
+home-feature-inspection-title = Live 3D load inspection
+home-feature-inspection-description = Solid or transparent rendering, hover dimensions, and corner markers show exactly what is happening inside the container.
+home-feature-packing-title = Built around real packing problems
+home-feature-packing-description = Packing boxes is not all maths; Our software is built rugged. It can allow short overhangs, stacking boxes on <i>mostly</i> flush surfaces and bridging over gaps.
+home-inventory-eyebrow = Inventory panel
+home-inventory-heading = A clearer way to prepare inventory, for the whole shippment and all in one place.
+home-inventory-description = The planned inventory workspace will bring files, edits, and load progress together. The aim is to replace back-and-forth spreadsheet work with one single view of the shipment.
+home-inventory-tag-search = Live search
+home-inventory-tag-import = Import & merge files
+home-inventory-tag-editing = Safe editing
+home-inventory-image-alt = Ready Cargo Packer inventory panel listing box categories with loading progress bars
+home-viewport-eyebrow = 3D viewport
+home-viewport-heading = Place fast, align tight, inspect everything.
+home-viewport-description = Drag and drop boxes manually, snap to near-flush surfaces and container edges, or let the automatic engine build a dense starting point. Visualize the loadout with the layered / transparent view, as well as the box types distribution.
+home-viewport-tag-baseline = Auto pack baseline
+home-viewport-tag-snapping = Snapping & alignment
+home-viewport-tag-hover = Highlight on hover
+home-viewport-image-alt = Ready Cargo Packer 3D container view with corner points and a hover tooltip
+home-teaser-eyebrow = On the roadmap
+home-teaser-heading = Features we are building for practical load planning.
+home-teaser-roadmap-link = See the full roadmap →
+home-teaser-next-status = Next up
+home-teaser-reports-title = Loading plan reports
+home-teaser-reports-description = PDF reports and load summaries for clearer handoffs to drivers and clients.
+home-teaser-editing-title = Extensive manual editing
+home-teaser-editing-description = Reposition placed boxes precisely with snapping and context-aware editing. Fill gaps quickly with smart-fill or duplicate placed boxes right from the viewport
+home-teaser-future-status = Future vision
+home-teaser-containers-title = Multiple containers
+home-teaser-containers-description = Plan across entire shipments, with multiple containers in view at once, and automatic packing working across all of these containers.
+home-cta-heading = Built in the open, with your support.
+home-cta-description = Ready Cargo Packer is under active development. Share your workflow to help guide the project toward the problems that matter most.
+home-cta-link = Get in touch
+
+## About page
+about-eyebrow = About Us
+about-heading = Not yet written.
+
+## Contact page
+contact-eyebrow = Get in touch
+contact-heading = Help shape Ready Cargo Packer.
+contact-description = Whether you want to sponsor the project, share insight from your own operation, or discuss the roadmap, send us a message. We would like to hear what would make the project useful to you.
+contact-email-heading = Email
+contact-best-for-heading = Best for
+contact-best-for-description = Sponsorship enquiries, feature ideas, integration questions, and roadmap feedback.
+contact-response-time-heading = Response time
+contact-response-time-description = Typically within two business days.
+contact-name-label = Name
+contact-name-placeholder = Jane Doe
+contact-subject-label = Subject
+contact-subject-placeholder = Sponsoring the project
+contact-message-label = Message
+contact-message-placeholder = Tell us about your operation, or the feature you need…
+contact-addressed-to = Addressed to contact@cargo-packer.com.
+contact-submit = Send email
+
+## Roadmap page
+roadmap-eyebrow = Product roadmap
+roadmap-heading = What we have built, with plenty more in the boxes
+roadmap-description = The state of the project; completed building blocks, the work that is underway, and the longer-term direction for Ready Cargo Packer.
+roadmap-finished-heading = Built so far
+roadmap-upcoming-heading = Planned next
+roadmap-loading = Loading roadmap…
+roadmap-note = Need a feature moved up the list? <a href="contact.html">Tell us what would help your operation</a> and why it matters.
+roadmap-cta-heading = Want a say in what ships next?
+roadmap-cta-description = The roadmap is guided by real container and inventory challenges. Get in touch and tell us what Ready Cargo Packer should tackle next.
+roadmap-cta-link = Contact the team
+roadmap-status-shipped = Built
+roadmap-status-planned = Planned
+roadmap-done-viewport = Interactive 3D viewport with full camera controls
+roadmap-done-visualization = Color-coded, categorized box visualization
+roadmap-done-placement = Drag-and-drop box placement
+roadmap-done-alignment = Smart alignment & snapping while placing boxes
+roadmap-done-inventory-management = Inventory management (add, edit, remove, search)
+roadmap-done-import = Import inventory from file
+roadmap-done-engine = Automatic loading engine
+roadmap-done-history = Undo / redo history
+roadmap-done-command-line = Command-line startup & configuration files
+roadmap-done-settings = Persistent settings
+roadmap-done-languages = Multi-language support
+roadmap-done-shortcuts = Customizable keyboard shortcuts
+roadmap-done-tooltips = Contextual tooltips & onboarding hints
+roadmap-done-progress = Loading-progress visualization
+roadmap-done-performance = Performance-optimized core engine
+roadmap-done-container-placement = Flexible container placement & orientation support
+roadmap-next-heuristics = Smarter automatic placement heuristics
+roadmap-next-reports = Loading plan reports
+roadmap-next-layered-views = Layered viewport views for easier inspection
+roadmap-next-rearrange = Rearrange placed boxes directly in the viewport
+roadmap-next-context-menu = Contextual menus & workflow shortcuts
+roadmap-next-sync = Two-way sync between viewport and inventory
+roadmap-next-export = Create & export loading plans
+roadmap-next-multi-container = Multi-container automatic packing
+roadmap-next-container-sizing = Container selection & sizing
+roadmap-next-distribution = Cross-container load distribution insights
+roadmap-next-previews = Richer 3D previews and tooltips
+roadmap-next-guided-tools = Guided placement tools (rotate, fill, pack...)
+roadmap-next-inventory = Improved inventory management
+roadmap-next-session = Persistent session
+roadmap-next-refinements = General UI & workflow refinements

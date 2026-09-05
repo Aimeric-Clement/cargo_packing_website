@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Roadmap — Ready Cargo Packer</title>
+<title data-l10n-id="meta-roadmap-title"></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Ready Cargo Packer roadmap: shipped features, what's next, and the long-term vision for cargo loading software.">
+<meta name="description" content="" data-l10n-attr="content:meta-roadmap-description">
 <meta name="htmx-config" content='{"globalViewTransitions":false}'>
-<link rel="icon" href="assets\logo_ready_cargo_packer_large.svg" type="image/svg+xml">
+<link rel="icon" href="assets/logo_ready_cargo_packer_large.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
 <link rel="stylesheet" href="css/style.css">
-<script src="assets/js/htmx.min.js" defer></script>
+<script src="assets/js/htmx.min.js" defer data-build-only></script>
 </head>
 <body hx-boost="true" data-page="roadmap">
 
@@ -21,9 +21,9 @@
 
     <section class="roadmap-page-head">
       <div class="container">
-        <span class="eyebrow">Product roadmap</span>
-        <h1>Shipped and shipping.<br>Plenty more crated up.</h1>
-        <p class="hero-lede">Below is the honest state of things: what's built today, what's being worked on next, and the longer-range vision for the platform.</p>
+        <span class="eyebrow" data-l10n-id="roadmap-eyebrow"></span>
+        <h1 data-l10n-id="roadmap-heading"></h1>
+        <p class="hero-lede" data-l10n-id="roadmap-description"></p>
       </div>
     </section>
 
@@ -32,31 +32,31 @@
         <div class="roadmap-columns">
           <div class="roadmap-column">
             <div class="roadmap-column-head">
-              <h2>Finished <span class="badge roadmap-count"></span></h2>
+              <h2><span data-l10n-id="roadmap-finished-heading"></span> <span class="badge roadmap-count"></span></h2>
             </div>
             <div hx-get="partials/roadmap-done.html" hx-trigger="load" hx-swap="innerHTML">
-              <p>Loading roadmap…</p>
+              <p data-l10n-id="roadmap-loading"></p>
             </div>
           </div>
 
           <div class="roadmap-column">
             <div class="roadmap-column-head">
-              <h2>Upcoming <span class="badge roadmap-count"></span></h2>
+              <h2><span data-l10n-id="roadmap-upcoming-heading"></span> <span class="badge roadmap-count"></span></h2>
             </div>
             <div hx-get="partials/roadmap-next.html" hx-trigger="load" hx-swap="innerHTML">
-              <p>Loading roadmap…</p>
+              <p data-l10n-id="roadmap-loading"></p>
             </div>
           </div>
         </div>
-        <p class="roadmap-note">Have a feature you need moved up the list? <a href="contact.html">Tell us what you are loading</a> and why it matters to your operation.</p>
+        <p class="roadmap-note" data-l10n-id="roadmap-note"></p>
       </div>
     </section>
 
     <section class="cta-band">
       <div class="container">
-        <h2>Want a say in what ships next?</h2>
-        <p>We prioritize the roadmap around real containers and real inventories. Reach out and tell us where Ready Cargo Packer should go.</p>
-        <a class="btn btn-primary" href="contact.html">Contact the team</a>
+        <h2 data-l10n-id="roadmap-cta-heading"></h2>
+        <p data-l10n-id="roadmap-cta-description"></p>
+        <a class="btn btn-primary" href="contact.html" data-l10n-id="roadmap-cta-link"></a>
       </div>
     </section>
 
@@ -64,7 +64,7 @@
 
   <div hx-get="partials/footer.html" hx-trigger="load" hx-swap="outerHTML"></div>
 
-  <script>
+  <script data-build-only>
     // Fill in each column's badge with the number of items its partial loaded.
     document.body.addEventListener('htmx:afterSwap', (event) => {
       const column = event.target.closest('.roadmap-column');

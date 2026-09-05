@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-locales.mjs"
+  },
+  "dependencies": {
+    "@fluent/bundle": "^0.19.1",
+    "cheerio": "1.0.0-rc.12",
+    "lucide-static": "^0.468.0"
+  }
+}

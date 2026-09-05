@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title data-l10n-id="meta-contact-title"></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" data-l10n-attr="content:meta-contact-description">
+<meta name="htmx-config" content='{"globalViewTransitions":false}'>
+<link rel="icon" href="assets/logo_ready_cargo_packer_large.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script src="assets/js/htmx.min.js" defer data-build-only></script>
+</head>
+<body hx-boost="true" data-page="contact">
+
+  <div hx-get="partials/header.html" hx-trigger="load" hx-swap="outerHTML" style="min-height:var(--header-h)"></div>
+
+  <main>
+    <section class="contact-page">
+      <div class="container">
+        <span class="eyebrow" data-l10n-id="contact-eyebrow"></span>
+        <h1 data-l10n-id="contact-heading"></h1>
+        <p class="hero-lede" data-l10n-id="contact-description"></p>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="info-item">
+              <h3 data-l10n-id="contact-email-heading"></h3>
+              <p><a href="mailto:contact@cargo-packer.com">contact@cargo-packer.com</a></p>
+            </div>
+            <div class="info-item">
+              <h3 data-l10n-id="contact-best-for-heading"></h3>
+              <p data-l10n-id="contact-best-for-description"></p>
+            </div>
+            <div class="info-item">
+              <h3 data-l10n-id="contact-response-time-heading"></h3>
+              <p data-l10n-id="contact-response-time-description"></p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <form action="mailto:contact@cargo-packer.com" method="GET" enctype="text/plain">
+              <div class="field">
+                <label for="name" data-l10n-id="contact-name-label"></label>
+                <input type="text" id="name" name="name" placeholder="" required data-l10n-attr="placeholder:contact-name-placeholder">
+              </div>
+              <div class="field">
+                <label for="subject" data-l10n-id="contact-subject-label"></label>
+                <input type="text" id="subject" name="subject" placeholder="" required data-l10n-attr="placeholder:contact-subject-placeholder">
+              </div>
+              <div class="field">
+                <label for="body" data-l10n-id="contact-message-label"></label>
+                <textarea id="body" name="body" placeholder="" required data-l10n-attr="placeholder:contact-message-placeholder"></textarea>
+              </div>
+              <div class="form-foot">
+                <small data-l10n-id="contact-addressed-to"></small>
+                <button type="submit" class="btn btn-primary btn-small" data-l10n-id="contact-submit"></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div hx-get="partials/footer.html" hx-trigger="load" hx-swap="outerHTML"></div>
+
+</body>
+</html>
