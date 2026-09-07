@@ -29,9 +29,9 @@
   --font-size-detail : 0.7rem;
 
   --radius: 3px;
-  --shadow-card: 0 1px 2px rgba(18, 110, 93, 0.08), 0 6px 18px rgba(18, 110, 93, 0.06);
-  /* tight, low shadow that grounds framed screenshots without making them float */
-  --shadow-contact: 0 1px 1px rgba(18, 110, 93, 0.08), 0 10px 16px -10px rgba(18, 110, 93, 0.35);
+  --shadow-color: rgba(2, 2, 2, 0.212);
+  /* single diffused contact shadow used everywhere an element needs to float */
+  --shadow: 0 5px 8px -2px var(--shadow-color);
 
   /* App-shell metrics: no fixed max-width container — the shell fills the
      viewport and only the horizontal breathing room scales with it. */
@@ -153,6 +153,7 @@ a:hover { color: var(--c-primary-light); }
   z-index: 50;
   background: rgba(251, 252, 251, 0.94);
   border-bottom: 1px solid var(--c-line);
+  box-shadow: var(--shadow);
 }
 
 .site-header .container {
@@ -248,7 +249,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
 .btn-primary { background: var(--c-primary); color: var(--c-white); }
-.btn-primary:hover { background: var(--c-primary-light); color: var(--c-white); transform: translateY(-1px); box-shadow: var(--shadow-card); }
+.btn-primary:hover { background: var(--c-primary-light); color: var(--c-white); transform: translateY(-1px); box-shadow: var(--shadow); }
 .btn-ghost { background: transparent; color: var(--c-ink); border-color: var(--c-line); }
 .btn-ghost:hover { border-color: var(--c-primary); color: var(--c-primary); }
 .btn-small { padding: 8px 18px; font-size: var(--font-size-detail); }
@@ -268,7 +269,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   background: var(--c-white);
   border: 1px solid var(--c-line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow);
 }
 .language-options a {
   display: block;
@@ -349,14 +350,14 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   border-radius: 6px;
   border: 1px solid var(--c-line);
   background: var(--c-white);
-  box-shadow: var(--shadow-contact);
+  box-shadow: var(--shadow);
   overflow: hidden;
   transform: rotateX(2deg) rotateY(-4deg);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
 }
 .hero-visual:hover .hero-snapshot {
   transform: rotateX(0deg) rotateY(0deg);
-  box-shadow: 0 1px 1px rgba(18, 110, 93, 0.08), 0 14px 20px -10px rgba(18, 110, 93, 0.4);
+  box-shadow: var(--shadow);
 }
 .hero-snapshot .visual-badge {
   position: absolute;
@@ -368,7 +369,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   padding: 8px 14px;
   border-radius: 999px;
   background: rgba(255,255,255,0.92);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow);
   font-size: var(--font-size-detail);
   font-weight: 700;
   color: var(--c-ink);
@@ -387,7 +388,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   border-radius: 6px;
   border: 1px solid var(--c-line);
   background: var(--c-white);
-  box-shadow: var(--shadow-contact);
+  box-shadow: var(--shadow);
   overflow: visible;
 }
 .hero-visual img, .showcase-media img {
@@ -447,7 +448,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   min-height: 170px;
 }
-.feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+.feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 .feature-card .ic {
   width: 40px; height: 40px;
   display: flex; align-items: center; justify-content: center;
@@ -482,7 +483,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   overflow: hidden;
   border: 1px solid var(--c-line);
   background: var(--c-white);
-  box-shadow: var(--shadow-contact);
+  box-shadow: var(--shadow);
 }
 
 .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
@@ -644,7 +645,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   background: var(--c-white);
   border: 1px solid var(--c-line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow);
   padding: 34px;
 }
 .field { margin-bottom: 20px; }
@@ -783,7 +784,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
     gap: 0;
     background: var(--c-white);
     border-bottom: 1px solid var(--c-line);
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--shadow);
     max-height: 0;
     overflow: hidden;
     opacity: 0;
