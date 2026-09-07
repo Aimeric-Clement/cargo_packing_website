@@ -7,7 +7,9 @@ import { localeConfig } from "./locales.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const pages = ["index.html", "roadmap.html", "about.html", "contact.html"];
+const publicSiteUrl = new URL("https://cargo-packer.com");
 const { locales, templateCatalog } = localeConfig;
+const publicLocales = locales.filter((locale) => locale.showInLanguageSelector);
 const messageArguments = {
   "footer-copyright": { year: new Date().getFullYear() },
   "home-stat-containers-value": { count: 16 },
@@ -124,9 +126,28 @@ function injectPartials(source, partials) {
     .replace(/<div hx-get="partials\/roadmap-next\.html"[\s\S]*?<\/div>/, `<div>${renderedPartials.roadmapNext}</div>`);
 }
 
+function publicPageUrl(locale, page) {
+  const pagePath = page === "index.html" ? "" : page;
+  return new URL(`/${locale.pageFolder}/${pagePath}`, publicSiteUrl).href;
+}
+
+function addSeoMetadata($, locale) {
+  if (!publicLocales.includes(locale)) return;
+
+  const page = $("body").attr("data-page");
+  const pageFile = page === "index" ? "index.html" : `${page}.html`;
+  const head = $("head");
+
+  head.find("link[rel='canonical'], link[rel='alternate'][hreflang]").remove();
+  head.append(`<link rel="canonical" href="${publicPageUrl(locale, pageFile)}">`);
+  publicLocales.forEach((alternateLocale) => {
+    head.append(`<link rel="alternate" hreflang="${alternateLocale.locale}" href="${publicPageUrl(alternateLocale, pageFile)}">`);
+  });
+}
+
 function localize(source, catalog, locale) {
   const $ = cheerio.load(source, { decodeEntities: false });
-  $("html").attr("lang", locale.code);
+  $("html").attr("lang", locale.locale);
   $("[data-l10n-id]").each((_, element) => {
     const id = $(element).attr("data-l10n-id");
     $(element).html(messageFor(catalog, locale, id));
@@ -152,7 +173,23 @@ function localize(source, catalog, locale) {
   $("[data-build-only]").remove();
   $("[hx-boost], [hx-trigger], [hx-swap]").removeAttr("hx-boost hx-trigger hx-swap");
   $("[data-l10n-id], [data-l10n-attr], [data-locale-link]").removeAttr("data-l10n-id data-l10n-attr data-locale-link");
+  addSeoMetadata($, locale);
   return $.html();
+}
+
+function sitemap() {
+  const urls = publicLocales.flatMap((locale) => pages.map((page) => publicPageUrl(locale, page)));
+  const entries = urls.map((url) => `  <url>\n    <loc>${url}</loc>\n  </url>`).join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
+}
+
+function robots() {
+  return `User-agent: *\nAllow: /\n\nSitemap: ${new URL("/sitemap.xml", publicSiteUrl).href}\n`;
+}
+
+function rootRedirect() {
+  const englishHome = publicPageUrl(publicLocales[0], "index.html");
+  return `<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta http-equiv="refresh" content="0; url=/en/">\n  <link rel="canonical" href="${englishHome}">\n  <link rel="icon" href="/assets/logo_ready_cargo_packer_large.svg" type="image/svg+xml">\n</head>\n<body></body>\n</html>\n`;
 }
 
 async function isGeneratedLocaleDirectory(directoryName) {
@@ -220,5 +257,11 @@ for (const locale of locales) {
     await writeFile(path.join(localeOutput, page), document);
   }
 }
+
+await Promise.all([
+  writeFile(path.join(root, "index.html"), rootRedirect()),
+  writeFile(path.join(root, "sitemap.xml"), sitemap()),
+  writeFile(path.join(root, "robots.txt"), robots()),
+]);
 
 console.log(`Generated static localized pages in ${locales.map((locale) => locale.pageFolder).join(", ")}.`);

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cargo-packer.com/sitemap.xml
