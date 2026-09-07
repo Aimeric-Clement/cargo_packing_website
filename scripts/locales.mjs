@@ -9,13 +9,6 @@ export const localeConfig = {
       showInLanguageSelector: true,
     },
     {
-      catalog: "lorem.flt",
-      locale: "li",
-      pageFolder: "li",
-      displayNameKey: "language-lorem",
-      showInLanguageSelector: false,
-    },
-    {
       catalog: "french.flt",
       locale: "fr",
       pageFolder: "fr",
