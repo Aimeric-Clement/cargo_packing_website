@@ -1,8 +1,8 @@
 # Ready Cargo Packer - English source catalog
 
 ## Shared metadata
-meta-home-title = Ready Cargo Packer, a sturdier, more complete aproach to planning for multiple containers
-meta-home-description = Ready Cargo Packer is a CAD software to plan cargo loadouts: real-time 3D placement for many containers at once, inventory editor, and a still growing roadmap.
+meta-home-title = Ready Cargo Packer | Cargo Packing Software for Multiple Containers
+meta-home-description = Ready Cargo Packer is cargo packing software for planning load layouts across multiple containers, with real-time 3D placement, inventory management, and clear loading plans.
 meta-about-title = About - Ready Cargo Packer
 meta-about-description = Meet the Ready Cargo Packer team and learn about the project behind a new approach to container load planning.
 meta-contact-title = Contact - Ready Cargo Packer
@@ -31,7 +31,7 @@ alt-french-flag = French flag
 ## Home page
 home-hero-status = Coming soon
 home-hero-heading = Loadout planning with no guesswork.
-home-hero-description = Ready Cargo Packer is being built as a desktop software for planning load layouts, managing inventory, and preparing clear loading plans, all of it across several containers at once.
+home-hero-description = Ready Cargo Packer is being built as a desktop software for planning load layouts, managing inventory, and preparing clear loading plans, all of it across multiple containers at once.
 home-hero-roadmap-link = View the roadmap
 home-hero-contact-link = Contact Us
 home-stat-containers-value = { $count }
