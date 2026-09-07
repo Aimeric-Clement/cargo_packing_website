@@ -12,7 +12,7 @@ meta-roadmap-description = The Ready Cargo Packer roadmap: work completed so far
 
 ## Shared navigation and footer
 brand-name = Ready Cargo Packer
-brand-subtitle = Freight Load Planning Software
+brand-subtitle = Freight Load-Planning Software
 nav-home = Home
 nav-roadmap = Roadmap
 nav-about-us = About Us
@@ -42,7 +42,7 @@ home-stat-packing-time-value = { $seconds }s
 home-stat-packing-time = Automatic packing time
 home-hero-image-alt = Ready Cargo Packer 3D loading viewport showing a container packed with color-coded boxes
 home-features-eyebrow = Desktop-first by design
-home-features-heading = More information in every screen, without adding noise.
+home-features-heading = All of the information on one screen.
 home-features-description = Inventory, load visibility, and action appear together so the first desktop glance is immediately useful. It runs offline as a native desktop tool, or in the browser, for teams on the field like in the office.
 home-feature-placement-title = Automatic and manual placement
 home-feature-placement-description = Let the engine propose a tight baseline, then drag, rotate, and fine-tune every box by hand.
