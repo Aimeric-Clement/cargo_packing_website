@@ -440,19 +440,33 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   gap: 22px;
 }
 .feature-card {
+  position: relative;
   background: var(--c-white);
   border: 1px solid var(--c-line);
   border-radius: var(--radius);
   padding: 24px 22px;
-  transition: transform 0.10s ease, box-shadow 0.15s ease, border-right-width 0.35s ease;
-  border-right: 2px solid var(--c-primary-light);
+  transition: transform 0.10s ease, box-shadow 0.15s ease;
   min-height: 170px;
+  overflow: hidden;
+}
+/* animated stripe lives outside the box model so it never shifts the content */
+.feature-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--c-primary-light);
+  transition: width 0.35s ease;
 }
 .feature-card:hover {
-    transform: translateY(-2px) translateZ(2px);
-    box-shadow: var(--shadow);
-    border-right-width: 12px;
-  }
+  transform: translateY(-2px) translateZ(2px);
+  box-shadow: var(--shadow);
+}
+.feature-card:hover::after {
+  width: 12px;
+}
 .feature-card .feature-head {
   display: flex;
   align-items: center;
@@ -484,19 +498,35 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   display: block;
   line-height: 1;
 }
-/* special case: illustration spills past the card's top/left edge instead of sitting in the icon slot */
-.feature-card--illustrated {
+/* special case: illustrated cards let the artwork spill past the card edge instead of sitting in the icon slot; each gets its own placement, no shared look */
+.feature-card--forklift, .feature-card--heap {
   position: relative;
   overflow: visible;
+}
+.feature-card--forklift .feature-illustration,
+.feature-card--heap .feature-illustration {
+  position: absolute;
+  object-fit: contain;
+  z-index: 1; /* stack above the ::after stripe */
+}
+.feature-card--forklift {
   padding-left: 108px;
 }
-.feature-card--illustrated .feature-illustration {
-  position: absolute;
+.feature-card--forklift .feature-illustration {
   top: -10px;
-  left: -18px;
+  left: -32px;
   width: 116px;
   height: 116px;
   transform: rotate(-4deg);
+}
+.feature-card--heap {
+  padding-right: 128px;
+}
+.feature-card--heap .feature-illustration {
+  bottom: -12px;
+  right: -15px;
+  width: 132px;
+  height: 96px;
 }
 .feature-card h3 {
   font-family: var(--font-body);
@@ -877,16 +907,26 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 
   .feature-strip { padding: 40px 0; }
   .feature-grid { grid-template-columns: 1fr; gap: 14px; }
-  /* stacked cards sit too close for the illustration to spill upward without overlap */
-  .feature-card--illustrated {
+  /* stacked cards sit too close for the illustrations to spill upward without overlap */
+  .feature-card--forklift {
     padding-left: 22px;
     padding-top: 76px;
   }
-  .feature-card--illustrated .feature-illustration {
+  .feature-card--forklift .feature-illustration {
     top: -10px;
     left: 16px;
     width: 76px;
     height: 76px;
+  }
+  .feature-card--heap {
+    padding-right: 22px;
+    padding-top: 66px;
+  }
+  .feature-card--heap .feature-illustration {
+    top: -8px;
+    right: 16px;
+    width: 90px;
+    height: 66px;
   }
 
   .showcase { padding: 56px 0; }
