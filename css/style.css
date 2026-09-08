@@ -461,6 +461,28 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   font-size: var(--font-size-regular); margin-bottom: 8px;
 }
 .feature-card p { margin: 0; }
+.language-support {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 0 0;
+  margin: 16px 0 0;
+  border-top: 1px solid var(--c-line);
+  list-style: none;
+}
+.language-support li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--c-ink-soft);
+  font-size: var(--font-size-detail);
+  text-transform: uppercase;
+}
+.language-support img {
+  width: 25px;
+  height: 18px;
+  box-shadow: 0 2px 3px -2px var(--shadow-color);
+}
 
 /* ---------------- Showcase rows ---------------- */
 

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" role="img" aria-label="United Kingdom">
+  <path fill="#1a3d8f" d="M0 0h30v20H0z"/>
+  <path fill="#fff" d="M0 2.3 3.45 0 30 17.7V20h-3.45L0 2.3Zm30 0V0h-3.45L0 17.7V20h3.45L30 2.3Z"/>
+  <path fill="#e63445" d="M0 4.25 0 1.4 30 18.6V20h-1.9L0 4.25ZM30 4.25V1.4L0 18.6V20h1.9L30 4.25Z"/>
+  <path fill="#fff" d="M11 0h8v6h11v8H19v6h-8v-6H0V6h11z"/>
+  <path fill="#e63445" d="M13 0h4v8h13v4H17v8h-4v-8H0V8h13z"/>
+</svg>
