@@ -442,13 +442,17 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .feature-card {
   background: var(--c-white);
   border: 1px solid var(--c-line);
-  border-top: 3px solid var(--c-primary-light);
   border-radius: var(--radius);
   padding: 24px 22px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.10s ease, box-shadow 0.15s ease, border-right-width 0.35s ease;
+  border-right: 2px solid var(--c-primary-light);
   min-height: 170px;
 }
-.feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.feature-card:hover {
+    transform: translateY(-2px) translateZ(2px);
+    box-shadow: var(--shadow);
+    border-right-width: 12px;
+  }
 .feature-card .feature-head {
   display: flex;
   align-items: center;
@@ -479,6 +483,20 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .feature-card .ic i::before {
   display: block;
   line-height: 1;
+}
+/* special case: illustration spills past the card's top/left edge instead of sitting in the icon slot */
+.feature-card--illustrated {
+  position: relative;
+  overflow: visible;
+  padding-left: 108px;
+}
+.feature-card--illustrated .feature-illustration {
+  position: absolute;
+  top: -10px;
+  left: -18px;
+  width: 116px;
+  height: 116px;
+  transform: rotate(-4deg);
 }
 .feature-card h3 {
   font-family: var(--font-body);
@@ -859,6 +877,17 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 
   .feature-strip { padding: 40px 0; }
   .feature-grid { grid-template-columns: 1fr; gap: 14px; }
+  /* stacked cards sit too close for the illustration to spill upward without overlap */
+  .feature-card--illustrated {
+    padding-left: 22px;
+    padding-top: 76px;
+  }
+  .feature-card--illustrated .feature-illustration {
+    top: -10px;
+    left: 16px;
+    width: 76px;
+    height: 76px;
+  }
 
   .showcase { padding: 56px 0; }
   .showcase-row, .showcase-row.reverse {

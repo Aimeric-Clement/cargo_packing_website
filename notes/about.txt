@@ -1,0 +1,8 @@
+A very small team.
+
+- Plannify and does all things from sourcing to shipping in a furniture design company offshore. She directs the priorities of the project.
+- Software engineer with formal education in computer science, electronics and mechanical engineering, graduated of a master's degree in Paris.
+He worked on other algorithm heavy projects, railway for the paris metros, that included sorting out the actual cartography of the line and a dedicated
+declarative scripting language for public address events. He also worked on a medical 3D printer with nanometer-scale precision, printing several
+bio-compatible materials all at once, to print novel etherogeneous parts at a really small size. Believe that solving complex problems, and expecting a
+lot is what makes the value of a great software. Softwares must work, and good enough isn't usually quite enough.
