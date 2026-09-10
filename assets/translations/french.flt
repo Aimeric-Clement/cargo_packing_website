@@ -1,5 +1,5 @@
 meta-home-title = Ready Cargo Packer, une solution plus robuste pour planifier le chargement de plusieurs conteneurs
-meta-home-description = Ready Cargo Packer est un logiciel de CAO dédié au chargement de conteneurs : visualisation et positionnement 3D en temps réel dans plusieurs conteneurs, éditeur de liste de colisage et feuille de route en constante évolution.
+meta-home-description = Ready Cargo Packer est un logiciel de planification de chargement pour conteneurs : positionnement 3D en temps réel sur plusieurs conteneurs, liste de colisage intégrée et feuille de route en constante évolution.
 meta-about-title = À propos - Ready Cargo Packer
 meta-about-description = Découvrez l'équipe de Ready Cargo Packer et l'histoire d'un projet qui repense la façon de charger les conteneurs.
 meta-contact-title = Contact - Ready Cargo Packer
@@ -42,8 +42,8 @@ home-feature-placement-description = Le chargement automatique propose d'abord u
 home-feature-languages-title = Pas besoin d'être anglophone
 home-feature-languages-description = Prise en charge de plusieurs langues, pour que chaque opérateur de votre équipe puisse travailler dans la sienne.
 home-feature-languages-list-label = Langues prises en charge par le logiciel
-home-feature-interface-title = Interface réactive et fluide
-home-feature-interface-description = Développée en Rust, l'interface répond en quelques millisecondes. L'alignement intelligent et les repères facilitent la préparation de chargements compacts et stables.
+home-feature-fast-interface-title = Interface réactive et fluide
+home-feature-fast-interface-description = Développée en Rust, l'interface répond en quelques millisecondes. L'alignement intelligent et les repères facilitent la préparation de chargements compacts et stables.
 home-feature-workflow-title = Rapide à prendre en main, avec peu de clics et entièrement pilotable au clavier
 home-feature-workflow-description = Une interface pensée pour la rapidité d'exécution. Les raccourcis personnalisables et adaptés au contexte font gagner un temps précieux aux opérateurs qui l'utilisent au quotidien.
 home-feature-inspection-title = Inspection 3D en direct du chargement

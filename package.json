@@ -1,11 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "build": "node scripts/build-locales.mjs"
+    "build": "node scripts/build-locales.mjs",
+    "watch": "node scripts/watch.mjs",
+    "rename-css-attr": "node scripts/rename-css-attr.mjs"
   },
   "dependencies": {
     "@fluent/bundle": "^0.19.1",
-    "cheerio": "1.0.0-rc.12",
-    "lucide-static": "^0.468.0"
+    "cheerio": "1.2.0"
   }
 }

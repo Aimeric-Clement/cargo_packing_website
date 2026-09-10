@@ -1,4 +1,4 @@
-import { access, cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { FluentBundle, FluentResource } from "@fluent/bundle";
@@ -20,18 +20,20 @@ function validateLocaleConfig() {
   const catalogName = /^[A-Za-z0-9][A-Za-z0-9._-]*\.flt$/;
   const localeFolder = /^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/;
   const translationKey = /^[a-z][a-z0-9-]*$/;
+  const iconFileName = /^[A-Za-z0-9][A-Za-z0-9._-]*\.svg$/;
   const seenValues = new Map();
 
   if (!catalogName.test(templateCatalog)) throw new Error("localeConfig.templateCatalog must be a .flt filename");
   if (!Array.isArray(locales) || !locales.length) throw new Error("localeConfig.locales must contain at least one locale");
 
   for (const locale of locales) {
-    const { catalog, locale: localeCode, pageFolder, displayNameKey, showInLanguageSelector } = locale;
+    const { catalog, locale: localeCode, pageFolder, displayNameKey, flagIcon, showInLanguageSelector } = locale;
     const fields = [
       ["catalog", catalog, catalogName],
       ["locale", localeCode, localeFolder],
       ["pageFolder", pageFolder, localeFolder],
       ["displayNameKey", displayNameKey, translationKey],
+      ["flagIcon", flagIcon, iconFileName],
     ];
 
     for (const [field, value, pattern] of fields) {
@@ -107,7 +109,12 @@ function messageFor(catalog, locale, id) {
 function injectPartials(source, partials) {
   const languageOptions = locales
     .filter((locale) => locale.showInLanguageSelector)
-    .map((locale) => `<a data-locale-link="${locale.pageFolder}" data-l10n-id="${locale.displayNameKey}"></a>`)
+    .map((locale) => (
+      `<a data-locale-link="${locale.pageFolder}">`
+        + `<img class="language-option-flag" src="assets/icons/${locale.flagIcon}" alt="" aria-hidden="true">`
+        + `<span data-l10n-id="${locale.displayNameKey}"></span>`
+        + "</a>"
+    ))
     .join("");
   const renderedPartials = Object.fromEntries(
     Object.entries(partials).map(([name, partial]) => [
@@ -217,51 +224,52 @@ async function clearLocaleOutputDirectories() {
   }));
 }
 
-const partialNames = {
-  header: "header.html",
-  footer: "footer.html",
-  roadmapDone: "roadmap-done.html",
-  roadmapNext: "roadmap-next.html",
-};
-const partials = Object.fromEntries(
-  await Promise.all(
-    Object.entries(partialNames).map(async ([key, file]) => [key, await readFile(path.join(root, "templates", "partials", file), "utf8")]),
-  ),
-);
+export async function build() {
+  const partialNames = {
+    header: "header.html",
+    footer: "footer.html",
+    roadmapDone: "roadmap-done.html",
+    roadmapNext: "roadmap-next.html",
+  };
+  const partials = Object.fromEntries(
+    await Promise.all(
+      Object.entries(partialNames).map(async ([key, file]) => [key, await readFile(path.join(root, "templates", "partials", file), "utf8")]),
+    ),
+  );
 
-validateLocaleConfig();
-await ensureCatalogsExist();
-const template = await createBundle({ catalog: templateCatalog, locale: "template" });
-const catalogs = new Map(await Promise.all(locales.map(async (locale) => {
-  const catalog = await createBundle(locale);
-  validateCatalogMessages(catalog, locale, template.messageIds);
-  return [locale.pageFolder, catalog];
-})));
+  validateLocaleConfig();
+  await ensureCatalogsExist();
+  const template = await createBundle({ catalog: templateCatalog, locale: "template" });
+  const catalogs = new Map(await Promise.all(locales.map(async (locale) => {
+    const catalog = await createBundle(locale);
+    validateCatalogMessages(catalog, locale, template.messageIds);
+    return [locale.pageFolder, catalog];
+  })));
 
-await rm(path.join(root, "dist"), { recursive: true, force: true });
-await clearLocaleOutputDirectories();
-await mkdir(path.join(root, "assets", "icons"), { recursive: true });
-await cp(
-  path.join(root, "node_modules", "lucide-static", "icons", "languages.svg"),
-  path.join(root, "assets", "icons", "languages.svg"),
-);
+  await rm(path.join(root, "dist"), { recursive: true, force: true });
+  await clearLocaleOutputDirectories();
 
-for (const locale of locales) {
-  const catalog = catalogs.get(locale.pageFolder);
-  const localeOutput = path.join(root, locale.pageFolder);
-  await mkdir(localeOutput, { recursive: true });
+  for (const locale of locales) {
+    const catalog = catalogs.get(locale.pageFolder);
+    const localeOutput = path.join(root, locale.pageFolder);
+    await mkdir(localeOutput, { recursive: true });
 
-  for (const page of pages) {
-    const source = await readFile(path.join(root, "templates", page), "utf8");
-    const document = localize(injectPartials(source, partials), catalog, locale);
-    await writeFile(path.join(localeOutput, page), document);
+    for (const page of pages) {
+      const source = await readFile(path.join(root, "templates", page), "utf8");
+      const document = localize(injectPartials(source, partials), catalog, locale);
+      await writeFile(path.join(localeOutput, page), document);
+    }
   }
+
+  await Promise.all([
+    writeFile(path.join(root, "index.html"), rootRedirect()),
+    writeFile(path.join(root, "sitemap.xml"), sitemap()),
+    writeFile(path.join(root, "robots.txt"), robots()),
+  ]);
+
+  console.log(`Generated static localized pages in ${locales.map((locale) => locale.pageFolder).join(", ")}.`);
 }
 
-await Promise.all([
-  writeFile(path.join(root, "index.html"), rootRedirect()),
-  writeFile(path.join(root, "sitemap.xml"), sitemap()),
-  writeFile(path.join(root, "robots.txt"), robots()),
-]);
-
-console.log(`Generated static localized pages in ${locales.map((locale) => locale.pageFolder).join(", ")}.`);
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  await build();
+}

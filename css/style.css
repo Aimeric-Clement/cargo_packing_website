@@ -177,6 +177,7 @@ a:hover { color: var(--c-primary-light); }
 .brand {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   gap: 12px;
   font-family: var(--font-head);
   font-weight: 400;
@@ -184,9 +185,10 @@ a:hover { color: var(--c-primary-light); }
   line-height: 1;
   text-transform: uppercase;
   color: var(--c-ink);
+  white-space: nowrap;
 }
 .brand:hover { color: var(--c-ink); }
-.brand img { height: 48px; width: auto; display: block; }
+.brand img { height: 48px; width: auto; display: block; flex-shrink: 0; }
 .brand .brand-sub {
   display: block;
   font-family: var(--font-body);
@@ -198,14 +200,9 @@ a:hover { color: var(--c-primary-light); }
 
 .main-nav { display: flex; align-items: center; gap: 6px; }
 .main-nav a {
-  font-family: var(--font-body);
-  font-size: var(--font-size-regular);
-  font-weight: 400;
-  text-transform: uppercase;
   color: var(--c-ink-soft);
   padding: 10px 16px;
   border-bottom: 2px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
 }
 .main-nav a:hover,
 .main-nav a[aria-current="page"],
@@ -258,7 +255,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .language-selector summary { list-style: none; }
 .language-selector summary::-webkit-details-marker { display: none; }
 .language-selector summary.btn { display: inline-flex; align-items: center; }
-.language-icon { width: 16px; height: 16px; display: block; }
+.language-selector-icon { width: 15px; height: auto; display: block; }
 .language-options {
   position: absolute;
   top: calc(100% + 8px);
@@ -272,13 +269,16 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   box-shadow: var(--shadow);
 }
 .language-options a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 8px 10px;
   font-size: var(--font-size-detail);
   text-transform: uppercase;
   color: var(--c-ink-soft);
 }
 .language-options a:hover { color: var(--c-primary); background: var(--c-bg-alt); }
+.language-option-flag { width: 18px; height: 13px; display: block; border-radius: 2px; object-fit: cover; }
 
 /* ---------------- Hero ---------------- */
 
@@ -436,11 +436,14 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .section-intro p { max-width: 58ch; margin: 0; }
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 22px;
 }
 .feature-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers stacked content vertically when min-height leaves extra room */
   background: var(--c-white);
   border: 1px solid var(--c-line);
   border-radius: var(--radius);
@@ -498,35 +501,42 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   display: block;
   line-height: 1;
 }
-/* special case: illustrated cards let the artwork spill past the card edge instead of sitting in the icon slot; each gets its own placement, no shared look */
-.feature-card--forklift, .feature-card--heap {
-  position: relative;
-  overflow: visible;
+/* special case: illustrated cards lay the artwork out beside the copy as flex siblings, so a fixed gap separates them
+   regardless of illustration size - no per-breakpoint padding/position math to keep in sync */
+.feature-card--auto-placement-illustration,
+.feature-card--realistic-packing-illustration,
+.feature-card--fast-interface-illustration {
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
 }
-.feature-card--forklift .feature-illustration,
-.feature-card--heap .feature-illustration {
-  position: absolute;
+.feature-card--auto-placement-illustration .feature-content,
+.feature-card--realistic-packing-illustration .feature-content,
+.feature-card--fast-interface-illustration .feature-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.feature-card--auto-placement-illustration .feature-illustration,
+.feature-card--realistic-packing-illustration .feature-illustration,
+.feature-card--fast-interface-illustration .feature-illustration {
+  flex: 0 0 auto;
   object-fit: contain;
-  z-index: 1; /* stack above the ::after stripe */
+  order: 1; /* all three illustrations sit right of the copy, regardless of source order */
 }
-.feature-card--forklift {
-  padding-left: 108px;
-}
-.feature-card--forklift .feature-illustration {
-  top: -10px;
-  left: -32px;
-  width: 116px;
-  height: 116px;
+.feature-card--auto-placement-illustration .feature-illustration {
+  width: 120px;
+  height: 120px;
   transform: rotate(-4deg);
 }
-.feature-card--heap {
-  padding-right: 128px;
+.feature-card--realistic-packing-illustration .feature-illustration {
+  width: 140px;
+  height: 104px;
 }
-.feature-card--heap .feature-illustration {
-  bottom: -12px;
-  right: -15px;
-  width: 132px;
-  height: 96px;
+/* chrono art is lower-detail than the other illustrations, so it's kept smaller to avoid looking blurry */
+.feature-card--fast-interface-illustration .feature-illustration {
+  width: 92px;
+  height: 92px;
+  transform: rotate(6deg);
 }
 .feature-card h3 {
   font-family: var(--font-body);
@@ -630,6 +640,18 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 /* Roadmap page proper */
 
 .roadmap-page-head { padding: 64px 0 0; }
+.roadmap-head-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+.roadmap-head-text { flex: 1 1 auto; min-width: 0; }
+.roadmap-head-illustration {
+  flex: 0 0 auto;
+  width: 500px;
+  height: 250px;
+  object-fit: contain;
+}
 
 .roadmap-panel { padding: 44px 0 100px; min-height: 420px; }
 
@@ -802,8 +824,8 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 }
 .footer-links a:hover { color: var(--c-accent-yellow); }
 .site-footer .language-selector .btn { color: #c9d2cf; border-color: #3a463f; }
-.site-footer .language-icon { filter: brightness(0) invert(1); }
 .site-footer .language-selector .btn:hover { color: var(--c-accent-yellow); border-color: var(--c-accent-yellow); }
+.site-footer .language-selector-icon { filter: brightness(0) invert(1); }
 .footer-language-selector .language-options { right: auto; left: 0; background: var(--c-ink); border-color: #3a463f; }
 .footer-language-selector .language-options a { color: #c9d2cf; }
 .footer-language-selector .language-options a:hover { color: var(--c-accent-yellow); background: #303c36; }
@@ -842,8 +864,12 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 @media (max-width: 960px) {
   :root { --shell-pad: 20px; }
 
-  .feature-grid { grid-template-columns: repeat(2, 1fr); }
   .teaser-grid { grid-template-columns: 1fr; }
+
+  /* tablet cards are narrower than the desktop 2-up grid; only the illustration size needs to shrink, layout stays flex */
+  .feature-card--auto-placement-illustration .feature-illustration { width: 96px; height: 96px; }
+  .feature-card--realistic-packing-illustration .feature-illustration { width: 110px; height: 82px; }
+  .feature-card--fast-interface-illustration .feature-illustration { width: 76px; height: 76px; }
 
   .contact-grid { grid-template-columns: 1fr; }
 
@@ -851,6 +877,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   .roadmap-now { flex-direction: row; padding: 8px 0; }
   .roadmap-now::before { flex: 1; width: auto; height: 2px; }
   .roadmap-now-label { writing-mode: horizontal-tb; }
+  .roadmap-head-illustration { display: none; }
 }
 
 @media (max-width: 720px) {
@@ -862,11 +889,13 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   /* --- App bar collapses to a hamburger-driven drawer --- */
   .header-contact { display: none; }
   .nav-group { gap: 8px; }
-  .language-selector .language-label { display: none; }
-  .language-selector summary.btn { width: 40px; height: 40px; justify-content: center; padding: 0; }
   .nav-toggle-btn { display: flex; }
   .brand img { height: 38px; }
   .brand .brand-sub { display: none; }
+
+  /* the selector's accessible name still comes from the summary's aria-label */
+  .language-label { display: none; }
+  .language-selector summary.btn { padding: 8px 10px; gap: 0; }
 
   .main-nav {
     position: fixed;
@@ -907,27 +936,10 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 
   .feature-strip { padding: 40px 0; }
   .feature-grid { grid-template-columns: 1fr; gap: 14px; }
-  /* stacked cards sit too close for the illustrations to spill upward without overlap */
-  .feature-card--forklift {
-    padding-left: 22px;
-    padding-top: 76px;
-  }
-  .feature-card--forklift .feature-illustration {
-    top: -10px;
-    left: 16px;
-    width: 76px;
-    height: 76px;
-  }
-  .feature-card--heap {
-    padding-right: 22px;
-    padding-top: 66px;
-  }
-  .feature-card--heap .feature-illustration {
-    top: -8px;
-    right: 16px;
-    width: 90px;
-    height: 66px;
-  }
+  /* single-column layout: shrink illustrations further, position is already unified above */
+  .feature-card--auto-placement-illustration .feature-illustration { width: 80px; height: 80px; }
+  .feature-card--realistic-packing-illustration .feature-illustration { width: 92px; height: 68px; }
+  .feature-card--fast-interface-illustration .feature-illustration { width: 64px; height: 64px; }
 
   .showcase { padding: 56px 0; }
   .showcase-row, .showcase-row.reverse {

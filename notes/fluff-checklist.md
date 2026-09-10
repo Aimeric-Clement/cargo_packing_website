@@ -34,7 +34,7 @@ section/div; items marked `[TRIM]` shorten wording but keep the element.
       points as worded. Replace with a single line stating native-first +
       browser-usable (#3), drop "all information on one screen" framing.
 - [kinda: remove the smart alignement and hints, take in the context of "low click, keyboard" card, these are twice the same topic] `[TRIM]` Remove card **"Snappy and fluent interface"**
-      (`home-feature-interface-*`) — restates "fast" (#7), already covered by
+      (`home-feature-fast-interface-*`) — restates "fast" (#7), already covered by
       the hero stat; also leans on "smart alignment/hints" which is the kind of
       UX detail explicitly called out as irrelevant.
 - [x] `[STRUCTURAL]` Remove card **"Live 3D load inspection"**
