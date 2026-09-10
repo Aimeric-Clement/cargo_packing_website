@@ -1,0 +1,13 @@
+{
+  "plugins": ["stylelint-declaration-block-no-ignored-properties"],
+  "rules": {
+    "plugin/declaration-block-no-ignored-properties": true,
+    "no-duplicate-selectors": true,
+    "no-duplicate-at-import-rules": true,
+    "declaration-block-no-duplicate-properties": [true, { "ignore": ["consecutive-duplicates-with-different-values"] }],
+    "declaration-block-no-redundant-longhand-properties": true,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "shorthand-property-no-redundant-values": true,
+    "no-empty-source": true
+  }
+}

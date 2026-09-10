@@ -69,7 +69,6 @@ body::before {
 
 h1, h2, h3, h4 {
   font-family: var(--font-head);
-  font-family: var(--font-head);
   font-weight: 400;
   color: var(--c-ink);
   margin: 0 0 0.5em;
@@ -171,7 +170,6 @@ a:hover { color: var(--c-primary-light); }
 }
 
 .nav-toggle-input { display: none; }
-.nav-toggle-btn { display: none; }
 .main-nav a.nav-contact { display: none; }
 
 .brand {
@@ -214,6 +212,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 }
 
 .nav-toggle-btn {
+  display: none;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -383,14 +382,6 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   display: block;
 }
 
-.showcase-media {
-  position: relative;
-  border-radius: 6px;
-  border: 1px solid var(--c-line);
-  background: var(--c-white);
-  box-shadow: var(--shadow);
-  overflow: visible;
-}
 .hero-visual img, .showcase-media img {
   display: block;
   width: 100%;

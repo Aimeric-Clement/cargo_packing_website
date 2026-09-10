@@ -3,10 +3,16 @@
   "scripts": {
     "build": "node scripts/build-locales.mjs",
     "watch": "node scripts/watch.mjs",
-    "rename-css-attr": "node scripts/rename-css-attr.mjs"
+    "rename-css-attr": "node scripts/rename-css-attr.mjs",
+    "lint:css": "stylelint \"css/**/*.css\""
   },
   "dependencies": {
     "@fluent/bundle": "^0.19.1",
     "cheerio": "1.2.0"
+  },
+  "devDependencies": {
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-declaration-block-no-ignored-properties": "^2.8.0"
   }
 }
