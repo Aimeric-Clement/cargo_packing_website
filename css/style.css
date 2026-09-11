@@ -977,6 +977,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   .key-points-list { display: none; }
   .feature-grid { grid-template-columns: 1fr; gap: 14px; }
   /* single-column layout: shrink illustrations further, position is already unified above */
+  .feature-card { padding: 18px 16px; }
   .feature-card--auto-placement-illustration .feature-illustration { width: 80px; height: 80px; }
   .feature-card--realistic-packing-illustration .feature-illustration { width: 92px; height: 68px; }
   .feature-card--fast-interface-illustration .feature-illustration { width: 64px; height: 64px; }
