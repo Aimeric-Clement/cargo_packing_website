@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title data-l10n-id="meta-home-title"></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="" data-l10n-attr="content:meta-home-description">
+<meta name="description" data-l10n-attr="content:meta-home-description">
 <meta name="htmx-config" content='{"globalViewTransitions":false}'>
 <link rel="icon" href="assets/logo_ready_cargo_packer_large.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
         <div class="hero-visual reveal-up reveal-delay-1">
           <div class="hero-snapshot">
             <div class="frame-bar"><span></span><span></span><span></span></div>
-            <img src="assets/overview_screenshot.png" alt="" data-l10n-attr="alt:home-hero-image-alt">
+            <img src="assets/overview_screenshot.png" data-l10n-attr="alt:home-hero-image-alt">
           </div>
         </div>
       </div>
@@ -47,91 +47,104 @@
 
     <section class="feature-strip" id="features">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-head">
           <span class="eyebrow" data-l10n-id="home-features-eyebrow"></span>
           <h2 data-l10n-id="home-features-heading"></h2>
           <p data-l10n-id="home-features-description"></p>
         </div>
 
-        <div class="feature-grid">
-          <!-- Automatic/manual placement: one of the illustrated cards, forklift art sits beside the copy -->
-          <div class="feature-card feature-card--auto-placement-illustration">
-            <img class="feature-illustration" src="assets/illustrations/automatic-forklift.svg" alt="" aria-hidden="true">
-            <div class="feature-content">
+        <div class="feature-strip-body">
+          <ul class="key-points-list">
+            <li data-l10n-id="home-keypoint-tolerance"></li>
+            <li data-l10n-id="home-keypoint-languages"></li>
+            <li data-l10n-id="home-keypoint-native"></li>
+            <li data-l10n-id="home-keypoint-auto-engine"></li>
+            <li data-l10n-id="home-keypoint-manual-workflow"></li>
+            <li data-l10n-id="home-keypoint-multi-container"></li>
+            <li data-l10n-id="home-keypoint-fast"></li>
+            <li data-l10n-id="home-keypoint-in-development"></li>
+          </ul>
+
+          <div class="feature-grid">
+            <!-- Automatic/manual placement: one of the illustrated cards, forklift art sits beside the copy -->
+            <div class="feature-card feature-card--auto-placement-illustration">
+              <img class="feature-illustration" src="assets/illustrations/automatic-forklift.svg" alt="" aria-hidden="true">
+              <div class="feature-content">
+                <div class="feature-head">
+                  <div class="ic">
+                    <i class="fi-rr-truck-loading" aria-hidden="true"></i>
+                  </div>
+                  <h3 data-l10n-id="home-feature-placement-title"></h3>
+                </div>
+                <p data-l10n-id="home-feature-placement-description"></p>
+              </div>
+            </div>
+
+            <!-- Live 3D load inspection -->
+            <div class="feature-card">
               <div class="feature-head">
                 <div class="ic">
-                  <i class="fi-rr-truck-loading" aria-hidden="true"></i>
+                  <i class="fi-rr-cube" aria-hidden="true"></i>
                 </div>
-                <h3 data-l10n-id="home-feature-placement-title"></h3>
+                <h3 data-l10n-id="home-feature-inspection-title"></h3>
               </div>
-              <p data-l10n-id="home-feature-placement-description"></p>
+              <p data-l10n-id="home-feature-inspection-description"></p>
             </div>
-          </div>
 
-          <!-- Live 3D load inspection -->
-          <div class="feature-card">
-            <div class="feature-head">
-              <div class="ic">
-                <i class="fi-rr-cube" aria-hidden="true"></i>
-              </div>
-              <h3 data-l10n-id="home-feature-inspection-title"></h3>
-            </div>
-            <p data-l10n-id="home-feature-inspection-description"></p>
-          </div>
-
-          <!-- Multi-language support: plain card, paired with the illustrated one below to keep the illustration zigzagging between columns -->
-          <div class="feature-card">
-            <div class="feature-head">
-              <div class="ic">
-                <i class="fi-rr-language" aria-hidden="true"></i>
-              </div>
-              <h3 data-l10n-id="home-feature-languages-title"></h3>
-            </div>
-            <p data-l10n-id="home-feature-languages-description"></p>
-            <ul class="language-support" data-l10n-attr="aria-label:home-feature-languages-list-label">
-              <li><img src="assets/icons/flag-fr.svg" alt="" aria-hidden="true"><span>Français</span></li>
-              <li><img src="assets/icons/flag-vn.svg" alt="" aria-hidden="true"><span>Tiếng Việt</span></li>
-              <li><img src="assets/icons/flag-gb.svg" alt="" aria-hidden="true"><span>English</span></li>
-            </ul>
-          </div>
-
-          <!-- Interface speed/responsiveness -->
-          <div class="feature-card feature-card--fast-interface-illustration">
-            <img class="feature-illustration" src="assets/illustrations/chrono.svg" alt="" aria-hidden="true">
-            <div class="feature-content">
+            <!-- Multi-language support: plain card, paired with the illustrated one below to keep the illustration zigzagging between columns -->
+            <div class="feature-card">
               <div class="feature-head">
                 <div class="ic">
-                  <i class="fi-rr-stopwatch" aria-hidden="true"></i>
+                  <i class="fi-rr-language" aria-hidden="true"></i>
                 </div>
-                <h3 data-l10n-id="home-feature-fast-interface-title"></h3>
+                <h3 data-l10n-id="home-feature-languages-title"></h3>
               </div>
-              <p data-l10n-id="home-feature-fast-interface-description"></p>
+              <p data-l10n-id="home-feature-languages-description"></p>
+              <ul class="language-support" data-l10n-attr="aria-label:home-feature-languages-list-label">
+                <li><img src="assets/icons/flag-fr.svg" alt="" aria-hidden="true"><span>Français</span></li>
+                <li><img src="assets/icons/flag-vn.svg" alt="" aria-hidden="true"><span>Tiếng Việt</span></li>
+                <li><img src="assets/icons/flag-gb.svg" alt="" aria-hidden="true"><span>English</span></li>
+              </ul>
             </div>
-          </div>
 
-          <!-- Realistic packing constraints: the other illustrated card, heap art sits beside the copy -->
-          <div class="feature-card feature-card--realistic-packing-illustration">
-            <img class="feature-illustration" src="assets/illustrations/uneven-heap.svg" alt="" aria-hidden="true">
-            <div class="feature-content">
+            <!-- Interface speed/responsiveness -->
+            <div class="feature-card feature-card--fast-interface-illustration">
+              <img class="feature-illustration" src="assets/illustrations/chrono.svg" alt="" aria-hidden="true">
+              <div class="feature-content">
+                <div class="feature-head">
+                  <div class="ic">
+                    <i class="fi-rr-stopwatch" aria-hidden="true"></i>
+                  </div>
+                  <h3 data-l10n-id="home-feature-fast-interface-title"></h3>
+                </div>
+                <p data-l10n-id="home-feature-fast-interface-description"></p>
+              </div>
+            </div>
+
+            <!-- Realistic packing constraints: the other illustrated card, heap art sits beside the copy -->
+            <div class="feature-card feature-card--realistic-packing-illustration">
+              <img class="feature-illustration" src="assets/illustrations/uneven-heap.svg" alt="" aria-hidden="true">
+              <div class="feature-content">
+                <div class="feature-head">
+                  <div class="ic">
+                    <i class="fi-rr-boxes" aria-hidden="true"></i>
+                  </div>
+                  <h3 data-l10n-id="home-feature-packing-title"></h3>
+                </div>
+                <p data-l10n-id="home-feature-packing-description"></p>
+              </div>
+            </div>
+
+            <!-- Keyboard-driven workflow -->
+            <div class="feature-card">
               <div class="feature-head">
                 <div class="ic">
-                  <i class="fi-rr-boxes" aria-hidden="true"></i>
+                  <i class="fi-rr-keyboard" aria-hidden="true"></i>
                 </div>
-                <h3 data-l10n-id="home-feature-packing-title"></h3>
+                <h3 data-l10n-id="home-feature-workflow-title"></h3>
               </div>
-              <p data-l10n-id="home-feature-packing-description"></p>
+              <p data-l10n-id="home-feature-workflow-description"></p>
             </div>
-          </div>
-
-          <!-- Keyboard-driven workflow -->
-          <div class="feature-card">
-            <div class="feature-head">
-              <div class="ic">
-                <i class="fi-rr-keyboard" aria-hidden="true"></i>
-              </div>
-              <h3 data-l10n-id="home-feature-workflow-title"></h3>
-            </div>
-            <p data-l10n-id="home-feature-workflow-description"></p>
           </div>
         </div>
       </div>
@@ -153,7 +166,7 @@
           </div>
           <div class="showcase-media">
             <div class="frame-bar"><span></span><span></span><span></span></div>
-            <img src="assets/close_up_screenshot.png" alt="" data-l10n-attr="alt:home-inventory-image-alt">
+            <img src="assets/close_up_screenshot.png" data-l10n-attr="alt:home-inventory-image-alt">
           </div>
         </div>
 
@@ -170,7 +183,7 @@
           </div>
           <div class="showcase-media">
             <div class="frame-bar"><span></span><span></span><span></span></div>
-            <img src="assets/overview_screenshot.png" alt="" data-l10n-attr="alt:home-viewport-image-alt">
+            <img src="assets/overview_screenshot.png" data-l10n-attr="alt:home-viewport-image-alt">
           </div>
         </div>
 
@@ -179,7 +192,7 @@
 
     <section class="roadmap-teaser">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head section-head--split">
           <div>
             <span class="eyebrow" data-l10n-id="home-teaser-eyebrow"></span>
             <h2 data-l10n-id="home-teaser-heading"></h2>

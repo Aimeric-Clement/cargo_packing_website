@@ -38,6 +38,9 @@
      fit-margin-bottom="0" />
   <defs
      id="defs2" />
+  <style>
+    <!--animations goes there-->
+  </style>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"

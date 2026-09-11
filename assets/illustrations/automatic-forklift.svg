@@ -38,7 +38,11 @@
      inkscape:current-layer="layer1"
      inkscape:lockguides="true" />
   <defs
-     id="defs2" />
+     id="defs2">
+    <style>
+      <!-- where animations goes -->
+    </style>
+  </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
@@ -150,6 +154,7 @@
        cx="62.051788"
        cy="121.18661"
        r="9.281249" />
+    <!-- Strobe light: red housing on top of forklift -->
     <rect
        style="fill:#ff2a2a;fill-opacity:1;stroke:none;stroke-width:1.27729;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect7537"
@@ -206,17 +211,21 @@
        style="fill:#666666;fill-opacity:1;stroke:none;stroke-width:1.86028;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 123.07024,83.373047 c -1.8892,-0.253292 -3.20934,2.000499 -3.20934,4.136856 V 106.6028 c 0,3.52582 2.76122,4.91373 7.52745,4.90599 l 37.22539,-0.0605 c 0.57567,0 -2.1402,-2.45859 -2.1402,-2.45859 l -34.36791,-0.39777 c -4.76565,-0.0552 -4.5917,-2.44155 -4.66037,-5.9667 z"
        sodipodi:nodetypes="csssccssc" />
+    <!-- Strobe light: bright yellow bar (left/wider stride) -->
     <rect
        style="fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect7817"
+       class="scanner"
        width="2.0551341"
        height="7.2924104"
        x="102.6235"
        y="54.759377"
        ry="1.027567" />
+    <!-- Strobe light: dimmer yellow bar (right/narrower stride) -->
     <rect
        style="fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.528;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect7819"
+       class="scanner-narrow"
        width="0.92812496"
        height="6.6508718"
        x="101.03243"

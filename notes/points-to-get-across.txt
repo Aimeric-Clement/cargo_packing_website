@@ -1,8 +1,8 @@
-software is lenient with small loadout imperfections.
-software is available in a few different languages (and designed with vietnam in mind actually).
+software is lenient when it comes to loading.
+software is available in a few different languages.
 software is native first, usable also in a browser.
+software has a good automatic placement engine.
 software is trying to make the manual workflow as good an snappy as possible, beside automatic placement.
-software is trying to have a fairly shallow UX, where you shouldn't need to click twice to do anything.
-software is for many containers at once, and it's where it gets it's main edge.
+software is meant to be used for a couple containers at once, not just one.
 software is fast!
 software is in developement.

@@ -40,7 +40,7 @@
       </details>
 
       <a class="btn btn-primary btn-small header-contact" href="contact.html">Contact</a>
-      <label for="nav-toggle" class="nav-toggle-btn" aria-label="Toggle menu" aria-controls="main-nav">
+      <label for="nav-toggle" class="nav-toggle-btn" aria-controls="main-nav" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </label>
     </div>
@@ -53,7 +53,7 @@
       <div class="container hero-grid">
         <div class="hero-copy reveal-up">
           <span class="eyebrow eyebrow-live"><span class="live-dot"></span><span>Coming soon</span></span>
-          <h1>Loadout planning with no guesswork.</h1>
+          <h1><b>Loadout planning</b> with no guesswork.</h1>
           <p class="hero-lede">Ready Cargo Packer is being built as a desktop software for planning load layouts, managing cargo lists, and preparing clear loading plans, all of it across multiple containers at once.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="roadmap.html">View the roadmap</a>
@@ -77,91 +77,104 @@
 
     <section class="feature-strip" id="features">
       <div class="container">
-        <div class="section-intro">
-          <span class="eyebrow">Desktop-first by design</span>
-          <h2>All of the information on one screen.</h2>
-          <p>Cargo lists, load visibility, and actions all appear on one screen. It runs offline as a native desktop tool, or in the browser.</p>
+        <div class="section-head">
+          <span class="eyebrow">Our approach</span>
+          <h2>All of our <b>goals</b>.</h2>
+          <p>The principles guiding development, and the capabilities already built around them.</p>
         </div>
 
-        <div class="feature-grid">
-          <!-- Automatic/manual placement: one of the illustrated cards, forklift art sits beside the copy -->
-          <div class="feature-card feature-card--auto-placement-illustration">
-            <img class="feature-illustration" src="../assets/illustrations/automatic-forklift.svg" alt="" aria-hidden="true">
-            <div class="feature-content">
+        <div class="feature-strip-body">
+          <ul class="key-points-list">
+            <li>Gives plenty of leeway to load-up realistically.</li>
+            <li>Available in a few different languages.</li>
+            <li>Native first, usable in a browser too.</li>
+            <li>A capable automatic placement engine.</li>
+            <li>Manual workflow kept as snappy as possible.</li>
+            <li>Built for several containers at once, not just one.</li>
+            <li>Extremely fast.</li>
+            <li><b>Still in development.</b> Your inputs could shape the way we imagine the ideal software.</li>
+          </ul>
+
+          <div class="feature-grid">
+            <!-- Automatic/manual placement: one of the illustrated cards, forklift art sits beside the copy -->
+            <div class="feature-card feature-card--auto-placement-illustration">
+              <img class="feature-illustration" src="../assets/illustrations/automatic-forklift.svg" alt="" aria-hidden="true">
+              <div class="feature-content">
+                <div class="feature-head">
+                  <div class="ic">
+                    <i class="fi-rr-truck-loading" aria-hidden="true"></i>
+                  </div>
+                  <h3>Automatic and manual placement</h3>
+                </div>
+                <p>Let the engine propose a tight baseline, then adjust it to your needs.</p>
+              </div>
+            </div>
+
+            <!-- Live 3D load inspection -->
+            <div class="feature-card">
               <div class="feature-head">
                 <div class="ic">
-                  <i class="fi-rr-truck-loading" aria-hidden="true"></i>
+                  <i class="fi-rr-cube" aria-hidden="true"></i>
                 </div>
-                <h3>Automatic and manual placement</h3>
+                <h3>Live 3D load inspection</h3>
               </div>
-              <p>Let the engine propose a tight baseline, then adjust it to your needs.</p>
+              <p>Solid or transparent rendering, hover dimensions, and corner markers show exactly what is happening inside the container.</p>
             </div>
-          </div>
 
-          <!-- Live 3D load inspection -->
-          <div class="feature-card">
-            <div class="feature-head">
-              <div class="ic">
-                <i class="fi-rr-cube" aria-hidden="true"></i>
-              </div>
-              <h3>Live 3D load inspection</h3>
-            </div>
-            <p>Solid or transparent rendering, hover dimensions, and corner markers show exactly what is happening inside the container.</p>
-          </div>
-
-          <!-- Multi-language support: plain card, paired with the illustrated one below to keep the illustration zigzagging between columns -->
-          <div class="feature-card">
-            <div class="feature-head">
-              <div class="ic">
-                <i class="fi-rr-language" aria-hidden="true"></i>
-              </div>
-              <h3>Not just english</h3>
-            </div>
-            <p>Multi-language support, so every operator on your team can work in their own language.</p>
-            <ul class="language-support" aria-label="Supported software languages">
-              <li><img src="../assets/icons/flag-fr.svg" alt="" aria-hidden="true"><span>Français</span></li>
-              <li><img src="../assets/icons/flag-vn.svg" alt="" aria-hidden="true"><span>Tiếng Việt</span></li>
-              <li><img src="../assets/icons/flag-gb.svg" alt="" aria-hidden="true"><span>English</span></li>
-            </ul>
-          </div>
-
-          <!-- Interface speed/responsiveness -->
-          <div class="feature-card feature-card--fast-interface-illustration">
-            <img class="feature-illustration" src="../assets/illustrations/chrono.svg" alt="" aria-hidden="true">
-            <div class="feature-content">
+            <!-- Multi-language support: plain card, paired with the illustrated one below to keep the illustration zigzagging between columns -->
+            <div class="feature-card">
               <div class="feature-head">
                 <div class="ic">
-                  <i class="fi-rr-stopwatch" aria-hidden="true"></i>
+                  <i class="fi-rr-language" aria-hidden="true"></i>
                 </div>
-                <h3>Snappy and fluent interface</h3>
+                <h3>Not just english</h3>
               </div>
-              <p>Built on Rust, every interaction is milliseconds-fast, which allows us to compute any kind of hints, or detect conflicts in real time.</p>
+              <p>Multi-language support, so every operator on your team can work in their own language.</p>
+              <ul class="language-support" aria-label="Supported software languages">
+                <li><img src="../assets/icons/flag-fr.svg" alt="" aria-hidden="true"><span>Français</span></li>
+                <li><img src="../assets/icons/flag-vn.svg" alt="" aria-hidden="true"><span>Tiếng Việt</span></li>
+                <li><img src="../assets/icons/flag-gb.svg" alt="" aria-hidden="true"><span>English</span></li>
+              </ul>
             </div>
-          </div>
 
-          <!-- Realistic packing constraints: the other illustrated card, heap art sits beside the copy -->
-          <div class="feature-card feature-card--realistic-packing-illustration">
-            <img class="feature-illustration" src="../assets/illustrations/uneven-heap.svg" alt="" aria-hidden="true">
-            <div class="feature-content">
+            <!-- Interface speed/responsiveness -->
+            <div class="feature-card feature-card--fast-interface-illustration">
+              <img class="feature-illustration" src="../assets/illustrations/chrono.svg" alt="" aria-hidden="true">
+              <div class="feature-content">
+                <div class="feature-head">
+                  <div class="ic">
+                    <i class="fi-rr-stopwatch" aria-hidden="true"></i>
+                  </div>
+                  <h3>Snappy and fluent interface</h3>
+                </div>
+                <p>Built on Rust, every interaction is milliseconds-fast, which allows us to compute any kind of hints, or detect conflicts in real time.</p>
+              </div>
+            </div>
+
+            <!-- Realistic packing constraints: the other illustrated card, heap art sits beside the copy -->
+            <div class="feature-card feature-card--realistic-packing-illustration">
+              <img class="feature-illustration" src="../assets/illustrations/uneven-heap.svg" alt="" aria-hidden="true">
+              <div class="feature-content">
+                <div class="feature-head">
+                  <div class="ic">
+                    <i class="fi-rr-boxes" aria-hidden="true"></i>
+                  </div>
+                  <h3>Built around real packing problems</h3>
+                </div>
+                <p>It allows practical leeway: short overhangs, stacking on <i>mostly</i> flush surfaces, and bridging over gaps.</p>
+              </div>
+            </div>
+
+            <!-- Keyboard-driven workflow -->
+            <div class="feature-card">
               <div class="feature-head">
                 <div class="ic">
-                  <i class="fi-rr-boxes" aria-hidden="true"></i>
+                  <i class="fi-rr-keyboard" aria-hidden="true"></i>
                 </div>
-                <h3>Built around real packing problems</h3>
+                <h3>Low-click, keyboard support and fast workflow</h3>
               </div>
-              <p>It allows practical leeway: short overhangs, stacking on <i>mostly</i> flush surfaces, and bridging over gaps.</p>
+              <p>UX designed for speed of use. Customizable key-binds and contextual shortcuts make packing much faster with regular operators.</p>
             </div>
-          </div>
-
-          <!-- Keyboard-driven workflow -->
-          <div class="feature-card">
-            <div class="feature-head">
-              <div class="ic">
-                <i class="fi-rr-keyboard" aria-hidden="true"></i>
-              </div>
-              <h3>Low-click, keyboard support and fast workflow</h3>
-            </div>
-            <p>UX designed for speed of use. Customizable key-binds and contextual shortcuts make packing much faster with regular operators.</p>
           </div>
         </div>
       </div>
@@ -173,7 +186,7 @@
         <div class="showcase-row">
           <div class="showcase-copy">
             <span class="eyebrow">Cargo list panel</span>
-            <h2>A clearer way to prepare shipment contents, all in one place.</h2>
+            <h2>A <b>clearer</b> way to prepare shipment contents, all in one place.</h2>
             <p>The cargo list workspace brings files, edits, and load progress into one view, cutting down back-and-forth spreadsheet work.</p>
             <div class="tag-row">
               <span class="tag">Live search</span>
@@ -209,10 +222,10 @@
 
     <section class="roadmap-teaser">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head section-head--split">
           <div>
             <span class="eyebrow">On the roadmap</span>
-            <h2>Features we are building next.</h2>
+            <h2>Features we are building <b>next</b>.</h2>
           </div>
           <a class="btn btn-ghost btn-small" href="roadmap.html">See the full roadmap →</a>
         </div>
@@ -270,7 +283,7 @@
   </div>
   <div class="footer-bottom">
     <span>© 2026 Ready Cargo Packer. Load planning software.</span>
-    <span class="made-in-france"><img src="../assets/french_flag_stripe.svg" alt="French flag"><span>Made in France</span></span>
+    <span class="made-in-france"><img src="../assets/french_flag_stripe.svg"><span>Made in France</span></span>
   </div>
 </footer>
 
