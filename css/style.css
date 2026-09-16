@@ -674,13 +674,16 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 /* Roadmap page proper */
 
 .roadmap-page-head { padding: 64px 0 0; }
-.roadmap-head-row {
+
+/* shared page-header layout: heading copy beside a decorative illustration, reused by any page whose intro is just an eyebrow/h1(/lede) */
+.page-head-row {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 32px;
 }
-.roadmap-head-text { flex: 1 1 auto; min-width: 0; }
-.roadmap-head-illustration {
+.page-head-text { flex: 1 1 auto; min-width: 0; }
+.page-head-illustration {
   flex: 0 0 auto;
   width: 500px;
   height: 250px;
@@ -778,6 +781,25 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .cta-band p { color: rgb(from var(--c-white) r g b / 0.8); max-width: 48ch; margin: 0; }
 .cta-band .btn-primary { background: var(--c-white); color: var(--c-primary); flex: none; }
 .cta-band .btn-primary:hover { background: var(--c-accent-yellow); color: var(--c-ink); }
+
+/* ---------------- About page ---------------- */
+
+/* vertically centered like the hero: with no body copy yet, letting the row
+   sit at a fixed top offset would leave one giant empty gap above the footer */
+.about-page {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - var(--header-h));
+  padding: 60px 0;
+}
+/* unlike the roadmap row, the heading here has no lede to balance a wide illustration against, so keep both hugging together on the left instead of stretching apart */
+.about-page .page-head-row { justify-content: flex-start; gap: 28px; }
+.about-page .page-head-text { flex: 0 1 auto; }
+/* the forklift art is near-square, unlike the roadmap illustration's wide box crop, so it gets its own natural-ratio sizing here; sized small since it's just a "work in progress" flourish */
+.about-page .page-head-illustration {
+  width: 130px;
+  height: auto;
+}
 
 /* ---------------- Contact page ---------------- */
 
@@ -915,7 +937,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   .roadmap-now { flex-direction: row; padding: 8px 0; }
   .roadmap-now::before { flex: 1; width: auto; height: 2px; }
   .roadmap-now-label { writing-mode: horizontal-tb; }
-  .roadmap-head-illustration { display: none; }
+  .page-head-illustration { display: none; }
 }
 
 @media (max-width: 720px) {
@@ -998,6 +1020,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   .cta-band .btn { width: 100%; justify-content: center; }
 
   .contact-page { padding: 40px 0 64px; }
+  .about-page { padding: 40px 0 56px; min-height: auto; }
   .contact-card { padding: 22px; }
   .contact-card .form-foot { flex-direction: column; align-items: stretch; gap: 12px; }
   .contact-card .form-foot small { text-align: center; }

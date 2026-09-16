@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128.59825mm"
+   height="118.81215mm"
+   viewBox="0 0 128.59825 118.81215"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="automatic-forklift.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <style
+     id="style872">.body { animation: taxi-wobble 0.7s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.body_outer_shell { animation: taxi-wobble-shell 0.7s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.front_wheel { animation: wheel-vibe 1.5s linear infinite; transform-box: fill-box; transform-origin: center; }
+.back_wheel { animation: wheel-vibe 1.5s linear infinite; transform-box: fill-box; transform-origin: center; }
+.shadows {  }
+.antena { animation: antena-wiggle 0.7s ease-in-out infinite; transform-box: fill-box; transform-origin: 100% 100%; }
+.light_strob {  }
+.highlight_strob {  }
+.strob_base {
+  animation: strob-pulse 0.5s ease-in-out infinite alternate;
+}
+@keyframes strob-pulse {
+  from { fill-opacity: 0.85; }
+  to { fill-opacity: 1; }
+}
+.lift_rail { animation: lift-sway 0.7s ease-in-out infinite; transform-box: fill-box; transform-origin: bottom center; }
+.fork { animation: lift-sway 0.7s ease-in-out infinite; transform-box: fill-box; transform-origin: bottom center; }
+.lower_box { animation: box-toss 0.7s ease-in-out infinite; transform-box: fill-box; transform-origin: bottom center; }
+.upper_box { animation: box-toss 0.7s ease-in-out infinite; transform-box: fill-box; transform-origin: bottom center; }
+.upper_box_detail { animation: box-toss 0.7s ease-in-out infinite; transform-box: fill-box; transform-origin: bottom center; }
+@keyframes taxi-wobble {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-0.1mm) rotate(0.6deg); }
+}
+@keyframes taxi-wobble-shell {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-0.2mm) rotate(-0.4deg); }
+}
+@keyframes lift-sway {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-0.4mm) rotate(1deg); }
+}
+@keyframes box-toss {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(0.3mm) rotate(-1.2deg); }
+  75% { transform: translateY(-0.2mm) rotate(0.8deg); }
+}
+@keyframes wheel-vibe {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  12% { transform: translateX(-0.25px) rotate(42deg); }
+  24% { transform: translateX(0.3px) rotate(108deg); }
+  48% { transform: translateX(-0.22px) rotate(216deg); }
+  70% { transform: translateX(0.18px) rotate(300deg); }
+  86% { transform: translateX(-0.1px) rotate(336deg); }
+  100% { transform: translateX(0) rotate(360deg); }
+}
+@keyframes antena-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-0.8deg); }
+  50% { transform: rotate(0.5deg); }
+  75% { transform: rotate(-0.3deg); }
+}
+</style>
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#dbdbdb"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.7497493"
+     inkscape:cx="341.47749"
+     inkscape:cy="240.6059"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:lockguides="true" />
+  <defs
+     id="defs2">
+    <filter
+       id="strobGlow"
+       x="-50%"
+       y="-50%"
+       width="200%"
+       height="200%">
+      <feGaussianBlur
+         in="SourceGraphic"
+         stdDeviation="1.2"
+         result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-36.095592,-14.319643)">
+    <rect
+       style="fill:#c8beb7;fill-opacity:1;stroke:none;stroke-width:3.46759;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect13710-8"
+       width="45.685013"
+       height="11.321702"
+       x="66.500801"
+       y="119.48461"
+       ry="4.7428699"
+       class="shadows" />
+    <rect
+       style="fill:#c8beb7;fill-opacity:1;stroke:none;stroke-width:2.065;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect13708"
+       width="21.18858"
+       height="5.8127966"
+       x="51.190113"
+       y="125.06888"
+       ry="2.9063983"
+       class="shadows" />
+    <rect
+       style="fill:#c8beb7;fill-opacity:1;stroke:none;stroke-width:2.01427;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect13710"
+       width="25.155771"
+       height="6.9378538"
+       x="95.032043"
+       y="125.98009"
+       ry="2.906395"
+       class="shadows" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.065;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 72.156047,67.791613 C 72.156047,67.791613 71.249919,61.37386 69.723209,57.874711 67.838764,53.555652 65.813037,49.859955 61.116236,49.47857 58.664829,49.279513 58.119618,51.181368 58.119618,51.181368"
+       id="path10219"
+       sodipodi:nodetypes="cssc"
+       class="antena">
+      <animate
+         attributeName="d"
+         dur="0.7s"
+         repeatCount="indefinite"
+         calcMode="linear"
+         keyTimes="0;0.25;0.5;0.75;1"
+         values="M 72.156047,67.791613 C 72.156047,67.791613 71.203,61.37386 69.565,57.874711 67.541,53.555652 65.393,49.859955 60.643,49.47857 58.246,49.279513 57.885,51.181368 58.164,51.181368;M 72.206047,67.791613 C 72.206047,67.791613 71.361,61.37386 69.876,57.874711 67.955,53.555652 65.801,49.859955 60.9,49.47857 58.208,49.279513 57.461,51.181368 57.361,51.181368;M 72.156047,67.791613 C 72.156047,67.791613 71.297,61.37386 69.881,57.874711 68.137,53.555652 66.233,49.859955 61.589,49.47857 59.084,49.279513 58.355,51.181368 58.076,51.181368;M 72.106047,67.791613 C 72.106047,67.791613 71.139,61.37386 69.57,57.874711 67.723,53.555652 65.825,49.859955 61.332,49.47857 59.122,49.279513 58.779,51.181368 58.879,51.181368;M 72.156047,67.791613 C 72.156047,67.791613 71.203,61.37386 69.565,57.874711 67.541,53.555652 65.393,49.859955 60.643,49.47857 58.246,49.279513 57.885,51.181368 58.164,51.181368" />
+    </path>
+    <g class="upper_box">
+      <path
+         id="rect8638-5"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:5.36934;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 452.68945,179.54102 c -1.28785,-0.0387 -2.35288,0.96792 -2.38867,2.25586 l -2.9707,106.9082 c -0.0358,1.28794 0.97191,2.35585 2.25976,2.39453 l 114.00196,3.42187 c 1.28785,0.0387 2.35288,-0.96596 2.38867,-2.2539 l 2.9707,-106.9082 c 0.0358,-1.28794 -0.97191,-2.35586 -2.25976,-2.39454 z"
+         transform="scale(0.26458333)" />
+      <path
+         id="rect8638-5-8"
+         style="fill:#d38d5f;fill-opacity:1;stroke:none;stroke-width:0.977513;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 124.16956,52.288712 c -0.24247,-0.0068 -0.44298,0.170394 -0.44972,0.397125 l -0.5593,18.820206 c -0.006,0.22673 0.18298,0.414726 0.42545,0.421534 l 21.46332,0.60239 c 0.24246,0.0068 0.44298,-0.170049 0.44972,-0.39678 l 0.5593,-18.820205 c 0.006,-0.22673 -0.18298,-0.414728 -0.42545,-0.421537 z" />
+      <path
+         id="rect8638-5-5-0-9"
+         style="fill:#d38d5f;fill-opacity:1;stroke:none;stroke-width:0.273647;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 120.48549,74.223827 c -0.19042,0.0035 -0.37911,0.0794 -0.44597,0.186441 l -1.27507,2.817514 c 0.0387,-8.98e-4 0.0777,-0.0019 0.11678,-0.0019 l 28.73395,0.07012 2.1391,-0.290415 c 0.0764,-0.122338 0.18551,-1.645637 -0.0305,-1.6663 L 120.56663,74.22692 c -0.0269,-0.0026 -0.0539,-0.0036 -0.0811,-0.0031 z"
+         sodipodi:nodetypes="cccscccccc" />
+    </g>
+    <g class="lower_box">
+      <rect
+         style="fill:#d38d5f;fill-opacity:1;stroke:none;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect8638"
+         width="36.064289"
+         height="32.616959"
+         x="125.79007"
+         y="76.839912"
+         ry="0.67972255"
+         transform="rotate(-0.18643899)" />
+
+      <rect
+         style="fill:#c87137;fill-opacity:1;stroke:none;stroke-width:0.469175;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect8638-6"
+         width="22.504704"
+         height="4.4944596"
+         x="124.43067"
+         y="77.071678"
+         ry="1.1962212"
+         transform="matrix(0.99999173,-0.00406772,0.01808474,0.99983646,0,0)" />
+      <rect
+         style="fill:#c87137;fill-opacity:1;stroke:none;stroke-width:0.588691;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect8638-6-1"
+         width="35.424923"
+         height="4.4951806"
+         x="123.91203"
+         y="104.53871"
+         ry="1.1964132"
+         transform="matrix(0.9999999,-4.564266e-4,0.02319227,0.99973102,0,0)" />
+    </g>
+    <rect
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.51072;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5591"
+       width="53.300892"
+       height="50.118748"
+       x="63.64286"
+       y="72.658928"
+       class= "body" />
+    <rect
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7535"
+       width="7.5003824"
+       height="19.688505"
+       x="97.317459"
+       y="51.565128"
+       ry="1.0607145"
+       class= "body"/>
+    <g class="body">
+      <path
+         id="rect5591-9"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:4.99306;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 161.24219,184.91602 c -4.16435,0 -7.51758,3.35127 -7.51758,7.51562 v 160.35938 c 0,4.16434 3.35323,7.51757 7.51758,7.51757 h 151.33984 c 4.16435,0 7.51563,-3.35323 7.51563,-7.51757 l 0.35435,-115.74164 -5.90709,-1.22907 c -1.28783,-0.0387 -2.29378,-1.10659 -2.25976,-2.39453 l 1.3457,-48.42969 c -0.34391,-0.0478 -0.69135,-0.0801 -1.04883,-0.0801 z"
+         sodipodi:nodetypes="ssssssccccss"
+         transform="matrix(0.26458333,0,0,0.26458333,36.095592,14.319643)"/>
+    </g>
+    <rect
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:1.56397;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5991"
+       width="4.7732143"
+       height="100.58815"
+       x="113.28297"
+       y="16.111031"
+       ry="2.0626051"
+       transform="rotate(-0.88246807)"
+       class="lift_rail" />
+    <g class="sticky_trail sticky_trail_back_wheel">
+      <g transform="translate(58.9,130.47)">
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0; -30 0" keyTimes="0; 1" dur="2.6s" begin="-0.00s" repeatCount="indefinite" calcMode="linear" />
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0; 10; 0; 0; 0" keyTimes="0; 0.06; 0.18; 0.36; 1" dur="2.6s" begin="-0.00s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;1;1;0.45;0;0" keyTimes="0;0.14;0.3;0.5;0.7;1" dur="2.6s" begin="-0.00s" repeatCount="indefinite" />
+            <rect x="-1.05" y="-2.1" width="2.1" height="2.1" rx="0.45" ry="0.45" style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+          </g>
+        </g>
+      </g>
+      <g transform="translate(58.9,130.47)">
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0; -30 0" keyTimes="0; 1" dur="2.6s" begin="-0.36s" repeatCount="indefinite" calcMode="linear" />
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0; 10; 0; 0; 0" keyTimes="0; 0.06; 0.18; 0.35; 1" dur="2.6s" begin="-0.36s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;1;1;0.35;0;0" keyTimes="0;0.13;0.28;0.48;0.7;1" dur="2.6s" begin="-0.36s" repeatCount="indefinite" />
+            <rect x="-1.3" y="-2.3" width="2.6" height="2.3" rx="0.5" ry="0.5" style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+          </g>
+        </g>
+      </g>
+      <g transform="translate(58.9,130.47)">
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0; -26 0" keyTimes="0; 1" dur="2.6s" begin="-0.78s" repeatCount="indefinite" calcMode="linear" />
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0; 8; 0; 0; 0" keyTimes="0; 0.06; 0.18; 0.34; 1" dur="2.6s" begin="-0.78s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;1;1;0.4;0;0" keyTimes="0;0.14;0.3;0.52;0.73;1" dur="2.6s" begin="-0.78s" repeatCount="indefinite" />
+            <rect x="-0.9" y="-1.8" width="1.8" height="1.8" rx="0.4" ry="0.4" style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+          </g>
+        </g>
+      </g>
+      <g transform="translate(58.9,130.47)">
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0; -30 0" keyTimes="0; 1" dur="2.6s" begin="-1.25s" repeatCount="indefinite" calcMode="linear" />
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0; -8; 0; 0; 0" keyTimes="0; 0.06; 0.18; 0.34; 1" dur="2.6s" begin="-1.25s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;1;1;0.3;0;0" keyTimes="0;0.13;0.28;0.48;0.68;1" dur="2.6s" begin="-1.25s" repeatCount="indefinite" />
+            <rect x="-1.15" y="-2.1" width="2.3" height="2.1" rx="0.48" ry="0.48" style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+          </g>
+        </g>
+      </g>
+      <g transform="translate(58.9,130.47)">
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0; -30 0" keyTimes="0; 1" dur="2.6s" begin="-1.72s" repeatCount="indefinite" calcMode="linear" />
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0; 8; 0; 0; 0" keyTimes="0; 0.06; 0.18; 0.34; 1" dur="2.6s" begin="-1.72s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;1;1;0.4;0;0" keyTimes="0;0.13;0.28;0.5;0.72;1" dur="2.6s" begin="-1.72s" repeatCount="indefinite" />
+            <rect x="-1.4" y="-2.3" width="2.8" height="2.3" rx="0.55" ry="0.55" style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <g class="sticky_trail sticky_trail_front_wheel">
+      <g transform="translate(103.9,132.45)">
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0; -30 0" keyTimes="0; 1" dur="2.6s" begin="-0.12s" repeatCount="indefinite" calcMode="linear" />
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0; -8; 0; 0; 0" keyTimes="0; 0.06; 0.18; 0.36; 1" dur="2.6s" begin="-0.12s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;1;1;0.4;0;0" keyTimes="0;0.13;0.3;0.52;0.73;1" dur="2.6s" begin="-0.12s" repeatCount="indefinite" />
+            <rect x="-1.2" y="-2.1" width="2.4" height="2.1" rx="0.52" ry="0.52" style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+          </g>
+        </g>
+      </g>
+      <g transform="translate(103.9,132.45)">
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0; -29 0" keyTimes="0; 1" dur="2.6s" begin="-0.46s" repeatCount="indefinite" calcMode="linear" />
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0; 8; 0; 0; 0" keyTimes="0; 0.06; 0.18; 0.34; 1" dur="2.6s" begin="-0.46s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;1;1;0.35;0;0" keyTimes="0;0.13;0.29;0.5;0.7;1" dur="2.6s" begin="-0.46s" repeatCount="indefinite" />
+            <rect x="-0.95" y="-1.8" width="1.9" height="1.8" rx="0.46" ry="0.46" style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+          </g>
+        </g>
+      </g>
+      <g transform="translate(103.9,132.45)">
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0; -30 0" keyTimes="0; 1" dur="2.6s" begin="-0.94s" repeatCount="indefinite" calcMode="linear" />
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0; 8; 0; 0; 0" keyTimes="0; 0.06; 0.18; 0.34; 1" dur="2.6s" begin="-0.94s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;1;1;0.35;0;0" keyTimes="0;0.12;0.28;0.5;0.7;1" dur="2.6s" begin="-0.94s" repeatCount="indefinite" />
+            <rect x="-1.45" y="-2.3" width="2.9" height="2.3" rx="0.58" ry="0.58" style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+          </g>
+        </g>
+      </g>
+      <g transform="translate(103.9,132.45)">
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0; -30 0" keyTimes="0; 1" dur="2.6s" begin="-1.35s" repeatCount="indefinite" calcMode="linear" />
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0; -8; 0; 0; 0" keyTimes="0; 0.06; 0.18; 0.34; 1" dur="2.6s" begin="-1.35s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;1;1;0.4;0;0" keyTimes="0;0.13;0.3;0.52;0.73;1" dur="2.6s" begin="-1.35s" repeatCount="indefinite" />
+            <rect x="-1.05" y="-1.9" width="2.1" height="1.9" rx="0.5" ry="0.5" style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+          </g>
+        </g>
+      </g>
+      <g transform="translate(103.9,132.45)">
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0; -30 0" keyTimes="0; 1" dur="2.6s" begin="-1.88s" repeatCount="indefinite" calcMode="linear" />
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0; 8; 0; 0; 0" keyTimes="0; 0.06; 0.18; 0.34; 1" dur="2.6s" begin="-1.88s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;1;1;0.35;0;0" keyTimes="0;0.12;0.28;0.5;0.7;1" dur="2.6s" begin="-1.88s" repeatCount="indefinite" />
+            <rect x="-1.25" y="-1.8" width="2.5" height="1.8" rx="0.45" ry="0.45" style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <circle
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.30233;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5146"
+       cx="62.051788"
+       cy="121.18661"
+       r="9.281249"
+       class="back_wheel" />
+
+    <rect
+       style="fill:#d45500;fill-opacity:1;stroke:none;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5294"
+       width="48.792858"
+       height="54.361607"
+       x="62.582142"
+       y="65.764282"
+       ry="8.7508926"
+       class="body_outer_shell" />
+    <rect
+       style="fill:#ff7f2a;fill-opacity:1;stroke:none;stroke-width:1.48252;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5294-1"
+       width="48.792858"
+       height="46.671429"
+       x="62.316967"
+       y="65.896873"
+       ry="7.5129614"
+       class="body_outer_shell" />
+    <circle
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5717"
+       cx="107.66249"
+       cy="121.45178"
+       r="11.137501"
+       class="front_wheel" />
+    <circle
+       style="fill:#ac9393;fill-opacity:1;stroke:none;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5821"
+       cx="107.66249"
+       cy="121.45178"
+       r="6.3642855"
+       class="front_wheel" />
+    <circle
+       style="fill:#ac9393;fill-opacity:1;stroke:none;stroke-width:0.866666;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5821-1"
+       cx="62.051788"
+       cy="121.18661"
+       r="3.4473212"
+       class="back_wheel" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect6784"
+       width="2.1214285"
+       height="95.199104"
+       x="116.19994"
+       y="17.436924"
+       ry="1.0607142"
+       transform="rotate(-0.88246807)"
+       class="lift_rail" />
+    <path
+       id="rect6260"
+       style="fill:#666666;fill-opacity:1;stroke:none;stroke-width:1.86028;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 123.07024,83.373047 c -1.8892,-0.253292 -3.20934,2.000499 -3.20934,4.136856 V 106.6028 c 0,3.52582 2.76122,4.91373 7.52745,4.90599 l 37.22539,-0.0605 c 0.57567,0 -2.1402,-2.45859 -2.1402,-2.45859 l -34.36791,-0.39777 c -4.76565,-0.0552 -4.5917,-2.44155 -4.66037,-5.9667 z"
+       sodipodi:nodetypes="csssccssc"
+       class="fork" />
+    <g
+       class="strob_group"
+       filter="url(#strobGlow)">
+      <rect
+         style="fill:#ff2a2a;fill-opacity:1;stroke:none;stroke-width:1.27729;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect7537"
+         width="7.8432307"
+         height="7.687892"
+         x="97.097031"
+         y="54.565281"
+         ry="0.6302796"
+         class="light_strob strob_base" />
+      <rect
+         style="fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect7817"
+         width="2.0551341"
+         height="7.2924104"
+         x="102.6235"
+         y="54.759377"
+         ry="1.027567"
+         class="highlight_strob strob_highlight">
+        <animate
+           attributeName="x"
+           dur="1.6s"
+           repeatCount="indefinite"
+           values="97.0; 97.0; 99.0; 101.0; 103.0; 104.9; 104.9; 97.0"
+           keyTimes="0; 0.05; 0.22; 0.45; 0.68; 0.85; 0.95; 1" />
+        <animate
+           attributeName="width"
+           dur="1.6s"
+           repeatCount="indefinite"
+           values="0.4; 0.4; 1.6; 2.4; 1.6; 0.4; 0.4; 0.4"
+           keyTimes="0; 0.05; 0.22; 0.45; 0.68; 0.85; 0.95; 1" />
+        <animate
+           attributeName="height"
+           dur="1.6s"
+           repeatCount="indefinite"
+           values="5.0; 5.0; 6.5; 7.5; 6.5; 5.0; 5.0; 5.0"
+           keyTimes="0; 0.05; 0.22; 0.45; 0.68; 0.85; 0.95; 1" />
+        <animate
+           attributeName="y"
+           dur="1.6s"
+           repeatCount="indefinite"
+           values="55.9056; 55.9056; 55.1556; 54.6556; 55.1556; 55.9056; 55.9056; 55.9056"
+           keyTimes="0; 0.05; 0.22; 0.45; 0.68; 0.85; 0.95; 1" />
+        <animate
+           attributeName="opacity"
+           dur="1.6s"
+           repeatCount="indefinite"
+           values="0; 1; 1; 1; 1; 1; 0; 0"
+           keyTimes="0; 0.05; 0.22; 0.45; 0.68; 0.85; 0.95; 1" />
+      </rect>
+      <rect
+         style="fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.528;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect7819"
+         width="0.92812496"
+         height="6.6508718"
+         x="101.03243"
+         y="55.070038"
+         ry="0.42323729"
+         class="highlight_strob strob_highlight strob_highlight_thin">
+        <animate
+           attributeName="x"
+           dur="1.6s"
+           begin="-1.35s"
+           repeatCount="indefinite"
+           values="97.0; 97.0; 99.0; 101.0; 103.0; 104.9; 104.9; 97.0"
+           keyTimes="0; 0.05; 0.22; 0.45; 0.68; 0.85; 0.95; 1" />
+        <animate
+           attributeName="width"
+           dur="1.6s"
+           begin="-1.35s"
+           repeatCount="indefinite"
+           values="0.18; 0.18; 0.75; 1.1; 0.75; 0.18; 0.18; 0.18"
+           keyTimes="0; 0.05; 0.22; 0.45; 0.68; 0.85; 0.95; 1" />
+        <animate
+           attributeName="height"
+           dur="1.6s"
+           begin="-1.35s"
+           repeatCount="indefinite"
+           values="4.5; 4.5; 5.8; 6.7; 5.8; 4.5; 4.5; 4.5"
+           keyTimes="0; 0.05; 0.22; 0.45; 0.68; 0.85; 0.95; 1" />
+        <animate
+           attributeName="y"
+           dur="1.6s"
+           begin="-1.35s"
+           repeatCount="indefinite"
+           values="56.1455; 56.1455; 55.4955; 55.0455; 55.4955; 56.1455; 56.1455; 56.1455"
+           keyTimes="0; 0.05; 0.22; 0.45; 0.68; 0.85; 0.95; 1" />
+        <animate
+           attributeName="opacity"
+           dur="1.6s"
+           begin="-1.35s"
+           repeatCount="indefinite"
+           values="0; 1; 1; 1; 1; 1; 0; 0"
+           keyTimes="0; 0.05; 0.22; 0.45; 0.68; 0.85; 0.95; 1" />
+      </rect>
+    </g>
+
+    <rect
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.28285;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7923"
+       width="23.998659"
+       height="2.3866069"
+       x="69.344193"
+       y="74.647758"
+       ry="1.1933035"
+       class="body_outer_shell" />
+    <rect
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.28285;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7923-8"
+       width="23.998659"
+       height="2.3866069"
+       x="69.410484"
+       y="80.879463"
+       ry="1.1933035"
+       class="body_outer_shell" />
+    <path
+       id="rect11510"
+       style="fill:#ffe6d5;fill-opacity:1;stroke:none;stroke-width:10.636;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 499.53125,372.06641 c -3.28116,0 -5.92383,2.64071 -5.92383,5.92187 v 15.79492 c 0,3.28117 2.64267,5.92188 5.92383,5.92188 h 18.98242 c 3.28117,0 5.92188,-2.64071 5.92188,-5.92188 v -9.36718 c -0.37634,-0.18959 -0.72275,-0.45649 -1.01172,-0.80079 l -9.69141,-11.54882 z"
+       transform="scale(0.26458333)"
+       class="lower_box" />
+    <g class="upper_box_detail">
+      <path
+         id="rect15993"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.20784;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 143.17775,66.865981 c -0.003,-1.09e-4 -0.007,5.1e-5 -0.0102,2.73e-4 -0.0484,0.0031 -0.097,0.03949 -0.13619,0.109818 l -1.19319,2.142267 0.94536,0.02802 -0.0448,1.51272 c -0.003,0.101055 0.0846,0.185077 0.19638,0.188391 l 0.28916,0.0086 c 0.11179,0.0033 0.20419,-0.07537 0.20719,-0.176431 l 0.0448,-1.51272 0.90437,0.0268 -1.06391,-2.209161 c -0.0371,-0.07705 -0.0876,-0.116717 -0.13896,-0.118549 z" />
+      <path
+         id="rect15993-0"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.20784;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 140.32551,66.796095 c -0.003,-1.09e-4 -0.007,5.1e-5 -0.0102,2.73e-4 -0.0484,0.0031 -0.097,0.03949 -0.13619,0.109818 l -1.19319,2.142267 0.94536,0.02802 -0.0448,1.51272 c -0.003,0.101055 0.0846,0.185077 0.19638,0.188391 l 0.28916,0.0086 c 0.11179,0.0033 0.20419,-0.07537 0.20719,-0.176431 l 0.0448,-1.51272 0.90437,0.0268 -1.06391,-2.209161 c -0.0371,-0.07705 -0.0876,-0.116717 -0.13896,-0.118549 z" />
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.065;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect16227"
+         width="5.7893577"
+         height="0.82035434"
+         x="142.43954"
+         y="62.643379"
+         ry="0.32814151"
+         transform="rotate(3.4122725)" />
+    </g>
+    <circle
+       style="fill:#000000;stroke-width:1.91191"
+       id="path1462"
+       cx="107.73409"
+       cy="121.56355"
+       r="1.1761544"
+       class="front_wheel" />
+  </g>
+</svg>
