@@ -1,8 +1,21 @@
 /* ============================================================
-   Ready Cargo Packer — industrial / formal theme derived from the logo
-   Palette: Contained selection right below.
-   ============================================================ */
+  Ready Cargo Packer site styles
+  The palette is right below and we shouldn't be using any other colors.
+  The fonts and font sizes as well, with the same consistency constraints.
+  ============================================================ */
+/* ---------------- Fonts ---------------- */
+@import url("../assets/fonts/catalog.css");
 
+@font-face {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  font-display: swap;
+}
+
+/* ---------------- Theme tokens ---------------- */
 :root {
   --c-primary: #126e5d;
   --c-accent-red: #f94144;
@@ -16,13 +29,14 @@
   --c-bg: #f2f4f3;
   --c-white: #ffffff;
 
-  --font-head: "Bebas Neue", "Arial Narrow", "Segoe UI Condensed", sans-serif;
+  --font-heading: "Anton", Impact, sans-serif;
+  --font-brand: "Bebas Neue", "Arial Narrow", "Segoe UI Condensed", sans-serif;
   --font-body: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  --font-size-extra-large : 2.6rem;
-  --font-size-large : 1.6rem;
-  --font-size-regular : 0.9rem;
-  --font-size-detail : 0.7rem;
+  --font-size-extra-large: 2.6rem;
+  --font-size-large: 1.6rem;
+  --font-size-regular: 0.9rem;
+  --font-size-detail: 0.7rem;
 
   --radius: 3px;
   --shadow-color: rgba(2, 2, 2, 0.212);
@@ -34,7 +48,7 @@
   --shell-pad: clamp(24px, 4vw, 72px);
   --header-h: 68px;
 }
-
+/* ---------------- Global defaults ---------------- */
 * { box-sizing: border-box; }
 
 body {
@@ -61,10 +75,8 @@ body::before {
   z-index: -1;
 }
 
-
-
 h1, h2, h3, h4 {
-  font-family: var(--font-head);
+  font-family: var(--font-heading);
   font-weight: 400;
   color: var(--c-ink);
   margin: 0 0 0.5em;
@@ -75,6 +87,7 @@ h1 { font-size: var(--font-size-extra-large); line-height: 1.12; }
 h2 { font-size: var(--font-size-large); }
 h3 { font-size: var(--font-size-regular); }
 
+/* ---------------- Shared text and motion patterns ---------------- */
 /* translation catalogs mark emphasized words with <b> */
 b {
   font-weight: inherit;
@@ -85,9 +98,6 @@ b {
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
-
-/* stats use <b> for plain large numbers, not the cream underline */
-.hero-stats .stat b { background-image: none; }
 
 p { margin: 0 0 1em; color: var(--c-ink-soft); }
 
@@ -154,7 +164,7 @@ a:hover { text-decoration: underline; }
   .live-dot::after { animation: none; }
 }
 
-/* ---------------- Header ---------------- */
+/* ---------------- Shared site header ---------------- */
 
 .site-header {
   position: sticky;
@@ -187,14 +197,16 @@ a:hover { text-decoration: underline; }
   align-items: center;
   flex-shrink: 0;
   gap: 12px;
-  font-family: var(--font-head);
-  font-weight: 400;
   font-size: var(--font-size-large);
   line-height: 1;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--c-ink);
   white-space: nowrap;
+}
+.brand-name {
+  font-family: var(--font-brand);
+  font-weight: 400;
 }
 .brand:hover { color: var(--c-ink); }
 .brand img { height: 48px; width: auto; display: block; flex-shrink: 0; }
@@ -295,7 +307,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .language-options a:hover { color: var(--c-primary); background: var(--c-bg); }
 .language-option-flag { width: 18px; height: 13px; display: block; border-radius: 2px; object-fit: cover; }
 
-/* ---------------- Hero ---------------- */
+/* ---------------- Home page: hero ---------------- */
 
 .hero {
   position: relative;
@@ -342,9 +354,10 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 }
 .hero-stats .stat b {
   display: block;
-  font-family: var(--font-head);
+  font-family: var(--font-heading);
   font-size: var(--font-size-large);
   color: var(--c-primary);
+  background-image: none;
 }
 .hero-stats .stat span {
   font-size: var(--font-size-detail);
@@ -426,7 +439,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .frame-bar span:nth-child(2) { background: var(--c-accent-orange); }
 .frame-bar span:nth-child(3) { background: var(--c-primary); }
 
-/* ---------------- Feature strip ---------------- */
+/* ---------------- Home page: feature strip ---------------- */
 
 .feature-strip {
   padding: 52px 0;
@@ -601,7 +614,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   box-shadow: 0 2px 3px -2px var(--shadow-color);
 }
 
-/* ---------------- Showcase rows ---------------- */
+/* ---------------- Home page: showcase ---------------- */
 
 .showcase { padding: 62px 0; border-bottom: 1px solid var(--c-line); }
 .showcase-row {
@@ -638,7 +651,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .tag.red { border-color: var(--c-accent-red); color: var(--c-accent-red); }
 .tag.orange { border-color: var(--c-accent-orange); color: var(--c-accent-orange); }
 
-/* ---------------- Roadmap teaser & full roadmap ---------------- */
+/* ---------------- Home page: roadmap teaser ---------------- */
 
 .roadmap-teaser { padding: 62px 0; background: var(--c-bg); }
 .section-head--split {
@@ -671,7 +684,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .teaser-card h3 {font-size: var(--font-size-large); margin-bottom: 6px; }
 .teaser-card p { margin: 0; }
 
-/* Roadmap page proper */
+/* ---------------- Roadmap page ---------------- */
 
 .roadmap-page-head { padding: 64px 0 0; }
 
@@ -701,7 +714,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .roadmap-column { min-width: 0; }
 .roadmap-column-head h2 { margin: 0; }
 .roadmap-column-head .badge {
-  font-family: var(--font-head);
+  font-family: var(--font-heading);
   font-size: var(--font-size-detail);
   color: var(--c-ink-soft);
 }
@@ -720,7 +733,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   background: var(--c-accent-orange);
 }
 .roadmap-now-label {
-  font-family: var(--font-head);
+  font-family: var(--font-heading);
   font-size: var(--font-size-detail);
   text-transform: uppercase;
   color: var(--c-accent-orange);
@@ -749,7 +762,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: var(--font-size-detail);
-  font-family: var(--font-head);
+  font-family: var(--font-heading);
 }
 .roadmap-item.shipped .mark { background: var(--c-bg); color: var(--c-primary); }
 .roadmap-item.planned .mark { background: var(--c-accent-yellow); color: var(--c-accent-orange); }
@@ -763,7 +776,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   padding-top: 18px;
 }
 
-/* ---------------- CTA band ---------------- */
+/* ---------------- Shared CTA band ---------------- */
 
 .cta-band {
   padding: 44px 0;
@@ -777,6 +790,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   gap: 28px;
   flex-wrap: wrap;
 }
+.cta-actions { display: flex; align-items: center; gap: 12px; flex: none; }
 .cta-band h2 { color: var(--c-white); margin: 0 0 6px; }
 .cta-band p { color: rgb(from var(--c-white) r g b / 0.8); max-width: 48ch; margin: 0; }
 .cta-band .btn-primary { background: var(--c-white); color: var(--c-primary); flex: none; }
@@ -823,7 +837,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .field { margin-bottom: 20px; }
 .field label {
   display: block;
-  font-family: var(--font-head);
+  font-family: var(--font-heading);
   font-size: var(--font-size-detail);
   text-transform: uppercase;
   color: var(--c-ink-soft);
@@ -854,7 +868,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 }
 .contact-card .form-foot small { color: var(--c-ink-soft); font-size: var(--font-size-detail); }
 
-/* ---------------- Footer ---------------- */
+/* ---------------- Shared site footer ---------------- */
 
 .site-footer {
   background: var(--c-ink);
@@ -902,7 +916,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--font-head);
+  font-family: var(--font-heading);
   font-size: var(--font-size-detail);
   text-transform: uppercase;
   color: var(--c-line);
@@ -913,7 +927,91 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   border-radius: 2px;
 }
 
-/* ---------------- Responsive ---------------- */
+/* ---------------- Auto-pack overlay ---------------- */
+
+.auto-pack-trigger {
+  border: 1px dashed rgb(from var(--c-accent-yellow) r g b / 0.72);
+  color: var(--c-accent-yellow);
+  opacity: 0.82;
+}
+
+.auto-pack-trigger:hover,
+.auto-pack-trigger:focus-visible {
+  border-color: var(--c-accent-yellow);
+  color: var(--c-white);
+  opacity: 1;
+}
+
+.auto-pack-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.auto-pack-tile-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+.auto-pack-return {
+  position: absolute;
+  z-index: 4;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.auto-pack-return.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.auto-pack-frame {
+  position: absolute;
+  z-index: 2;
+  border: 1px solid var(--c-primary);
+  background-color: var(--c-bg);
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 18px, rgb(from var(--c-primary) r g b / 0.075) 18px 19px),
+    linear-gradient(rgb(from var(--c-primary) r g b / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(from var(--c-primary) r g b / 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  box-shadow: 0 0 0 1px rgb(from var(--c-primary) r g b / 0.12), var(--shadow);
+  animation: auto-pack-frame-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.auto-pack-return i,
+.auto-pack-trigger i { font-size: 1.15em; }
+
+.auto-pack-tile {
+  position: absolute !important;
+  display: block !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  transform-origin: center;
+  pointer-events: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+@keyframes auto-pack-frame-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auto-pack-frame { animation-duration: 0.01ms; }
+}
+
+/* ---------------- Responsive overrides ---------------- */
 /* Desktop is an unbounded app shell (no max-width container). Mobile drops
    the multi-column "app" chrome entirely and switches to a simple, single-
    column stacked layout tuned for touch and narrow screens. */
@@ -1017,7 +1115,10 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   .section-head--split { align-items: flex-start; }
 
   .cta-band .container { flex-direction: column; align-items: flex-start; text-align: left; }
-  .cta-band .btn { width: 100%; justify-content: center; }
+  .cta-actions { width: 100%; }
+  .cta-actions .btn-primary { flex: 1; }
+  .cta-actions .auto-pack-trigger { width: auto; }
+  .cta-band .btn { justify-content: center; }
 
   .contact-page { padding: 40px 0 64px; }
   .about-page { padding: 40px 0 56px; min-height: auto; }

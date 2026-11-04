@@ -17,5 +17,13 @@ export const localeConfig = {
       flagIcon: "flag-fr.svg",
       showInLanguageSelector: true,
     },
+    {
+      catalog: "vietnamese.flt",
+      locale: "vi",
+      pageFolder: "vi",
+      displayNameKey: "language-vietnamese",
+      flagIcon: "flag-vn.svg",
+      showInLanguageSelector: true,
+    },
   ],
 };

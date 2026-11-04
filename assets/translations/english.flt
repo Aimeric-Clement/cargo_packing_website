@@ -23,14 +23,17 @@ language-selector-label = Language
 language-english = English
 language-lorem = Lorem ipsum
 language-french = French
+language-vietnamese = Vietnamese
 footer-copyright = © { NUMBER($year, useGrouping: 0) } Ready Cargo Packer. Load planning software.
 footer-made-in-france = Made in France
 alt-brand-logo = Ready Cargo Packer
 
 ## Home page
+home-auto-pack = Auto pack
+home-auto-pack-back = Back
 home-hero-status = Coming soon
 home-hero-heading = <b>Loadout planning</b> with no guesswork.
-home-hero-description = Ready Cargo Packer is being built as a desktop software for planning load layouts, managing cargo lists, and preparing clear loading plans, all of it across multiple containers at once.
+home-hero-description = Ready Cargo Packer is being built to plan split loads across multiple containers, organize mixed cargo lists, and prepare clear loading plans for an entire shipment.
 home-hero-roadmap-link = View the roadmap
 home-hero-contact-link = Contact Us
 home-stat-containers-value = { $count }
@@ -48,7 +51,7 @@ home-keypoint-languages = Available in a few different languages.
 home-keypoint-native = Native first, usable in a browser too.
 home-keypoint-auto-engine = A capable automatic placement engine.
 home-keypoint-manual-workflow = Manual workflow kept as snappy as possible.
-home-keypoint-multi-container = Built for several containers at once, not just one.
+home-keypoint-multi-container = Plan split loads across several containers at once, not just one.
 home-keypoint-fast = Extremely fast.
 home-keypoint-in-development = <b>Still in development.</b> Your inputs could shape the way we imagine the ideal software.
 home-feature-placement-title = Automatic and manual placement

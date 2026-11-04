@@ -170,7 +170,7 @@ function localize(source, catalog, locale) {
     const page = $("body").attr("data-page") === "index" ? "" : `${$("body").attr("data-page")}.html`;
     $(element).attr("href", `/${targetFolder}/${page}`);
   });
-  $("link[href], img[src]").each((_, element) => {
+  $("link[href], img[src], script[src]").each((_, element) => {
     const attribute = element.tagName === "link" ? "href" : "src";
     const value = $(element).attr(attribute);
     if (value?.startsWith("assets/") || value?.startsWith("css/")) {

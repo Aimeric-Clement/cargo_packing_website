@@ -5,20 +5,18 @@
 <meta name="description" content="Ready Cargo Packer est un logiciel de planification de chargement pour conteneurs : positionnement 3D en temps réel sur plusieurs conteneurs, liste de colisage intégrée et feuille de route en constante évolution.">
 <meta name="htmx-config" content="{&quot;globalViewTransitions&quot;:false}">
 <link rel="icon" href="../assets/logo_ready_cargo_packer_large.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap">
+<link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
 <link rel="stylesheet" href="../css/style.css">
 
-<link rel="canonical" href="https://cargo-packer.com/fr/"><link rel="alternate" hreflang="en" href="https://cargo-packer.com/en/"><link rel="alternate" hreflang="fr" href="https://cargo-packer.com/fr/"></head>
-<body data-page="index">
+<link rel="canonical" href="https://cargo-packer.com/fr/"><link rel="alternate" hreflang="en" href="https://cargo-packer.com/en/"><link rel="alternate" hreflang="fr" href="https://cargo-packer.com/fr/"><link rel="alternate" hreflang="vi" href="https://cargo-packer.com/vi/"></head>
+<body data-page="index" data-auto-pack-back="Retour">
 
   <header class="site-header">
   <div class="container">
     <a class="brand" href="index.html">
       <img src="../assets/logo.svg" alt="Ready Cargo Packer">
-      <span><span>Ready Cargo Packer</span><span class="brand-sub">Logiciel de chargement pour le transport de marchandises</span></span>
+      <span><span class="brand-name">Ready Cargo Packer</span><span class="brand-sub">Logiciel de chargement pour le transport de marchandises</span></span>
     </a>
 
     <div class="nav-group">
@@ -36,7 +34,7 @@
           <img class="language-selector-icon" src="../assets/icons/translations.svg" alt="" aria-hidden="true">
           <span class="language-label">Langue</span>
         </summary>
-        <div class="language-options"><a href="/en/"><img class="language-option-flag" src="../assets/icons/flag-gb.svg" alt="" aria-hidden="true"><span>Anglais</span></a><a href="/fr/"><img class="language-option-flag" src="../assets/icons/flag-fr.svg" alt="" aria-hidden="true"><span>Français</span></a></div>
+        <div class="language-options"><a href="/en/"><img class="language-option-flag" src="../assets/icons/flag-gb.svg" alt="" aria-hidden="true"><span>Anglais</span></a><a href="/fr/"><img class="language-option-flag" src="../assets/icons/flag-fr.svg" alt="" aria-hidden="true"><span>Français</span></a><a href="/vi/"><img class="language-option-flag" src="../assets/icons/flag-vn.svg" alt="" aria-hidden="true"><span>Vietnamien</span></a></div>
       </details>
 
       <a class="btn btn-primary btn-small header-contact" href="contact.html">Contact</a>
@@ -54,7 +52,7 @@
         <div class="hero-copy reveal-up">
           <span class="eyebrow eyebrow-live"><span class="live-dot"></span><span>Prochainement</span></span>
           <h1>Le chargement de vos conteneurs, <b>de&nbsp;bout&nbsp;en&nbsp;bout</b>.</h1>
-          <p class="hero-lede">Ready Cargo Packer est un logiciel de bureau en cours de développement pour organiser le chargement de vos conteneurs, gérer la liste de colisage et produire des plans de chargement clairs, sur plusieurs conteneurs à la fois.</p>
+          <p class="hero-lede">Ready Cargo Packer est un logiciel en cours de développement pour répartir une expédition entre plusieurs conteneurs, gérer des marchandises de formats variés et préparer des plans de chargement clairs.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="roadmap.html">Voir la feuille de route</a>
             <a class="btn btn-ghost" href="contact.html">Nous contacter</a>
@@ -85,14 +83,14 @@
 
         <div class="feature-strip-body">
           <ul class="key-points-list">
-            <li>Permet d'ignorer les petits ecarts et imperfections dans le chargement.</li>
+            <li>Permet d'ignorer les petits écarts et imperfections dans le chargement.</li>
             <li>Disponible en plusieurs langues.</li>
             <li>Logiciel de bureau d'abord, aussi utilisable dans le navigateur.</li>
             <li>Un algorithme de chargement automatique fiable.</li>
-            <li>Chargement manuel aussi intuitif et efficace que possible, en complément du chargement automatique.</li>
-            <li>Pensé pour plusieurs conteneurs à la fois, non pas juste un seul.</li>
-            <li>Très fluide, utilise au mieux la puissance de l'ordinateur.</li>
-            <li><b>Toujours en développement,</b> vous avez votre mot a dire</li>
+            <li>Le chargement manuel reste aussi intuitif et efficace que possible, en complément du chargement automatique.</li>
+            <li>Pensé pour plusieurs conteneurs à la fois, et pas seulement un seul.</li>
+            <li>Très fluide, le logiciel utilise au mieux la puissance de l'ordinateur.</li>
+            <li><b>Toujours en développement :</b> vous avez votre mot à dire.</li>
           </ul>
 
           <div class="feature-grid">
@@ -161,7 +159,7 @@
                   </div>
                   <h3>Conçu pour les contraintes réelles du chargement</h3>
                 </div>
-                <p>Autorise des légers porte-à-faux, empilage sur des surfaces <i>presque</i> plates, ou le chevauchement de petit vides.</p>
+                <p>Le logiciel autorise de légers porte-à-faux, l'empilage sur des surfaces <i>presque</i> planes et le franchissement de petits espaces vides.</p>
               </div>
             </div>
 
@@ -252,10 +250,16 @@
     <section class="cta-band">
       <div class="container">
         <div>
-          <h2>Un développement ouvert, grace à votre soutien.</h2>
+          <h2>Un développement ouvert, grâce à votre soutien.</h2>
           <p>Ready Cargo Packer est en cours de développement. Faites-nous part de votre méthode de travail pour nous aider à concentrer le projet sur les problèmes essentiels.</p>
         </div>
-        <a class="btn btn-primary" href="contact.html">Nous contacter</a>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="contact.html">Nous contacter</a>
+          <button class="btn btn-ghost btn-small auto-pack-trigger" type="button">
+            <i class="fi-rr-boxes" aria-hidden="true"></i>
+            <span>Compacter la page</span>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -265,7 +269,7 @@
   <div class="container">
     <a class="brand" href="index.html">
       <img src="../assets/logo_black.svg" alt="Ready Cargo Packer">
-      <span><span>Ready Cargo Packer</span><span class="brand-sub">Logiciel de chargement pour le transport de marchandises</span></span>
+      <span><span class="brand-name">Ready Cargo Packer</span><span class="brand-sub">Logiciel de chargement pour le transport de marchandises</span></span>
     </a>
     <nav class="footer-links">
       <a href="index.html">Accueil</a>
@@ -278,7 +282,7 @@
         <img class="language-selector-icon" src="../assets/icons/translations.svg" alt="" aria-hidden="true">
         <span class="language-label">Langue</span>
       </summary>
-      <div class="language-options"><a href="/en/"><img class="language-option-flag" src="../assets/icons/flag-gb.svg" alt="" aria-hidden="true"><span>Anglais</span></a><a href="/fr/"><img class="language-option-flag" src="../assets/icons/flag-fr.svg" alt="" aria-hidden="true"><span>Français</span></a></div>
+      <div class="language-options"><a href="/en/"><img class="language-option-flag" src="../assets/icons/flag-gb.svg" alt="" aria-hidden="true"><span>Anglais</span></a><a href="/fr/"><img class="language-option-flag" src="../assets/icons/flag-fr.svg" alt="" aria-hidden="true"><span>Français</span></a><a href="/vi/"><img class="language-option-flag" src="../assets/icons/flag-vn.svg" alt="" aria-hidden="true"><span>Vietnamien</span></a></div>
     </details>
   </div>
   <div class="footer-bottom">
@@ -288,6 +292,7 @@
 </footer>
 
 
+  <script src="assets/js/auto-pack.js" defer=""></script>
 
 
 </body></html>
