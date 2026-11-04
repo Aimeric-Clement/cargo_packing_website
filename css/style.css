@@ -977,15 +977,42 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 .auto-pack-frame {
   position: absolute;
   z-index: 2;
-  border: 1px solid var(--c-primary);
-  background-color: var(--c-bg);
+  overflow: hidden;
+  border: 2px solid rgb(from var(--c-primary) r g b / 0.72);
+  background-color: color-mix(in srgb, var(--c-primary) 8%, var(--c-white));
   background-image:
-    repeating-linear-gradient(90deg, transparent 0 18px, rgb(from var(--c-primary) r g b / 0.075) 18px 19px),
-    linear-gradient(rgb(from var(--c-primary) r g b / 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(from var(--c-primary) r g b / 0.035) 1px, transparent 1px);
-  background-size: 56px 56px;
-  box-shadow: 0 0 0 1px rgb(from var(--c-primary) r g b / 0.12), var(--shadow);
+    linear-gradient(180deg, rgb(from var(--c-primary) r g b / 0.12), transparent 24% 76%, rgb(from var(--c-ink) r g b / 0.1)),
+    repeating-linear-gradient(90deg, transparent 0 40px, rgb(from var(--c-ink) r g b / 0.08) 40px 42px),
+    linear-gradient(rgb(from var(--c-primary) r g b / 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(from var(--c-primary) r g b / 0.055) 1px, transparent 1px);
+  background-size: auto, 100% 100%, 28px 28px, 28px 28px;
+  box-shadow: inset 0 0 0 7px rgb(from var(--c-primary) r g b / 0.08), var(--shadow);
   animation: auto-pack-frame-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.auto-pack-frame::before,
+.auto-pack-frame::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.auto-pack-frame::before {
+  inset: 7px;
+  border: 1px solid rgb(from var(--c-primary) r g b / 0.2);
+  border-top: 5px solid rgb(from var(--c-primary) r g b / 0.24);
+  border-bottom: 8px solid rgb(from var(--c-primary) r g b / 0.24);
+  background-image: repeating-linear-gradient(90deg, transparent 0 48px, rgb(from var(--c-ink) r g b / 0.055) 48px 50px);
+}
+
+.auto-pack-frame::after {
+  inset: auto 0 0;
+  height: 12%;
+  border-top: 1px solid rgb(from var(--c-primary) r g b / 0.24);
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 31px, rgb(from var(--c-primary) r g b / 0.14) 31px 32px),
+    linear-gradient(180deg, rgb(from var(--c-primary) r g b / 0.08), rgb(from var(--c-ink) r g b / 0.1));
 }
 
 .auto-pack-return i,
@@ -996,6 +1023,8 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   display: block !important;
   margin: 0 !important;
   overflow: hidden !important;
+  filter: saturate(0.58) sepia(0.1) hue-rotate(78deg) contrast(0.96) !important;
+  box-shadow: 0 2px 5px rgb(from var(--c-ink) r g b / 0.16), inset 0 0 0 1px rgb(from var(--c-primary) r g b / 0.16) !important;
   transform-origin: center;
   pointer-events: none !important;
   animation: none !important;

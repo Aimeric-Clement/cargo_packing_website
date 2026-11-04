@@ -8,11 +8,15 @@
 
   function collectTiles() {
     return [...document.body.querySelectorAll("*")].flatMap((element, sourceIndex) => {
-      if (["SCRIPT", "STYLE", "LINK", "META", "TITLE", "NOSCRIPT"].includes(element.tagName)) return [];
+      if (
+        ["SCRIPT", "STYLE", "LINK", "META", "TITLE", "NOSCRIPT", "HTML", "BODY", "MAIN", "SECTION", "HEADER", "FOOTER", "NAV"].includes(element.tagName)
+        || element.classList.contains("container")
+      ) return [];
 
       const bounds = element.getBoundingClientRect();
       const style = window.getComputedStyle(element);
       if (bounds.width < 2 || bounds.height < 2 || style.display === "none" || style.visibility === "hidden") return [];
+      if (bounds.width >= window.innerWidth * 0.9 && bounds.height >= window.innerHeight * 0.75) return [];
 
       const tile = element.cloneNode(false);
       if (element.namespaceURI === "http://www.w3.org/2000/svg") {
@@ -177,12 +181,17 @@
     const frameLeft = isNarrowViewport ? (window.innerWidth - frameWidth) / 2 : window.innerWidth - frameWidth - 24;
     const frameTop = (window.innerHeight - frameHeight) / 2;
     const scale = layout.scale;
-    const startScroll = window.scrollY;
-    const scrollDuration = isReducedMotion ? 1800 : Math.min(9000, Math.max(4500, startScroll * 1.5));
+    const placementInterval = isReducedMotion ? 0 : 32;
+    const maximumPlacementsPerFrame = isReducedMotion ? 12 : 1;
+    const startScroll = Math.max(window.scrollY, document.documentElement.scrollHeight - window.innerHeight);
+    const scrollDuration = isReducedMotion
+      ? 1800
+      : Math.min(12000, Math.max(4500, startScroll * 1.5, layout.placements.length * placementInterval * 1.5));
     const scrollStartTime = performance.now();
     const stagedPlacements = [...layout.placements]
       .sort((first, second) => second.tile.sourceTop - first.tile.sourceTop || first.tile.sourceIndex - second.tile.sourceIndex);
     let nextPlacement = 0;
+    let lastPlacementTime = -Infinity;
 
     stage.className = "auto-pack-overlay";
     frame.className = "auto-pack-frame";
@@ -200,20 +209,21 @@
     stage.append(frame, tileLayer, backButton);
     document.body.append(stage);
     document.body.classList.add("auto-pack-active");
+    window.scrollTo({ top: startScroll, behavior: "instant" });
     const backButtonBounds = backButton.getBoundingClientRect();
     backButton.style.left = `${frameLeft + frameWidth - backButtonBounds.width}px`;
     backButton.style.top = `${Math.max(8, frameTop - backButtonBounds.height - 10)}px`;
 
     const collectPlacement = ({ tile, x, y, width, height, rotation }, placementIndex) => {
-      const sourceLeft = tile.sourceLeft - window.scrollX;
       const sourceTop = tile.sourceTop - window.scrollY;
       const targetCenterX = frameLeft + frameInset + x + width / 2;
       const targetCenterY = frameTop + frameInset + layout.height - y - height / 2;
       const targetLeft = targetCenterX - tile.width / 2;
       const targetTop = targetCenterY - tile.height / 2;
+      const sourceLeft = tile.sourceLeft - window.scrollX;
 
-      tile.element.style.setProperty("left", `${sourceLeft}px`);
-      tile.element.style.setProperty("top", `${sourceTop}px`);
+      tile.element.style.setProperty("left", `${targetLeft}px`);
+      tile.element.style.setProperty("top", `${targetTop}px`);
       tile.element.style.setProperty("z-index", `${10 + placementIndex}`, "important");
       tile.element.style.setProperty("outline", `${Math.min(14, 1 / scale)}px solid rgb(from var(--c-primary) r g b / 0.22)`, "important");
       tileLayer.append(tile.element);
@@ -221,10 +231,10 @@
       tile.sourceElement.style.setProperty("opacity", "0", "important");
 
       const animation = tile.element.animate([
-        { left: `${sourceLeft}px`, top: `${sourceTop}px`, transform: "rotateZ(0deg) scale(1)", opacity: 1 },
-        { left: `${targetLeft}px`, top: `${targetTop}px`, transform: `rotateZ(${rotation}deg) scale(${scale})`, opacity: 0.98 },
+        { transform: `translate(${sourceLeft - targetLeft}px, ${sourceTop - targetTop}px) rotateZ(0deg) scale(1)`, opacity: 1 },
+        { transform: `translate(0px, 0px) rotateZ(${rotation}deg) scale(${scale})`, opacity: 0.98 },
       ], {
-        duration: isReducedMotion ? 1 : 850 + (placementIndex * 37) % 220,
+        duration: isReducedMotion ? 1 : 600,
         easing: "cubic-bezier(0.16, 1, 0.3, 1)",
         fill: "forwards",
       });
@@ -234,19 +244,30 @@
     const animateScroll = (time) => {
       const progress = Math.min(1, (time - scrollStartTime) / scrollDuration);
       const easedProgress = progress * progress * (3 - 2 * progress);
-      const scrollTop = startScroll * (1 - easedProgress);
+      const desiredScrollTop = startScroll * (1 - easedProgress);
+      const nextTile = stagedPlacements[nextPlacement]?.tile;
+      const scrollHoldPosition = nextTile
+        ? Math.min(startScroll, nextTile.sourceTop - window.innerHeight * 0.9)
+        : 0;
+      const scrollTop = Math.max(desiredScrollTop, scrollHoldPosition);
       window.scrollTo(0, scrollTop);
 
       const collectionLine = scrollTop + window.innerHeight * 0.58;
       let collectedThisFrame = 0;
       while (
         nextPlacement < stagedPlacements.length
-        && (stagedPlacements[nextPlacement].tile.sourceTop >= collectionLine || progress === 1)
-        && collectedThisFrame < 12
+        && collectedThisFrame < maximumPlacementsPerFrame
+        && time - lastPlacementTime >= placementInterval
       ) {
+        const nextTile = stagedPlacements[nextPlacement].tile;
+        const isVisible = nextTile.sourceTop + nextTile.height >= scrollTop
+          && nextTile.sourceTop <= scrollTop + window.innerHeight;
+        if (!isVisible || (progress < 1 && nextTile.sourceTop < collectionLine)) break;
+
         collectPlacement(stagedPlacements[nextPlacement], nextPlacement);
         nextPlacement += 1;
         collectedThisFrame += 1;
+        lastPlacementTime = time;
       }
 
       if (progress === 1 && nextPlacement === stagedPlacements.length) {
