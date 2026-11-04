@@ -929,6 +929,11 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 
 /* ---------------- Auto-pack overlay ---------------- */
 
+body.auto-pack-active > :not(.auto-pack-overlay),
+body.auto-pack-active > :not(.auto-pack-overlay) * {
+  box-shadow: none !important;
+}
+
 .auto-pack-trigger {
   border: 1px dashed rgb(from var(--c-accent-yellow) r g b / 0.72);
   color: var(--c-accent-yellow);
@@ -979,13 +984,7 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   z-index: 2;
   overflow: hidden;
   border: 2px solid rgb(from var(--c-primary) r g b / 0.72);
-  background-color: color-mix(in srgb, var(--c-primary) 8%, var(--c-white));
-  background-image:
-    linear-gradient(180deg, rgb(from var(--c-primary) r g b / 0.12), transparent 24% 76%, rgb(from var(--c-ink) r g b / 0.1)),
-    repeating-linear-gradient(90deg, transparent 0 40px, rgb(from var(--c-ink) r g b / 0.08) 40px 42px),
-    linear-gradient(rgb(from var(--c-primary) r g b / 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(from var(--c-primary) r g b / 0.055) 1px, transparent 1px);
-  background-size: auto, 100% 100%, 28px 28px, 28px 28px;
+  background: var(--c-bg);
   box-shadow: inset 0 0 0 7px rgb(from var(--c-primary) r g b / 0.08), var(--shadow);
   animation: auto-pack-frame-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -1003,16 +1002,13 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   border: 1px solid rgb(from var(--c-primary) r g b / 0.2);
   border-top: 5px solid rgb(from var(--c-primary) r g b / 0.24);
   border-bottom: 8px solid rgb(from var(--c-primary) r g b / 0.24);
-  background-image: repeating-linear-gradient(90deg, transparent 0 48px, rgb(from var(--c-ink) r g b / 0.055) 48px 50px);
 }
 
 .auto-pack-frame::after {
   inset: auto 0 0;
   height: 12%;
   border-top: 1px solid rgb(from var(--c-primary) r g b / 0.24);
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0 31px, rgb(from var(--c-primary) r g b / 0.14) 31px 32px),
-    linear-gradient(180deg, rgb(from var(--c-primary) r g b / 0.08), rgb(from var(--c-ink) r g b / 0.1));
+  background-image: linear-gradient(180deg, rgb(from var(--c-primary) r g b / 0.08), rgb(from var(--c-ink) r g b / 0.1));
 }
 
 .auto-pack-return i,
@@ -1023,12 +1019,31 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   display: block !important;
   margin: 0 !important;
   overflow: hidden !important;
-  filter: saturate(0.58) sepia(0.1) hue-rotate(78deg) contrast(0.96) !important;
-  box-shadow: 0 2px 5px rgb(from var(--c-ink) r g b / 0.16), inset 0 0 0 1px rgb(from var(--c-primary) r g b / 0.16) !important;
+  box-shadow: 0 2px 5px rgb(from var(--c-ink) r g b / 0.16) !important;
   transform-origin: center;
   pointer-events: none !important;
   animation: none !important;
-  transition: none !important;
+  transition: left 0.72s cubic-bezier(0.16, 1, 0.3, 1), top 0.72s cubic-bezier(0.16, 1, 0.3, 1), transform 0.72s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.auto-pack-image-frame {
+  position: absolute;
+  box-sizing: border-box;
+  border: var(--auto-pack-tile-edge) solid rgb(from var(--c-ink) r g b / 0.48);
+  transform-origin: center;
+  pointer-events: none;
+  transition: left 0.72s cubic-bezier(0.16, 1, 0.3, 1), top 0.72s cubic-bezier(0.16, 1, 0.3, 1), transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.auto-pack-tile::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: var(--auto-pack-tile-inset);
+  border: var(--auto-pack-tile-edge) solid rgb(from var(--c-ink) r g b / 0.24);
+  background: rgb(from var(--c-primary) r g b / 0.035);
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 @keyframes auto-pack-frame-in {
@@ -1038,6 +1053,8 @@ body[data-page="about"] .main-nav a[href="about.html"] {
 
 @media (prefers-reduced-motion: reduce) {
   .auto-pack-frame { animation-duration: 0.01ms; }
+  .auto-pack-tile { transition-duration: 0.01ms !important; }
+  .auto-pack-image-frame { transition-duration: 0.01ms; }
 }
 
 /* ---------------- Responsive overrides ---------------- */

@@ -2,34 +2,52 @@
   const trigger = document.querySelector(".auto-pack-trigger");
   if (!trigger) return;
 
-  const frameInset = 4;
+  const frameSideInset = 10;
+  const frameTopInset = 14;
   const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let hasStarted = false;
 
   function collectTiles() {
+    const compositeTileSelector = [
+      ".hero-copy",
+      ".hero-snapshot",
+      ".key-points-list",
+      ".feature-card",
+      ".showcase-copy",
+      ".showcase-media",
+      ".teaser-card",
+      ".language-selector",
+    ].join(", ");
+
     return [...document.body.querySelectorAll("*")].flatMap((element, sourceIndex) => {
       if (
         ["SCRIPT", "STYLE", "LINK", "META", "TITLE", "NOSCRIPT", "HTML", "BODY", "MAIN", "SECTION", "HEADER", "FOOTER", "NAV"].includes(element.tagName)
         || element.classList.contains("container")
+        || (element.closest(".site-header") && !element.matches(".site-header .language-selector"))
+        || element.parentElement?.closest(compositeTileSelector)
       ) return [];
+      const isCompositeTile = element.matches(compositeTileSelector);
 
       const bounds = element.getBoundingClientRect();
       const style = window.getComputedStyle(element);
-      if (bounds.width < 2 || bounds.height < 2 || style.display === "none" || style.visibility === "hidden") return [];
+      if (bounds.width < 24 || bounds.height < 24 || style.display === "none" || style.visibility === "hidden") return [];
       if (bounds.width >= window.innerWidth * 0.9 && bounds.height >= window.innerHeight * 0.75) return [];
+      const hasNestedElements = element.children.length > 0;
+      const hasDirectText = [...element.childNodes].some((child) => child.nodeType === Node.TEXT_NODE && child.textContent.trim());
+      if (hasNestedElements && !hasDirectText && !isCompositeTile && element.namespaceURI !== "http://www.w3.org/2000/svg") return [];
 
-      const tile = element.cloneNode(false);
-      if (element.namespaceURI === "http://www.w3.org/2000/svg") {
-        element.childNodes.forEach((child) => tile.append(child.cloneNode(true)));
-      } else {
-        element.childNodes.forEach((child) => {
-          if (child.nodeType === Node.TEXT_NODE && child.textContent.trim()) tile.append(child.cloneNode());
-        });
-      }
+      const tile = element.cloneNode(true);
+      const sourceElements = [element, ...element.querySelectorAll("*")];
+      const clonedElements = [tile, ...tile.querySelectorAll("*")];
+      sourceElements.forEach((sourceElement, cloneIndex) => {
+        const clonedElement = clonedElements[cloneIndex];
+        const sourceStyle = window.getComputedStyle(sourceElement);
+        [...sourceStyle].forEach((property) => clonedElement.style.setProperty(property, sourceStyle.getPropertyValue(property), sourceStyle.getPropertyPriority(property)));
+        clonedElement.removeAttribute("id");
+      });
 
-      [...style].forEach((property) => tile.style.setProperty(property, style.getPropertyValue(property), style.getPropertyPriority(property)));
       tile.classList.add("auto-pack-tile");
-      tile.removeAttribute("id");
+      tile.setAttribute("inert", "");
       tile.setAttribute("aria-hidden", "true");
       tile.style.setProperty("position", "absolute", "important");
       tile.style.setProperty("display", "block", "important");
@@ -44,10 +62,10 @@
       tile.style.setProperty("transform", "rotateZ(0deg) scale(1)");
       tile.style.setProperty("transform-origin", "center", "important");
       tile.style.setProperty("animation", "none", "important");
-      tile.style.setProperty("transition", "none", "important");
 
       return [{
         element: tile,
+        imageFrame: ["IMG", "VIDEO", "CANVAS"].includes(element.tagName) ? document.createElement("div") : null,
         sourceElement: element,
         width: bounds.width,
         height: bounds.height,
@@ -60,16 +78,25 @@
 
   function packAtScale(tiles, scale, maximumWidth, maximumHeight) {
     const supportHeightTolerance = Math.max(3, scale * 10);
-    const minimumSupportRatio = 0.62;
+    const minimumSupportRatio = 0.65;
     const placements = [];
-    const orderedTiles = [...tiles].sort((first, second) => (
-      second.width * second.height - first.width * first.height
-      || Math.max(second.width, second.height) - Math.max(first.width, first.height)
-      || first.sourceIndex - second.sourceIndex
-    ));
+    const orderedTiles = [...tiles].sort((first, second) => {
+      const firstLength = Math.max(first.width, first.height);
+      const secondLength = Math.max(second.width, second.height);
+      const firstIsFlat = firstLength / Math.min(first.width, first.height) >= 1.8;
+      const secondIsFlat = secondLength / Math.min(second.width, second.height) >= 1.8;
+
+      return Number(secondIsFlat) - Number(firstIsFlat)
+        || (firstIsFlat && secondIsFlat ? secondLength - firstLength : 0)
+        || second.width * second.height - first.width * first.height
+        || secondLength - firstLength
+        || first.sourceIndex - second.sourceIndex;
+    });
 
     for (const tile of orderedTiles) {
-      const orientations = [0, 90].map((rotation) => ({
+      const isFlat = Math.max(tile.width, tile.height) / Math.min(tile.width, tile.height) >= 1.8;
+      const preferredRotation = isFlat && tile.height > tile.width ? 90 : 0;
+      const orientations = [preferredRotation, preferredRotation === 0 ? 90 : 0].map((rotation) => ({
         rotation,
         width: (rotation === 0 ? tile.width : tile.height) * scale,
         height: (rotation === 0 ? tile.height : tile.width) * scale,
@@ -137,12 +164,11 @@
   }
 
   function layoutTiles(tiles, maximumWidth, maximumHeight) {
-    const totalArea = tiles.reduce((area, tile) => area + tile.width * tile.height, 0);
     let lowerScale = 0;
-    let upperScale = Math.min(1, Math.sqrt((maximumWidth * maximumHeight) / totalArea));
+    let upperScale = 1;
     let bestLayout = { width: 0, height: 0, placements: [], scale: 0 };
 
-    for (let attempt = 0; attempt < 4; attempt += 1) {
+    for (let attempt = 0; attempt < 14; attempt += 1) {
       const scale = (lowerScale + upperScale) / 2;
       const layout = packAtScale(tiles, scale, maximumWidth, maximumHeight);
       if (layout.height <= maximumHeight) {
@@ -163,6 +189,13 @@
 
     const tiles = collectTiles();
     if (!tiles.length) return;
+    document.querySelector(".site-header")?.remove();
+    tiles.forEach((tile) => {
+      if (!tile.sourceElement.isConnected) return;
+      const bounds = tile.sourceElement.getBoundingClientRect();
+      tile.sourceLeft = window.scrollX + bounds.left;
+      tile.sourceTop = window.scrollY + bounds.top;
+    });
 
     const isNarrowViewport = window.innerWidth < 700;
     const frameAspectRatio = 2.35;
@@ -170,14 +203,15 @@
     const maximumFrameHeight = Math.min(window.innerHeight * (isNarrowViewport ? 0.28 : 0.56), 500);
     const frameWidth = Math.min(maximumFrameWidth, maximumFrameHeight * frameAspectRatio);
     const frameHeight = frameWidth / frameAspectRatio;
-    const maximumWidth = frameWidth - frameInset * 2;
-    const maximumHeight = frameHeight - frameInset * 2;
+    const frameFloorHeight = frameHeight * 0.12;
+    const maximumWidth = frameWidth - frameSideInset * 2;
+    const maximumHeight = frameHeight - frameTopInset - frameFloorHeight;
     const layout = layoutTiles(tiles, maximumWidth, maximumHeight);
     const stage = document.createElement("div");
     const frame = document.createElement("div");
     const tileLayer = document.createElement("div");
     const backButton = document.createElement("button");
-    const animationCompletions = [];
+    const activePlacements = [];
     const frameLeft = isNarrowViewport ? (window.innerWidth - frameWidth) / 2 : window.innerWidth - frameWidth - 24;
     const frameTop = (window.innerHeight - frameHeight) / 2;
     const scale = layout.scale;
@@ -214,31 +248,60 @@
     backButton.style.left = `${frameLeft + frameWidth - backButtonBounds.width}px`;
     backButton.style.top = `${Math.max(8, frameTop - backButtonBounds.height - 10)}px`;
 
-    const collectPlacement = ({ tile, x, y, width, height, rotation }, placementIndex) => {
-      const sourceTop = tile.sourceTop - window.scrollY;
-      const targetCenterX = frameLeft + frameInset + x + width / 2;
-      const targetCenterY = frameTop + frameInset + layout.height - y - height / 2;
-      const targetLeft = targetCenterX - tile.width / 2;
-      const targetTop = targetCenterY - tile.height / 2;
-      const sourceLeft = tile.sourceLeft - window.scrollX;
+    const settlePlacements = () => {
+      const settledPlacements = [];
+      [...activePlacements]
+        .sort((first, second) => first.y - second.y || first.tile.sourceIndex - second.tile.sourceIndex)
+        .forEach((placement, stackIndex) => {
+          const supportTop = settledPlacements.reduce((lowestSupportedTop, support) => {
+            const overlapsHorizontally = placement.x < support.x + support.width
+              && placement.x + placement.width > support.x;
+            return overlapsHorizontally
+              ? Math.max(lowestSupportedTop, support.bottomY + support.height)
+              : lowestSupportedTop;
+          }, 0);
+          placement.bottomY = supportTop;
 
-      tile.element.style.setProperty("left", `${targetLeft}px`);
-      tile.element.style.setProperty("top", `${targetTop}px`);
-      tile.element.style.setProperty("z-index", `${10 + placementIndex}`, "important");
-      tile.element.style.setProperty("outline", `${Math.min(14, 1 / scale)}px solid rgb(from var(--c-primary) r g b / 0.22)`, "important");
-      tileLayer.append(tile.element);
-      tile.sourceElement.style.setProperty("transition", "opacity 180ms ease");
-      tile.sourceElement.style.setProperty("opacity", "0", "important");
+          const targetCenterX = frameLeft + frameSideInset + placement.x + placement.width / 2;
+          const targetCenterY = frameTop + frameTopInset + maximumHeight - placement.bottomY - placement.height / 2;
+          placement.tile.element.style.setProperty("left", `${targetCenterX - placement.tile.width / 2}px`);
+          placement.tile.element.style.setProperty("top", `${targetCenterY - placement.tile.height / 2}px`);
+          placement.tile.element.style.setProperty("z-index", `${10 + stackIndex * 2}`, "important");
+          placement.tile.element.style.setProperty("clip-path", `inset(${1 / scale}pt)`, "important");
+          placement.tile.element.style.setProperty("--auto-pack-tile-inset", `${1 / scale}pt`);
+          placement.tile.element.style.setProperty("--auto-pack-tile-edge", `${2 / scale}px`);
+          placement.tile.element.style.setProperty("transform", `rotateZ(${placement.rotation}deg) scale(${scale})`, "important");
+          placement.tile.element.style.setProperty("opacity", "0.98", "important");
+          if (placement.tile.imageFrame) {
+            placement.tile.imageFrame.style.setProperty("left", `${targetCenterX - placement.tile.width / 2}px`);
+            placement.tile.imageFrame.style.setProperty("top", `${targetCenterY - placement.tile.height / 2}px`);
+            placement.tile.imageFrame.style.setProperty("width", `${placement.tile.width}px`);
+            placement.tile.imageFrame.style.setProperty("height", `${placement.tile.height}px`);
+            placement.tile.imageFrame.style.setProperty("z-index", `${11 + stackIndex * 2}`);
+            placement.tile.imageFrame.style.setProperty("--auto-pack-tile-edge", `${2 / scale}px`);
+            placement.tile.imageFrame.style.setProperty("transform", `rotateZ(${placement.rotation}deg) scale(${scale})`);
+          }
+          settledPlacements.push(placement);
+        });
+    };
 
-      const animation = tile.element.animate([
-        { transform: `translate(${sourceLeft - targetLeft}px, ${sourceTop - targetTop}px) rotateZ(0deg) scale(1)`, opacity: 1 },
-        { transform: `translate(0px, 0px) rotateZ(${rotation}deg) scale(${scale})`, opacity: 0.98 },
-      ], {
-        duration: isReducedMotion ? 1 : 600,
-        easing: "cubic-bezier(0.16, 1, 0.3, 1)",
-        fill: "forwards",
-      });
-      animationCompletions.push(animation.finished.catch(() => {}));
+    const collectPlacement = (placement) => {
+      activePlacements.push(placement);
+      placement.tile.element.style.setProperty("left", `${placement.tile.sourceLeft - window.scrollX}px`);
+      placement.tile.element.style.setProperty("top", `${placement.tile.sourceTop - window.scrollY}px`);
+      tileLayer.append(placement.tile.element);
+      if (placement.tile.imageFrame) {
+        placement.tile.imageFrame.className = "auto-pack-image-frame";
+        placement.tile.imageFrame.setAttribute("aria-hidden", "true");
+        placement.tile.imageFrame.style.setProperty("left", `${placement.tile.sourceLeft - window.scrollX}px`);
+        placement.tile.imageFrame.style.setProperty("top", `${placement.tile.sourceTop - window.scrollY}px`);
+        placement.tile.imageFrame.style.setProperty("width", `${placement.tile.width}px`);
+        placement.tile.imageFrame.style.setProperty("height", `${placement.tile.height}px`);
+        tileLayer.append(placement.tile.imageFrame);
+      }
+      placement.tile.element.getBoundingClientRect();
+      placement.tile.sourceElement.style.setProperty("opacity", "0", "important");
+      settlePlacements();
     };
 
     const animateScroll = (time) => {
@@ -264,7 +327,7 @@
           && nextTile.sourceTop <= scrollTop + window.innerHeight;
         if (!isVisible || (progress < 1 && nextTile.sourceTop < collectionLine)) break;
 
-        collectPlacement(stagedPlacements[nextPlacement], nextPlacement);
+        collectPlacement(stagedPlacements[nextPlacement]);
         nextPlacement += 1;
         collectedThisFrame += 1;
         lastPlacementTime = time;
@@ -272,7 +335,7 @@
 
       if (progress === 1 && nextPlacement === stagedPlacements.length) {
         window.scrollTo(0, 0);
-        Promise.all(animationCompletions).then(() => backButton.classList.add("is-visible"));
+        backButton.classList.add("is-visible");
         return;
       }
 
