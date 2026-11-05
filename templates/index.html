@@ -7,12 +7,11 @@
 <meta name="description" data-l10n-attr="content:meta-home-description">
 <meta name="htmx-config" content='{"globalViewTransitions":false}'>
 <link rel="icon" href="assets/logo_ready_cargo_packer_large.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
 <link rel="stylesheet" href="css/style.css">
 <script src="assets/js/htmx.min.js" defer data-build-only></script>
 </head>
-<body hx-boost="true" data-page="index" data-l10n-attr="data-auto-pack-back:home-auto-pack-back">
+<body hx-boost="true" data-page="index">
 
   <div hx-get="partials/header.html" hx-trigger="load" hx-swap="outerHTML" style="min-height:var(--header-h)"></div>
 
@@ -225,10 +224,6 @@
         </div>
         <div class="cta-actions">
           <a class="btn btn-primary" href="contact.html" data-l10n-id="home-cta-link"></a>
-          <button class="btn btn-ghost btn-small auto-pack-trigger" type="button">
-            <i class="fi-rr-boxes" aria-hidden="true"></i>
-            <span data-l10n-id="home-auto-pack"></span>
-          </button>
         </div>
       </div>
     </section>
@@ -237,6 +232,5 @@
 
   <div hx-get="partials/footer.html" hx-trigger="load" hx-swap="outerHTML"></div>
 
-  <script src="../assets/js/auto-pack.js" defer></script>
 </body>
 </html>
