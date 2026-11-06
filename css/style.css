@@ -4,8 +4,6 @@
   The fonts and font sizes as well, with the same consistency constraints.
   ============================================================ */
 /* ---------------- Fonts ---------------- */
-@import url("../assets/fonts/catalog.css");
-
 @font-face {
   font-family: "Bebas Neue";
   font-style: normal;
