@@ -69,7 +69,6 @@
               <img src="../assets/overview_screenshot.png" alt="Giao diện xếp hàng 3D của Ready Cargo Packer, hiển thị một container chứa các kiện hàng được phân biệt bằng màu sắc">
             </div>
           </div>
-
         </div>
     </section>
 
@@ -93,49 +92,43 @@
           </ul>
 
           <div class="feature-grid">
-            <div class="feature-pair">
-              <div class="feature-card feature-card--primary feature-card--auto-placement-illustration">
-                <img class="feature-illustration" src="../assets/illustrations/automatic-forklift.svg" alt="" aria-hidden="true">
-                <div class="feature-content">
-                  <div class="feature-head"><div class="ic"><i class="fi-rr-truck-loading" aria-hidden="true"></i></div><h3>Xếp hàng tự động và thủ công</h3></div>
-                  <p>Thuật toán đề xuất phương án xếp gọn trước; sau đó bạn có thể di chuyển, xoay và điều chỉnh từng kiện hàng theo nhu cầu.</p>
-                </div>
-              </div>
-              <div class="feature-card feature-card--secondary">
-                <div class="feature-head"><div class="ic"><i class="fi-rr-cube" aria-hidden="true"></i></div><h3>Quan sát tải hàng trực tiếp trên mô hình 3D</h3></div>
-                <p>Có thể chuyển giữa chế độ hiển thị đặc và trong suốt; kích thước khi rê chuột và dấu góc giúp bạn quan sát rõ bên trong container.</p>
+            <div class="feature-card feature-card--auto-placement-illustration">
+              <img class="feature-illustration" src="../assets/illustrations/automatic-forklift.svg" alt="" aria-hidden="true">
+              <div class="feature-content">
+                <div class="feature-head"><div class="ic"><i class="fi-rr-truck-loading" aria-hidden="true"></i></div><h3>Xếp hàng tự động và thủ công</h3></div>
+                <p>Thuật toán đề xuất phương án xếp gọn trước; sau đó bạn có thể di chuyển, xoay và điều chỉnh từng kiện hàng theo nhu cầu.</p>
               </div>
             </div>
-            <div class="feature-pair feature-pair--reverse">
-              <div class="feature-card feature-card--secondary">
-                <div class="feature-head"><div class="ic"><i class="fi-rr-language" aria-hidden="true"></i></div><h3>Dễ sử dụng với đội ngũ đa ngôn ngữ</h3></div>
-                <p>Mỗi người trong nhóm có thể làm việc bằng ngôn ngữ quen thuộc của mình.</p>
-                <ul class="language-support" aria-label="Các ngôn ngữ có trong phần mềm">
-                  <li><img src="../assets/icons/flag-fr.svg" alt="" aria-hidden="true"><span>Français</span></li>
-                  <li><img src="../assets/icons/flag-vn.svg" alt="" aria-hidden="true"><span>Tiếng Việt</span></li>
-                  <li><img src="../assets/icons/flag-gb.svg" alt="" aria-hidden="true"><span>English</span></li>
-                </ul>
-              </div>
-              <div class="feature-card feature-card--primary feature-card--fast-interface-illustration">
-                <img class="feature-illustration" src="../assets/illustrations/chrono.svg" alt="" aria-hidden="true">
-                <div class="feature-content">
-                  <div class="feature-head"><div class="ic"><i class="fi-rr-stopwatch" aria-hidden="true"></i></div><h3>Giao diện nhanh và mượt</h3></div>
-                  <p>Được xây dựng bằng Rust, giao diện phản hồi chỉ trong vài mili giây, đủ nhanh để tính toán gợi ý và phát hiện xung đột ngay khi thao tác.</p>
-                </div>
+            <div class="feature-card">
+              <div class="feature-head"><div class="ic"><i class="fi-rr-cube" aria-hidden="true"></i></div><h3>Quan sát tải hàng trực tiếp trên mô hình 3D</h3></div>
+              <p>Có thể chuyển giữa chế độ hiển thị đặc và trong suốt; kích thước khi rê chuột và dấu góc giúp bạn quan sát rõ bên trong container.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-head"><div class="ic"><i class="fi-rr-language" aria-hidden="true"></i></div><h3>Dễ sử dụng với đội ngũ đa ngôn ngữ</h3></div>
+              <p>Mỗi người trong nhóm có thể làm việc bằng ngôn ngữ quen thuộc của mình.</p>
+              <ul class="language-support" aria-label="Các ngôn ngữ có trong phần mềm">
+                <li><img src="../assets/icons/flag-fr.svg" alt="" aria-hidden="true"><span>Français</span></li>
+                <li><img src="../assets/icons/flag-vn.svg" alt="" aria-hidden="true"><span>Tiếng Việt</span></li>
+                <li><img src="../assets/icons/flag-gb.svg" alt="" aria-hidden="true"><span>English</span></li>
+              </ul>
+            </div>
+            <div class="feature-card feature-card--fast-interface-illustration">
+              <img class="feature-illustration" src="../assets/illustrations/chrono.svg" alt="" aria-hidden="true">
+              <div class="feature-content">
+                <div class="feature-head"><div class="ic"><i class="fi-rr-stopwatch" aria-hidden="true"></i></div><h3>Giao diện nhanh và mượt</h3></div>
+                <p>Được xây dựng bằng Rust, giao diện phản hồi chỉ trong vài mili giây, đủ nhanh để tính toán gợi ý và phát hiện xung đột ngay khi thao tác.</p>
               </div>
             </div>
-            <div class="feature-pair">
-              <div class="feature-card feature-card--primary feature-card--realistic-packing-illustration">
-                <img class="feature-illustration" src="../assets/illustrations/uneven-heap.svg" alt="" aria-hidden="true">
-                <div class="feature-content">
-                  <div class="feature-head"><div class="ic"><i class="fi-rr-boxes" aria-hidden="true"></i></div><h3>Tính đến những tình huống xếp hàng thực tế</h3></div>
-                  <p>Phần mềm cho phép một số sai lệch thực tế: kiện hàng nhô ra một đoạn ngắn, xếp trên bề mặt <i>gần như</i> phẳng hoặc bắc qua khoảng trống.</p>
-                </div>
+            <div class="feature-card feature-card--realistic-packing-illustration">
+              <img class="feature-illustration" src="../assets/illustrations/uneven-heap.svg" alt="" aria-hidden="true">
+              <div class="feature-content">
+                <div class="feature-head"><div class="ic"><i class="fi-rr-boxes" aria-hidden="true"></i></div><h3>Tính đến những tình huống xếp hàng thực tế</h3></div>
+                <p>Phần mềm cho phép một số sai lệch thực tế: kiện hàng nhô ra một đoạn ngắn, xếp trên bề mặt <i>gần như</i> phẳng hoặc bắc qua khoảng trống.</p>
               </div>
-              <div class="feature-card feature-card--secondary">
-                <div class="feature-head"><div class="ic"><i class="fi-rr-keyboard" aria-hidden="true"></i></div><h3>Ít thao tác chuột, hỗ trợ bàn phím</h3></div>
-                <p>Giao diện giúp xử lý công việc nhanh gọn. Phím tắt có thể tùy chỉnh và các lệnh phù hợp với từng ngữ cảnh giúp người vận hành tiết kiệm thời gian khi sử dụng thường xuyên.</p>
-              </div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-head"><div class="ic"><i class="fi-rr-keyboard" aria-hidden="true"></i></div><h3>Ít thao tác chuột, hỗ trợ bàn phím</h3></div>
+              <p>Giao diện giúp xử lý công việc nhanh gọn. Phím tắt có thể tùy chỉnh và các lệnh phù hợp với từng ngữ cảnh giúp người vận hành tiết kiệm thời gian khi sử dụng thường xuyên.</p>
             </div>
           </div>
         </div>
