@@ -29,9 +29,9 @@
   --c-bg: #f2f4f3;
   --c-white: #ffffff;
 
-  --font-heading: "Anton", Impact, sans-serif;
+  --font-heading: "Geist", sans-serif;
   --font-brand: "Bebas Neue", "Arial Narrow", "Segoe UI Condensed", sans-serif;
-  --font-body: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: "Geist", sans-serif;
 
   --font-size-extra-large: 2.6rem;
   --font-size-large: 1.6rem;
@@ -654,8 +654,6 @@ body[data-page="about"] .main-nav a[href="about.html"] {
   color: var(--c-accent-orange);
   display: block;
 }
-.teaser-card h3 {font-size: var(--font-size-large); margin-bottom: 6px; }
-.teaser-card p { margin: 0; }
 
 /* ---------------- Roadmap page ---------------- */
 

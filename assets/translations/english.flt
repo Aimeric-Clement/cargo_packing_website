@@ -41,7 +41,6 @@ home-stat-live-preview = Live preview
 home-stat-packing-time-value = { $seconds }s
 home-stat-packing-time = Automatic packing time
 home-hero-image-alt = Ready Cargo Packer 3D loading viewport showing a container packed with color-coded boxes
-home-features-eyebrow = Our approach
 home-features-heading = All of our <b>goals</b>.
 home-features-description = The principles guiding development, and the capabilities already built around them.
 home-keypoint-tolerance = Gives plenty of leeway to load-up realistically.
@@ -65,21 +64,18 @@ home-feature-inspection-title = Live 3D load inspection
 home-feature-inspection-description = Solid or transparent rendering, hover dimensions, and corner markers show exactly what is happening inside the container.
 home-feature-packing-title = Built around real packing problems
 home-feature-packing-description = It allows practical leeway: short overhangs, stacking on <i>mostly</i> flush surfaces, and bridging over gaps.
-home-inventory-eyebrow = Cargo list panel
 home-inventory-heading = A <b>clearer</b> way to prepare shipment contents, all in one place.
 home-inventory-description = The cargo list workspace brings files, edits, and load progress into one view, cutting down back-and-forth spreadsheet work.
 home-inventory-tag-search = Live search
 home-inventory-tag-import = Import & merge files
 home-inventory-tag-editing = Safe editing
 home-inventory-image-alt = Ready Cargo Packer cargo list panel listing box categories with loading progress bars
-home-viewport-eyebrow = 3D viewport
 home-viewport-heading = Place fast, align tight, inspect everything.
 home-viewport-description = Drag and drop boxes manually, snap to near-flush surfaces and container edges, or let the automatic engine build a dense starting point. Visualize the loadout with the layered / transparent view, as well as the box types distribution.
 home-viewport-tag-baseline = Auto pack baseline
 home-viewport-tag-snapping = Snapping & alignment
 home-viewport-tag-hover = Highlight on hover
 home-viewport-image-alt = Ready Cargo Packer 3D container view with corner points and a hover tooltip
-home-teaser-eyebrow = On the roadmap
 home-teaser-heading = Features we are building <b>next</b>.
 home-teaser-roadmap-link = See the full roadmap →
 home-teaser-next-status = Next up
@@ -96,7 +92,7 @@ home-cta-link = Get in touch
 
 ## About page
 about-eyebrow = About Us
-about-heading = Not yet written...
+about-heading = We are working on it...
 
 ## Contact page
 contact-eyebrow = Get in touch
